@@ -1,0 +1,22 @@
+# Drum kit: two hands, two feet. Percussion staff, hands stems up, feet down.
+name: drums
+family: drums
+display: Drum Set
+gm_program: 0
+channel: 9
+limbs:
+  max_simultaneous: 4
+  single_stroke_rate: 18         # hits per second one hand can sustain
+  double_kick: true              # allow both feet on kick (double pedal)
+# kit piece -> GM percussion note, which limbs can play it, staff position (display step/octave)
+kit:
+  kick:      {midi: 36, limbs: [RF, LF], display: F4,  notehead: normal}
+  snare:     {midi: 38, limbs: [LH, RH], display: C5,  notehead: normal}
+  hihat:     {midi: 42, limbs: [RH, LH], display: G5,  notehead: x}
+  hihat_open: {midi: 46, limbs: [RH, LH], display: G5, notehead: circle-x}
+  hihat_pedal: {midi: 44, limbs: [LF],   display: D4,  notehead: x}
+  tom_high:  {midi: 50, limbs: [RH, LH], display: E5,  notehead: normal}
+  tom_mid:   {midi: 47, limbs: [RH, LH], display: D5,  notehead: normal}
+  tom_floor: {midi: 43, limbs: [RH, LH], display: A4,  notehead: normal}
+  crash:     {midi: 49, limbs: [RH, LH], display: A5,  notehead: x}
+  ride:      {midi: 51, limbs: [RH, LH], display: F5,  notehead: x}

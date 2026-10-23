@@ -1,0 +1,18 @@
+# Singing voice: monophonic, range class chosen from the notes, needs breaths.
+name: voice
+family: wind
+display: Voice
+range: [40, 84]
+transposition: 0
+clef: auto                         # treble, or treble-8 for tenor/bass ranges
+gm_program: 52
+voice_types:                       # comfortable sounding ranges
+  soprano: [60, 81]
+  mezzo: [57, 77]
+  alto: [53, 74]
+  tenor: [48, 69]
+  baritone: [45, 65]
+  bass: [40, 62]
+breath:
+  max_phrase: 10.0
+  min_gap: 0.15

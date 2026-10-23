@@ -1,0 +1,124 @@
+[
+ {
+  "kind": "speed",
+  "time": 327.972,
+  "detail": "hand jumps 8 st in 56 ms",
+  "notes": [
+   "pno-004741",
+   "pno-004740",
+   "pno-004742"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 194.994,
+  "detail": "finger 4 jumps 10 st in 23 ms",
+  "notes": [
+   "pno-002805"
+  ],
+  "hand": "L",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 217.005,
+  "detail": "finger 4 jumps 14 st in 70 ms",
+  "notes": [
+   "pno-003193"
+  ],
+  "hand": "L",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 29.958,
+  "detail": "finger 2 jumps 5 st in 67 ms",
+  "notes": [
+   "pno-000407"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 104.075,
+  "detail": "finger 1 jumps 6 st in 19 ms",
+  "notes": [
+   "pno-001505"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 113.837,
+  "detail": "finger 1 jumps 3 st in 20 ms",
+  "notes": [
+   "pno-001652"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 128.098,
+  "detail": "finger 1 jumps 3 st in 54 ms",
+  "notes": [
+   "pno-001897"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 327.972,
+  "detail": "finger 1 jumps 8 st in 56 ms",
+  "notes": [
+   "pno-004742"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 394.009,
+  "detail": "finger 1 jumps 7 st in 66 ms",
+  "notes": [
+   "pno-005792"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 394.077,
+  "detail": "finger 1 jumps 15 st in 67 ms",
+  "notes": [
+   "pno-005793"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 401.583,
+  "detail": "finger 2 jumps 6 st in 42 ms",
+  "notes": [
+   "pno-005912"
+  ],
+  "hand": "R",
+  "track": "piano"
+ },
+ {
+  "kind": "finger",
+  "time": 431.625,
+  "detail": "finger 2 jumps 5 st in 67 ms",
+  "notes": [
+   "pno-006244"
+  ],
+  "hand": "R",
+  "track": "piano"
+ }
+]

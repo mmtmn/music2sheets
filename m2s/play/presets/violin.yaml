@@ -1,0 +1,23 @@
+# Violin: four strings, no frets, double stops on adjacent strings only.
+name: violin
+family: fretted
+display: Violin
+tuning: [55, 62, 69, 76]           # G3 D4 A4 E5
+frets: 19                          # semitones above each open string we allow (~7th position)
+range: [55, 100]
+transposition: 0
+clef: treble
+tab: false
+gm_program: 40
+adjacent_strings_only: true
+max_simultaneous: 2
+fretting:
+  max_stretch: 5                   # a hand position covers about a fourth on one string
+  max_stretch_high: 5
+  high_position: 7
+  shift_cost: 0.8
+  shift_speed: 40
+  open_string_bonus: 0.1
+  string_skip_cost: 1.5
+  players: 1
+techniques: [vibrato, slide, harmonic, pizzicato]

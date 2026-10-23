@@ -1,0 +1,11 @@
+# Alto saxophone in E-flat: monophonic, needs breaths. Written a major sixth above sounding.
+name: sax_alto
+family: wind
+display: Alto Saxophone
+range: [49, 81]                    # sounding D-flat3 to A5
+transposition: 9
+clef: treble
+gm_program: 65
+breath:
+  max_phrase: 8.0                  # seconds of continuous playing before a breath is required
+  min_gap: 0.12                    # a gap at least this long counts as a breath

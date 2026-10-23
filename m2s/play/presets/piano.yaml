@@ -1,0 +1,37 @@
+# Piano: two hands of five fingers, plus the sustain pedal.
+name: piano
+family: keyboard
+display: Piano
+range: [21, 108]
+staves: grand          # treble + bass, staff follows the hand that plays
+transposition: 0       # written = sounding
+gm_program: 0
+hands:
+  max_notes: 5         # notes one hand can strike at once
+  max_span: 14         # semitones one hand can cover at once (14 = a major ninth)
+  comfort_span: 12     # spans above this cost extra
+  # how far (semitones) a hand can travel per second while keeping control;
+  # beyond this the move is flagged as a speed violation
+  max_speed: 140
+  comfort_speed: 45
+  chord_window: 0.035  # onsets closer than this (s) count as one chord
+  middle: 60           # weak prior: LH below, RH above
+  crossing_margin: 2   # semitones a hand may sit past the other before it counts as crossing
+fingering:
+  enabled: true
+  # finger-pair spans in semitones for the right hand (lower finger -> higher
+  # finger), as [min_practical, min_comfortable, min_relaxed, max_relaxed,
+  # max_comfortable, max_practical]; adapted from Parncutt et al. (1997),
+  # Music Perception 14(4). The left hand mirrors it.
+  spans:
+    "1-2": [-5, -3, 1, 5, 8, 10]
+    "1-3": [-4, -2, 3, 7, 10, 12]
+    "1-4": [-3, -1, 5, 9, 12, 14]
+    "1-5": [-1, 1, 7, 10, 13, 15]
+    "2-3": [1, 1, 1, 2, 3, 5]
+    "2-4": [1, 1, 3, 4, 5, 7]
+    "2-5": [2, 2, 5, 6, 8, 10]
+    "3-4": [1, 1, 1, 2, 2, 4]
+    "3-5": [1, 1, 3, 4, 5, 7]
+    "4-5": [1, 1, 1, 2, 3, 5]
+  shift_time: 0.18      # seconds a hand needs to reposition freely

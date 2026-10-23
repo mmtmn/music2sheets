@@ -1,0 +1,11 @@
+# Tenor saxophone in B-flat: monophonic. Written a major ninth above sounding.
+name: sax_tenor
+family: wind
+display: Tenor Saxophone
+range: [44, 76]
+transposition: 14
+clef: treble
+gm_program: 66
+breath:
+  max_phrase: 8.0
+  min_gap: 0.12

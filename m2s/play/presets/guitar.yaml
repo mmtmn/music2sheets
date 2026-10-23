@@ -1,0 +1,21 @@
+# Six-string guitar (acoustic or electric). Written an octave above sounding.
+name: guitar
+family: fretted
+display: Guitar
+tuning: [40, 45, 50, 55, 59, 64]   # E2 A2 D3 G3 B3 E4, low to high
+frets: 24
+range: [40, 88]
+transposition: 12                  # written = sounding + 12
+clef: treble
+tab: true
+gm_program: 25
+fretting:
+  max_stretch: 4        # frets the hand covers at once without shifting (5 at high positions)
+  max_stretch_high: 5
+  high_position: 9
+  shift_cost: 1.0       # cost per fret of position shift
+  shift_speed: 60       # frets per second a fast player can travel
+  open_string_bonus: 0.3
+  string_skip_cost: 0.4
+  players: 1
+techniques: [bend, slide, hammer_on, pull_off, vibrato, palm_mute, harmonic, tap]

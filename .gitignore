@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Pipeline outputs and inputs (audio and reference scores never go into git)
+runs/
+data/
+eval/references/
+eval/reports/*/
+!eval/reports/.gitkeep
+models/
+third_party/MV2H/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store

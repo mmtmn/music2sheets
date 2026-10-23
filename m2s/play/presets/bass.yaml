@@ -1,0 +1,21 @@
+# Four-string electric bass. Written an octave above sounding, bass clef.
+name: bass
+family: fretted
+display: Bass
+tuning: [28, 33, 38, 43]           # E1 A1 D2 G2
+frets: 24
+range: [28, 67]
+transposition: 12
+clef: bass
+tab: true
+gm_program: 33
+fretting:
+  max_stretch: 4
+  max_stretch_high: 5
+  high_position: 9
+  shift_cost: 1.0
+  shift_speed: 50
+  open_string_bonus: 0.3
+  string_skip_cost: 0.4
+  players: 1
+techniques: [slide, hammer_on, pull_off, vibrato, harmonic]

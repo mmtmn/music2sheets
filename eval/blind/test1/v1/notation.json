@@ -1,0 +1,571 @@
+{
+ "time_signature": "4/4",
+ "pickup_quarters": 0.0,
+ "qpm": 142.9,
+ "beat_unit_quarters": 1.0,
+ "key": "C# minor",
+ "key_score": 0.781,
+ "ornaments": {
+  "trills": 4,
+  "graces": 8
+ },
+ "grid": {
+  "unit_scores": {
+   "unit=0.5": 4.374,
+   "unit=1.0": 0.877,
+   "unit=2.0": 1.423
+  },
+  "meter_scores": {
+   "4x1.0q@0": 0.098,
+   "4x1.0q@3": 0.031,
+   "3x1.0q@1": 0.022,
+   "6x1.0q@1": 0.02,
+   "3x1.0q@2": 0.005,
+   "4x1.0q@1": 0.001
+  },
+  "triplet_share": 0.136
+ },
+ "lint": {
+  "count": 89,
+  "by_kind": {
+   "ledger": 89
+  },
+  "issues": [
+   {
+    "part": "piano-0",
+    "bar": 3,
+    "kind": "ledger",
+    "detail": "B#2: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 3,
+    "kind": "ledger",
+    "detail": "G#2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 4,
+    "kind": "ledger",
+    "detail": "D#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 4,
+    "kind": "ledger",
+    "detail": "D#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 4,
+    "kind": "ledger",
+    "detail": "D#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 4,
+    "kind": "ledger",
+    "detail": "G#5: 7 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 4,
+    "kind": "ledger",
+    "detail": "D#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 4,
+    "kind": "ledger",
+    "detail": "G#5: 7 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 8,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 8,
+    "kind": "ledger",
+    "detail": "A2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 16,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 16,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 16,
+    "kind": "ledger",
+    "detail": "G#2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 17,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 17,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 17,
+    "kind": "ledger",
+    "detail": "E5: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 17,
+    "kind": "ledger",
+    "detail": "E5: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 17,
+    "kind": "ledger",
+    "detail": "G#5: 7 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 17,
+    "kind": "ledger",
+    "detail": "C#6: 8 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 17,
+    "kind": "ledger",
+    "detail": "E5: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 17,
+    "kind": "ledger",
+    "detail": "E6: 9 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 66,
+    "kind": "ledger",
+    "detail": "G#2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 67,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 67,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 74,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 74,
+    "kind": "ledger",
+    "detail": "A2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 82,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 132,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 158,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 170,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 172,
+    "kind": "ledger",
+    "detail": "B#2: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 206,
+    "kind": "ledger",
+    "detail": "G#2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 206,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 206,
+    "kind": "ledger",
+    "detail": "B#2: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 227,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 227,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 227,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 227,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 227,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "F#5: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "F#5: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "A5: 7 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "A5: 7 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "F#5: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "A5: 7 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "C#6: 8 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "F#5: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "A5: 7 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 230,
+    "kind": "ledger",
+    "detail": "C#6: 8 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 233,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 234,
+    "kind": "ledger",
+    "detail": "A2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 234,
+    "kind": "ledger",
+    "detail": "C3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 247,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 247,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 247,
+    "kind": "ledger",
+    "detail": "A2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 249,
+    "kind": "ledger",
+    "detail": "A2: 6 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 251,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 251,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 254,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-0",
+    "bar": 275,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 38,
+    "kind": "ledger",
+    "detail": "C#2: 8 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 38,
+    "kind": "ledger",
+    "detail": "E2: 7 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 38,
+    "kind": "ledger",
+    "detail": "A2: 6 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 38,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 104,
+    "kind": "ledger",
+    "detail": "C#2: 8 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 104,
+    "kind": "ledger",
+    "detail": "E2: 7 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 104,
+    "kind": "ledger",
+    "detail": "A2: 6 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 104,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 137,
+    "kind": "ledger",
+    "detail": "E#1: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 138,
+    "kind": "ledger",
+    "detail": "E#1: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 138,
+    "kind": "ledger",
+    "detail": "E#1: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 138,
+    "kind": "ledger",
+    "detail": "E#1: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 273,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 273,
+    "kind": "ledger",
+    "detail": "E5: 6 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 273,
+    "kind": "ledger",
+    "detail": "C#5: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 274,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 275,
+    "kind": "ledger",
+    "detail": "G#2: 6 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 275,
+    "kind": "ledger",
+    "detail": "G#2: 6 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 275,
+    "kind": "ledger",
+    "detail": "E2: 7 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 275,
+    "kind": "ledger",
+    "detail": "G#2: 6 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 275,
+    "kind": "ledger",
+    "detail": "G#2: 6 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 275,
+    "kind": "ledger",
+    "detail": "C#2: 8 ledger lines"
+   },
+   {
+    "part": "piano-1",
+    "bar": 275,
+    "kind": "ledger",
+    "detail": "C#3: 5 ledger lines"
+   }
+  ]
+ },
+ "bars": 276
+}
