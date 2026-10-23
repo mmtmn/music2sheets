@@ -26,7 +26,10 @@ def _separate(model: str, wav: Path) -> tuple[dict[str, np.ndarray], int]:
     from demucs.api import Separator
 
     dev = "cuda" if torch.cuda.is_available() else "cpu"
-    sep = Separator(model=model, device=dev, progress=False)
+    # shifts=0: Demucs' default applies a random time shift per run, which makes stems (and every
+    # later stage) differ between identical runs
+    torch.manual_seed(0)
+    sep = Separator(model=model, device=dev, shifts=0, progress=False)
     _, stems = sep.separate_audio_file(str(wav))
     out = {k: v.cpu().numpy().T.astype(np.float32) for k, v in stems.items()}
     sr = sep.samplerate
