@@ -33,7 +33,7 @@ def transcribe_stem(wav: str | Path, name: str, profile: dict[str, Any], act_out
 
         tr, kong = transcribe_piano(wav, profile.get("tuning_cents", 0.0), name=tname)
         if act_out is not None:
-            np.save(act_out, kong["frame_output"].astype(np.float16))
+            np.save(act_out, kong["reg_onset_output"].astype(np.float16))
         return tr
     if fam == "drums":
         notes = drums(wav)

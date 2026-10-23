@@ -1,9 +1,11 @@
 """The edit protocol: Claude (or anyone) changes notes only through JSON patches.
 
 A patch is applied to a copy of the notes, the affected window is re-rendered
-and compared with the stem, and the patch is accepted only if the audio match
-does not drop by more than EPS and playability does not get worse, or if the
-audio match clearly improves. Every patch, accepted or not, is logged.
+and compared with the stem. A patch that adds or removes notes is accepted only
+if the audio match improves (by > MIN_GAIN) without new playability
+violations, or improves clearly (> DELTA), or if it removes a violation at
+almost no audio cost (> -EPS). Notation-only patches (spelling, tags, hand
+assignment) must not add violations. Every patch, accepted or not, is logged.
 
 Patch format::
 
@@ -31,8 +33,9 @@ import numpy as np
 from m2s.ir import Note, Piece
 from m2s.runs import Run
 
-EPS = 0.005     # tolerated audio-match loss
-DELTA = 0.01    # audio-match gain that accepts an edit on its own
+EPS = 0.005       # tolerated audio-match loss for an edit that makes the part easier to play
+MIN_GAIN = 0.002  # an edit that adds or removes notes must improve the audio match at least this much
+DELTA = 0.01      # audio-match gain that accepts an edit on its own, even if it is harder to play
 NOTATION_ONLY = {"spell", "retag", "reassign"}
 
 
@@ -116,7 +119,9 @@ def apply_patch(run: Run, patch: dict[str, Any]) -> dict[str, Any]:
             m_after.append(local_match(after.track(name), cells, t0, t1, run.root))
         mb, ma = float(np.mean(m_before)), float(np.mean(m_after))
         res["audio_match"] = [round(mb, 4), round(ma, 4)]
-        accepted = (ma - mb >= -EPS and v_after <= v_before) or ma - mb > DELTA
+        gain = ma - mb
+        accepted = (gain > MIN_GAIN and v_after <= v_before) or gain > DELTA \
+            or (gain >= -EPS and v_after < v_before)
     res["accepted"] = bool(accepted)
     if accepted:
         after.save(run.root / "notes.json")

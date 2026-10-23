@@ -97,7 +97,7 @@ def staff_voices(notes: list[Note]) -> list[list[Event]]:
                 dur = ioi
             else:
                 gap = ioi - dur
-                if dur <= Q(9, 20) * ioi and ioi <= 1:
+                if dur <= Q(3, 5) * ioi and ioi <= 1:
                     stacc, dur = True, ioi
                 elif gap <= Q(1, 4) and gap < ioi / 2:
                     dur = ioi

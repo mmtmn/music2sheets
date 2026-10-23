@@ -1,0 +1,32 @@
+{
+ "run": "a4c16b5e2c5e",
+ "version": "0.1.1",
+ "profile": {
+  "duration": 493.714,
+  "tuning_cents": 4.0,
+  "tempo_bpm": 142.9,
+  "instruments": [
+   "piano"
+  ]
+ },
+ "audio_match": {
+  "piano": 0.9654
+ },
+ "notation": {
+  "time_signature": "4/4",
+  "key": "C# minor",
+  "qpm": 142.9,
+  "bars": 276,
+  "ornaments": {
+   "trills": 4,
+   "graces": 8
+  },
+  "lint": {
+   "ledger": 103
+  }
+ },
+ "violations": {
+  "speed": 1,
+  "finger": 11
+ }
+}

@@ -68,11 +68,13 @@ def activations(wav: str | Path, preset: str) -> tuple[np.ndarray, float]:
     """(frames x 88 pitch activations for MIDI 21..108, frames per second)."""
     family = load_preset(preset)["family"]
     if family == "keyboard":
+        # onset activations: unlike frame activations they don't depend on how long a note rings,
+        # so pedal sustain in a SoundFont render can't masquerade as extra notes
         from m2s.transcribe.piano import KONG_SR, run_kong
 
         y, sr = A.load(wav, sr=KONG_SR, mono=True)
         _, _, out = run_kong(y)
-        return out["frame_output"].astype(np.float32), 100.0
+        return out["reg_onset_output"].astype(np.float32), 100.0
     return basic_pitch_notes(wav)
 
 

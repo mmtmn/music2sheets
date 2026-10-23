@@ -89,7 +89,7 @@ def transcribe(run: Run, prof: dict[str, Any], stems: dict[str, str], force: boo
             from m2s.transcribe.piano import confidence_summary, transcribe_piano
 
             tr, kong = transcribe_piano(wav, prof.get("tuning_cents", 0.0))
-            np.save(run.path("acts", "piano.npy"), kong["frame_output"].astype(np.float16))
+            np.save(run.path("acts", "piano.npy"), kong["reg_onset_output"].astype(np.float16))
             log(f"transcribe: piano {len(tr.notes)} candidates {confidence_summary(tr)}, {len(tr.pedal)} pedal")
         else:
             from m2s.transcribe.band import transcribe_stem
