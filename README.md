@@ -1,9 +1,9 @@
 # music2sheets
 
 <p align="center">
-  <a href="docs/media/moonlight-demo.mp4"><img src="docs/media/moonlight-demo.gif" width="720" alt="Falling-notes animation of the music2sheets transcription of Beethoven's Moonlight Sonata, third movement, on an 88-key keyboard"></a><br>
+  <a href="https://github.com/mmtmn/music2sheets/raw/main/docs/media/moonlight-demo.mp4"><img src="docs/media/moonlight-demo.gif" width="720" alt="Falling-notes animation of the music2sheets transcription of Beethoven's Moonlight Sonata, third movement, on an 88-key keyboard"></a><br>
   <sub>Beethoven, <i>Moonlight</i> Sonata iii: transcribed by music2sheets from a live recording, then played back exactly as our sheet music writes it.<br>
-  <a href="docs/media/moonlight-demo.mp4">▶ Watch the first minute with sound (MP4)</a> · <a href="#see-it-the-moonlight-sonata-edition-vs-music2sheets">Compare it with the published edition</a></sub>
+  <a href="https://github.com/mmtmn/music2sheets/raw/main/docs/media/moonlight-demo.mp4">▶ Download the first minute with sound (MP4, 2.6 MB)</a> · <a href="#see-it-the-moonlight-sonata-edition-vs-music2sheets">Compare it with the published edition</a></sub>
 </p>
 
 Audio in, playable sheet music out. Separate the instruments, transcribe each
