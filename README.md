@@ -11,6 +11,80 @@ something a two-handed pianist, a guitarist with one fretting hand, or a
 drummer with four limbs can actually play, without inventing notes the
 recording doesn't contain.
 
+## See it: the *Moonlight* Sonata, edition vs. music2sheets
+
+The third movement of Beethoven's Sonata No. 14 (Presto agitato), from a live
+recording: Paul Pitman, Musopen, public domain, 8 min 13 s. In each excerpt,
+Craig Stuart Sapp's edition is on top and what music2sheets wrote from the
+recording is below. The notes come from the blind test: they were committed
+before the edition was on the machine. The engraving comes from the current
+notation code.
+
+Under each pair, a piano roll shows every note in recording time: notes in
+both scores, notes in the edition that we missed, and notes only in ours.
+
+| Whole movement | Result |
+| --- | --- |
+| Notes found (F1, onset within 50 / 100 ms) | 0.769 / 0.877 |
+| Notes in the same hand as the edition's staff | 95.9% |
+| Key, time signature | C♯ minor, 4/4: both match the edition |
+| Bars | 276 vs. 263 in the edition (with the repeat) |
+
+### Opening: bars 1–4 (note F1 0.92)
+
+![Edition bars 1-4 above the music2sheets transcription, with a piano roll of matched, missed and extra notes](docs/images/moonlight-opening.png)
+
+93 of the edition's 104 notes are found; 11 are missed and 5 added. Bar 2
+reads almost exactly like the edition: the right-hand arpeggio, the two
+sforzando chords, the left hand's eighth-note bass. The edition keeps the
+rising arpeggio in the left hand until it crosses into the treble; ours gives
+most of it to the right hand. In bar 3 our rhythm breaks into grace notes and
+ties where the edition has an even run of sixteenths.
+
+### Cleanest passage: bars 26–29, second time through (note F1 0.98)
+
+![Edition bars 26-29 above the music2sheets transcription, with a piano roll](docs/images/moonlight-best.png)
+
+101 of 104 notes are found and the bar lines line up. What differs is how
+durations are written. The edition's staccato quarter-note chords become
+dotted eighths tied to sixteenths, because ours writes how long each chord
+was actually held. In the first two bars the left hand's alternating
+sixteenths are bunched into eighth-note pairs.
+
+### Typical passage: bars 50–53 (note F1 0.90)
+
+![Edition bars 50-53 above the music2sheets transcription, with a piano roll](docs/images/moonlight-typical.png)
+
+Most of the movement looks like this: 129 of 151 notes found. 15 of the 22
+missed notes are inner notes of thick chords, and 3 came out an octave off.
+Our bar lines sit one beat early here: the downbeat slipped earlier in the
+piece, so each of our bars begins on the edition's fourth beat.
+
+### Hardest passage: bars 164–167 (note F1 0.33)
+
+![Edition bars 164-167 above the music2sheets transcription, with a piano roll](docs/images/moonlight-worst.png)
+
+The run-up to the coda: fortissimo arpeggios in thirty-second notes sweeping
+into held chords under fermatas. Only 28 of 113 notes are found. Most of the
+fast runs are lost, 43 of the misses are inner notes of the held chords, and
+19 were heard an octave off. The fermatas stretch time far past the beat grid,
+so the notes we did find are scattered between rests.
+
+**In short:** most notes are right. The remaining work is in the notation:
+- rhythms are written as played, not as an editor would write them;
+- bar lines drift by a beat;
+- inner notes of thick chords go missing;
+- fast runs under fermatas are mostly lost.
+
+[Results](#results) has the numbers on more pieces.
+
+<sub>Edition: Craig Stuart Sapp's [Humdrum edition of the Beethoven
+sonatas](https://github.com/craigsapp/beethoven-piano-sonatas), after the
+1915 Durand edition by Paul Dukas. Both scores engraved with Verovio. The
+edition is aligned to the recording with synctoolbox, from the audio and the
+score only; a note counts as found at the same pitch within 100 ms. Make
+these images for any scored run with `tools/compare_edition.py`.</sub>
+
 ## Why it works the way it does
 
 A common approach is to transcribe to MIDI and then ask a language model to
@@ -461,6 +535,10 @@ python tools/make_band_test.py && m2s run data/bandtest/band.wav \
   --instruments electric_guitar,bass,drums,sax_alto --runs-root data/bandruns
 python tools/eval_band_test.py data/bandruns/<hash>
 tools/fetch_blind_audio.sh && m2s run data/blind/test1.mp3
+mkdir -p eval/references/test1 && curl -L -o eval/references/test1/sonata14-3.krn \
+  https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/master/kern/sonata14-3.krn
+m2s eval runs/<hash> --ref eval/references/test1/sonata14-3.krn --no-mv2h
+python tools/compare_edition.py runs/<hash> eval/references/test1/sonata14-3.krn --name moonlight  # README images
 scripts/check.sh
 ```
 
@@ -478,6 +556,7 @@ m2s/             the Python worker: analyze, separate, transcribe/, verify (mode
 tools/           dev-set fetch and tuning, band test, blind-test helpers, MV2H build
 tests/           golden decoder decisions (tests/golden) and Python worker tests
 eval/blind/      committed blind-test outputs and reports
+docs/images/     the edition-vs-transcription images in this README
 scripts/         check.sh
 ```
 
