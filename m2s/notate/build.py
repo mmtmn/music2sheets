@@ -10,6 +10,7 @@ from __future__ import annotations
 import math
 from dataclasses import dataclass, field
 from fractions import Fraction
+from pathlib import Path
 from typing import Any, Callable
 
 from music21 import (articulations, bar, chord, clef, dynamics, expressions, instrument, key, layout, meter,
@@ -201,8 +202,8 @@ def make_element(ev: Event, dur: Fraction, tie: str | None, spelled: Callable[[N
 
 
 def fill_voice(events: list[Event], bars: Bars, spelled: Callable[[Note], pitch.Pitch],
-               perc: dict[str, Any] | None, on_element: Callable[[Event, note.GeneralNote, bool], None]
-               ) -> list[list[tuple[Fraction, note.GeneralNote]]]:
+               perc: dict[str, Any] | None, on_element: Callable[[Event, note.GeneralNote, bool], None],
+               tab: bool = False) -> list[list[tuple[Fraction, note.GeneralNote]]]:
     """Place a voice's events into bars, splitting and tying at barlines and odd values."""
     per_bar: list[list[tuple[Fraction, note.GeneralNote]]] = [[] for _ in bars.starts]
     for ev in events:
@@ -228,6 +229,8 @@ def fill_voice(events: list[Event], bars: Bars, spelled: Callable[[Note], pitch.
                     for g in ev.graces:
                         gn = note.Note(spelled(g))
                         gn.duration.quarterLength = Q(1, 2)
+                        if tab:
+                            _tab_marks(gn, g)
                         per_bar[bi].append((pos - bars.starts[bi], gn.getGrace()))
                 per_bar[bi].append((pos - bars.starts[bi], el))
                 pos += d
@@ -441,6 +444,13 @@ def _fill_part(part: stream.Part, spec: StaffSpec, bars: Bars, grid: Grid, k: Ke
     first_elements: dict[int, note.GeneralNote] = {}
 
     def on_el(ev: Event, el: note.GeneralNote, first: bool) -> None:
+        if spec.tab is not None:
+            # every piece of a tied note needs its string and fret, or the tab shows nothing there
+            if isinstance(el, chord.Chord):
+                for cn, n in zip(sorted(el.notes, key=lambda x: x.pitch.midi), sorted(ev.notes, key=lambda x: x.pitch)):
+                    _tab_marks(cn, n)
+            else:
+                _tab_marks(el, ev.notes[0])
         if not first:
             return
         first_elements[id(ev)] = el
@@ -449,21 +459,14 @@ def _fill_part(part: stream.Part, spec: StaffSpec, bars: Bars, grid: Grid, k: Ke
             el.articulations.append(articulations.Staccato())
         if any("trill" in n.tags for n in ev.notes) and spec.tab is None:
             el.expressions.append(expressions.Trill())
-        if spec.tab is not None:
-            ns = ev.notes
-            if isinstance(el, chord.Chord):
-                for cn, n in zip(el.notes, ns):
-                    _tab_marks(cn, n)
-            else:
-                _tab_marks(el, ns[0])
-        elif opts.fingering and spec.perc is None:
+        if spec.tab is None and opts.fingering and spec.perc is None:
             fingers = [n.effector.get("finger") for n in ev.notes]
             if all(fingers):
                 for f in fingers:
                     el.articulations.append(articulations.Fingering(f))
 
     spelled = _spelled(trans)
-    per_voice = [fill_voice(v, bars, spelled, spec.perc, on_el) for v in voices]
+    per_voice = [fill_voice(v, bars, spelled, spec.perc, on_el, tab=spec.tab is not None) for v in voices]
     clefs = clef_plan(voices[0] + (voices[1] if len(voices) > 1 else []), bars, spec.clef) if spec.clef_auto \
         else [spec.clef] * len(bars.starts)
     dyn = dynamic_plan(spec.notes, bars) if (spec.dynamics and opts.dynamics and spec.perc is None) else {}
@@ -584,3 +587,97 @@ def _ledger_lines(p: pitch.Pitch, cl: clef.Clef) -> int:
     steps = p.diatonicNoteNum - (35 if isinstance(cl, clef.TrebleClef) else 23)
     over = abs(steps) - 4
     return max(0, math.ceil(over / 2)) if over > 0 else 0
+
+
+# --------------------------------------------------------------------------- MusicXML output
+STEP_PC = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
+
+
+def write_musicxml(score: stream.Score, path: str | Path) -> None:
+    """Write MusicXML, then restore string/fret on chord notes of tab staves.
+
+    music21 exports per-note technical marks for single notes but drops them for the notes of a
+    chord, so a tab chord would print without frets. We record them from the score and put
+    them back into the XML.
+    """
+    log: dict[tuple[int, int, tuple[int, ...]], list[list[tuple[int, int]]]] = {}
+    staff_of: dict[int, int] = {}
+    groups = [g for g in score.getElementsByClass(layout.StaffGroup)]
+    for part in score.parts:
+        staff = 1
+        for g in groups:
+            sp = list(g.getSpannedElements())
+            if part in sp:
+                staff = sp.index(part) + 1
+        staff_of[id(part)] = staff
+        if not isinstance(part.recurse().getElementsByClass(clef.Clef).first(), clef.TabClef):
+            continue
+        for m in part.getElementsByClass(stream.Measure):
+            for c in m.recurse().getElementsByClass(chord.Chord):
+                marks = []
+                for n in sorted(c.notes, key=lambda x: x.pitch.midi):
+                    s = next((a.number for a in n.articulations if isinstance(a, articulations.StringIndication)), None)
+                    f = next((a.number for a in n.articulations if isinstance(a, articulations.FretIndication)), None)
+                    marks.append((s, f))
+                key = (int(m.number), staff, tuple(sorted(n.pitch.midi for n in c.notes)))
+                log.setdefault(key, []).append(marks)
+    score.write("musicxml", fp=str(path))
+    if log:
+        _restore_tab_chords(Path(path), log)
+
+
+def _restore_tab_chords(path: Path, log: dict) -> None:
+    import xml.etree.ElementTree as ET
+
+    tree = ET.parse(path)
+    root = tree.getroot()
+    for part in root.iter("part"):
+        for measure in part.iter("measure"):
+            try:
+                number = int(measure.get("number", "0"))
+            except ValueError:
+                continue
+            group: list = []
+            groups: list[list] = []
+            for el in measure:
+                if el.tag != "note":
+                    continue
+                if el.find("chord") is None:
+                    if group:
+                        groups.append(group)
+                    group = [el]
+                else:
+                    group.append(el)
+            if group:
+                groups.append(group)
+            for g in groups:
+                if len(g) < 2 or g[0].find("pitch") is None:
+                    continue
+                staff = int((g[0].findtext("staff") or "1"))
+                midis = []
+                for n in g:
+                    p = n.find("pitch")
+                    if p is None:
+                        break
+                    midis.append(12 * (int(p.findtext("octave")) + 1) + STEP_PC[p.findtext("step")]
+                                 + int(float(p.findtext("alter") or 0)))
+                key = (number, staff, tuple(sorted(midis)))
+                if key not in log or not log[key]:
+                    continue
+                marks = log[key].pop(0)
+                order = sorted(range(len(g)), key=lambda i: midis[i])
+                for rank, i in enumerate(order):
+                    s, f = marks[rank] if rank < len(marks) else (None, None)
+                    if s is None or f is None:
+                        continue
+                    n = g[i]
+                    notations = n.find("notations")
+                    if notations is None:
+                        notations = ET.SubElement(n, "notations")
+                    tech = notations.find("technical")
+                    if tech is None:
+                        tech = ET.SubElement(notations, "technical")
+                    if tech.find("fret") is None:
+                        ET.SubElement(tech, "string").text = str(s)
+                        ET.SubElement(tech, "fret").text = str(f)
+    tree.write(path, encoding="UTF-8", xml_declaration=True)

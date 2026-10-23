@@ -60,7 +60,7 @@ def main(runs_root: str = "data/devruns") -> None:
         if not (run.root / "notes.json").exists():
             continue
         prof = run.read_json("profile.json")
-        piece = Piece.load(run.root / "candidates.json") if False else Piece.load(run.root / "notes.json")
+        piece = Piece.load(run.root / "notes.json")
         acts = np.load(run.root / "acts" / "beats.npy").astype(np.float32)
         g = gt(folder)
         kept = [n for t in piece.tracks for n in t.kept()]

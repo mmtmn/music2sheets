@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from m2s.ir import Piece
-from m2s.notate.build import Options, build_score, lint
+from m2s.notate.build import Options, build_score, lint, write_musicxml
 from m2s.notate.keys import Key, estimate_key
 from m2s.notate.ornaments import fold_trills, mark_graces
 from m2s.notate.rhythm import Grid, build_grid, quantize
@@ -74,4 +74,4 @@ def notate(piece: Piece, beats: list[float], downbeats: list[float], opts: Optio
     return score, grid, info
 
 
-__all__ = ["notate", "lint", "Options"]
+__all__ = ["notate", "lint", "Options", "write_musicxml"]

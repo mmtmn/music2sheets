@@ -144,7 +144,7 @@ def verify(run: Run, piece: Piece, stems: dict[str, str], force: bool = False, l
 
 def notate(run: Run, piece: Piece, prof: dict[str, Any], fingering: bool = False, force: bool = False,
            log: Log = _log) -> dict[str, Any]:
-    from m2s.notate import Options, lint
+    from m2s.notate import Options, lint, write_musicxml
     from m2s.notate import notate as do_notate
 
     key = {"in": run.stage_key("decode"), "edits": run.manifest.get("edits", 0), "fingering": fingering,
@@ -157,7 +157,7 @@ def notate(run: Run, piece: Piece, prof: dict[str, Any], fingering: bool = False
                                   Options(fingering=fingering, title=f"Transcription {run.root.name}"),
                                   beat_acts=acts, act_fps=prof.get("beat_act_fps", 50.0),
                                   duration=prof["duration"])
-    score.write("musicxml", fp=str(run.root / "score.musicxml"))
+    write_musicxml(score, run.root / "score.musicxml")
     info["lint"] = lint(score)
     info["bars"] = len(score.parts[0].getElementsByClass("Measure")) if score.parts else 0
     # notes now carry bar/beat; keep them for inspect and eval
