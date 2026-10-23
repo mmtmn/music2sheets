@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import itertools
 
-from m2s.ir import Note, Track
+from m2s.ir import Track
 from m2s.play.piano import Violation, make_slices
 from m2s.play.preset import load_preset
 

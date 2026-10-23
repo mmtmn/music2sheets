@@ -25,11 +25,11 @@ from m2s.runs import Run, file_hash  # noqa: E402
 
 def gt(folder: Path) -> dict:
     perf = (folder / "performance.txt").read_text().strip()
-    lines = [l.split("\t") for l in (folder / (Path(perf).stem + "_annotations.txt")).read_text().splitlines()
-             if l.strip()]
-    beats = [float(l[0]) for l in lines]
-    dbs = [l for l in lines if l[2].startswith("db")]
-    ts = next((l[2].split(",")[1] for l in dbs if len(l[2].split(",")) > 1), None)
+    rows = [ln.split("\t") for ln in (folder / (Path(perf).stem + "_annotations.txt")).read_text().splitlines()
+            if ln.strip()]
+    beats = [float(r[0]) for r in rows]
+    dbs = [r for r in rows if r[2].startswith("db")]
+    ts = next((r[2].split(",")[1] for r in dbs if len(r[2].split(",")) > 1), None)
     return {"beats": np.array(beats), "bars": len(dbs), "ts": ts, "midi": folder / perf}
 
 

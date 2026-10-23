@@ -59,9 +59,9 @@ def pan_split(y: np.ndarray, sr: int, edges: tuple[float, float] = (0.4, 0.6)) -
     out = {}
     for name, mask in (("left", pan < edges[0]), ("centre", (pan >= edges[0]) & (pan <= edges[1])),
                        ("right", pan > edges[1])):
-        l = librosa.istft(L * mask, hop_length=1024, length=len(y))
-        r = librosa.istft(R * mask, hop_length=1024, length=len(y))
-        out[name] = np.stack([l, r], axis=1).astype(np.float32)
+        left = librosa.istft(L * mask, hop_length=1024, length=len(y))
+        right = librosa.istft(R * mask, hop_length=1024, length=len(y))
+        out[name] = np.stack([left, right], axis=1).astype(np.float32)
     return out
 
 

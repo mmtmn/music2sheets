@@ -116,21 +116,15 @@ def expand_humdrum(path: Path) -> Path | None:
             sections[current].append(line)
     if any(lab not in sections for lab in order):
         return None
-    body = [l for lab in order for l in sections[lab]]
+    body = [ln for lab in order for ln in sections[lab]]
     out = Path(tempfile.mkdtemp(prefix="m2s-krn-")) / (path.stem + "-expanded.krn")
     out.write_text("\n".join(head + body + tail) + "\n", encoding="utf-8")
     return out
 
 
 def _notes(s: Any) -> list[RefNote]:
-    import music21
 
     out: list[RefNote] = []
-    smap = None
-    try:
-        smap = {id(e["element"]): e for e in s.flatten().secondsMap}
-    except Exception:  # noqa: BLE001
-        pass
     for si, part in enumerate(s.parts):
         flat = part.stripTies().flatten()
         for el in flat.notes:

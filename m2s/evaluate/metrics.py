@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -162,7 +163,7 @@ def musicdiff_count(ours_xml: str | Path, ref_xml: str | Path, bars: int = 16, t
             " print_text_output=False)\n"
             "print('EDITS', k)\n")
     try:
-        r = subprocess.run(["python", "-c", code, str(ours_xml), str(ref_xml), str(bars)], capture_output=True,
+        r = subprocess.run([sys.executable, "-c", code, str(ours_xml), str(ref_xml), str(bars)], capture_output=True,
                            text=True, timeout=timeout)
     except subprocess.TimeoutExpired:
         return {"skipped": f"timed out after {timeout}s"}

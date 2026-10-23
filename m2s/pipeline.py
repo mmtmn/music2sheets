@@ -123,7 +123,7 @@ def decode(run: Run, piece: Piece, force: bool = False, log: Log = _log) -> tupl
 
 
 def verify(run: Run, piece: Piece, stems: dict[str, str], force: bool = False, log: Log = _log) -> dict[str, Any]:
-    from m2s.verify import heatmap, to_cells, verify_track
+    from m2s.verify import heatmap, verify_track
 
     key = {"in": run.stage_key("decode"), "edits": run.manifest.get("edits", 0), "v": __version__}
     if not force and run.is_fresh("verify", key, ["verify.json"]):
