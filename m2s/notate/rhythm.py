@@ -182,17 +182,45 @@ def choose_meter(beat_times: np.ndarray, downbeats: list[float], notes: list[Not
             harm = hb[on].mean() - hb[off].mean()
             s = (0.5 * contrast[0] + 0.3 * contrast[1] + 0.3 * contrast[2] + 2.5 * harm
                  + 1.0 * (db[on].mean() - db[off].mean()))
-            # mild priors: 4/4 and 3/4 are the commonest bars, 6/4 is rare
-            s += {2.0: -0.02, 3.0: 0.0, 4.0: 0.02, 6.0: -0.06}[per_bar_q]
+            # Priors. 4/4 and 3/4 are the commonest bars. 6/4 is rare, and a contrast of means lets it
+            # win by picking the louder half of real 3/4 bar lines, so it must win clearly. A piece
+            # most often starts on a downbeat.
+            s += {2.0: -0.02, 3.0: 0.0, 4.0: 0.02, 6.0: -0.15}[per_bar_q]
+            s += 0.02 if phase == 0 else 0.0
             cands[(bpb, phase)] = float(s)
     (bpb, phase), _ = max(cands.items(), key=lambda kv: kv[1])
     return bpb, phase, {f"{k[0]}x{unit}q@{k[1]}": round(v, 3) for k, v in sorted(cands.items(), key=lambda kv: -kv[1])[:6]}
 
 
+def backbeat_unit(beat_times: np.ndarray, drum_hits: list[Note]) -> float | None:
+    """With a drum kit, the snare backbeat (beats 2 and 4) fixes the quarter note: snare hits every
+    tracked beat mean the tracker follows half notes; every other beat means quarters."""
+    snare = sorted(n.onset for n in drum_hits if n.pitch in (38, 40))
+    if len(snare) < 8 or len(beat_times) < 8:
+        return None
+    ibi = float(np.median(np.diff(beat_times)))
+    gaps = np.diff(snare)
+    gaps = gaps[(gaps > 0.6 * ibi) & (gaps < 4.5 * ibi)]
+    if len(gaps) < 6:
+        return None
+    ratio = float(np.median(gaps)) / ibi
+    if abs(ratio - 1) < 0.2:
+        return 2.0
+    if abs(ratio - 2) < 0.3:
+        return 1.0
+    if abs(ratio - 4) < 0.5:
+        return 0.5
+    return None
+
+
 def build_grid(beats: list[float], downbeats: list[float], notes: list[Note],
-               db_strength: np.ndarray | None = None) -> Grid:
+               db_strength: np.ndarray | None = None, drum_hits: list[Note] | None = None) -> Grid:
     bt = clean_beats(beats) if db_strength is None else np.asarray(beats, dtype=float)
     unit, unit_scores = choose_unit(bt, notes)
+    bb = backbeat_unit(bt, drum_hits or [])
+    if bb is not None:
+        unit = bb
+        unit_scores["backbeat"] = bb
     bpb, phase, meter_scores = choose_meter(bt, downbeats, notes, unit, db_strength)
     pickup = phase * unit
     first_db = phase

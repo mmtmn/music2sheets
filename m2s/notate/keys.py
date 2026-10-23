@@ -55,7 +55,7 @@ def histogram(notes: list[Note], bass_weight: float = 0.5) -> np.ndarray:
     return h
 
 
-def estimate_key(notes: list[Note]) -> Key:
+def estimate_key(notes: list[Note], bass: list[Note] | None = None) -> Key:
     h = histogram(notes)
     best = Key(0, "major", -2.0)
     for pc in range(12):
@@ -63,4 +63,28 @@ def estimate_key(notes: list[Note]) -> Key:
             r = float(np.corrcoef(h, np.roll(prof, pc))[0, 1]) if h.sum() else 0.0
             if r > best.score:
                 best = Key(pc, mode, r)
-    return best
+    return _relative_by_bass(best, bass or _low_notes(notes))
+
+
+def _low_notes(notes: list[Note]) -> list[Note]:
+    if not notes:
+        return []
+    lo = np.percentile([n.pitch for n in notes], 20)
+    return [n for n in notes if n.pitch <= lo]
+
+
+def _relative_by_bass(k: Key, bass: list[Note]) -> Key:
+    """Relative major and minor share their notes; the bass decides which tonic is home:
+    more time on it, and the first and last bass notes."""
+    if not bass:
+        return k
+    rel = Key((k.tonic_pc + 9) % 12, "minor", k.score) if k.mode == "major" else \
+        Key((k.tonic_pc + 3) % 12, "major", k.score)
+    order = sorted(bass, key=lambda n: n.onset)
+
+    def weight(pc: int) -> float:
+        w = sum(min(n.duration, 2.0) for n in bass if n.pitch % 12 == pc)
+        w += 2.0 * (order[0].pitch % 12 == pc) + 3.0 * (order[-1].pitch % 12 == pc)
+        return w
+
+    return rel if weight(rel.tonic_pc) > 1.25 * weight(k.tonic_pc) else k

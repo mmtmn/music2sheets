@@ -14,7 +14,7 @@ from m2s import audio as A
 from m2s.ir import Note, Track, assign_ids
 from m2s.play.preset import load_preset
 
-MONO = {"voice", "sax_alto", "sax_tenor"}
+MONO = {"voice", "sax_alto", "sax_tenor", "bass"}
 
 
 def track_name(name: str) -> tuple[str, str]:
@@ -66,6 +66,8 @@ def polyphonic(wav: str | Path, preset: str, act_out: str | Path | None = None) 
                                    multiple_pitch_bends=False, melodia_trick=True)
     if act_out is not None:
         np.save(act_out, model_out["note"].astype(np.float16))
+    onset_act = model_out["onset"]
+    fps = 22050 / 256
     notes = []
     for start, end, pitch, amp, bends in events:
         bend = []
@@ -74,11 +76,53 @@ def polyphonic(wav: str | Path, preset: str, act_out: str | Path | None = None) 
             step = (end - start) / max(len(bends), 1)
             bend = [(round(start + i * step, 3), round(b * 100 / 3, 1)) for i, b in enumerate(bends)
                     if i % 4 == 0]
-        conf = float(np.clip(0.35 + 0.9 * amp, 0.0, 0.97))
+        f = int(round(start * fps))
+        col = int(pitch) - 21
+        on_peak = float(onset_act[max(0, f - 3): f + 4, col].max()) if 0 <= col < onset_act.shape[1] else 0.0
+        conf = float(np.clip(0.15 + 0.45 * amp + 0.45 * on_peak, 0.0, 0.97))
         notes.append(Note(id="", onset=round(float(start), 4), offset=round(float(end), 4), pitch=int(pitch),
                           velocity=int(np.clip(30 + 100 * amp, 1, 127)), confidence=round(conf, 3),
-                          support={"basic_pitch": round(float(amp), 3)}, bend=bend, provenance="basic_pitch"))
-    return notes
+                          support={"basic_pitch": round(float(amp), 3), "onset": round(on_peak, 3)}, bend=bend,
+                          provenance="basic_pitch"))
+    suppress_harmonics(notes)
+    return merge_retriggers(notes)
+
+
+HARMONICS = (12, 19, 24)
+
+
+def suppress_harmonics(notes: list[Note], window: float = 0.04, ratio: float = 0.85) -> None:
+    """Lower the confidence of a candidate that sits an octave, twelfth or double octave above a
+    louder note starting at the same time: on distorted or bright stems the model reports
+    overtones as notes."""
+    order = sorted(notes, key=lambda n: n.onset)
+    for i, n in enumerate(order):
+        amp = n.support.get("basic_pitch", 0.0)
+        for m in order[max(0, i - 12): i + 12]:
+            if m is n or abs(m.onset - n.onset) > window:
+                continue
+            if n.pitch - m.pitch in HARMONICS and amp < ratio * m.support.get("basic_pitch", 0.0) + 1e-9:
+                n.confidence = round(n.confidence * 0.4, 3)
+                n.tags.append("harmonic?")
+                break
+
+
+def merge_retriggers(notes: list[Note], gap: float = 0.04, min_onset: float = 0.35) -> list[Note]:
+    """Join same-pitch fragments when the later one has no onset of its own."""
+    by_pitch: dict[int, list[Note]] = {}
+    for n in sorted(notes, key=lambda n: n.onset):
+        by_pitch.setdefault(n.pitch, []).append(n)
+    out = []
+    for seq in by_pitch.values():
+        cur = seq[0]
+        for n in seq[1:]:
+            if n.onset - cur.offset <= gap and n.support.get("onset", 1.0) < min_onset:
+                cur.offset = max(cur.offset, n.offset)
+            else:
+                out.append(cur)
+                cur = n
+        out.append(cur)
+    return sorted(out, key=lambda n: (n.onset, n.pitch))
 
 
 # --------------------------------------------------------------------- monophonic
@@ -99,7 +143,14 @@ def monophonic(wav: str | Path, preset: str, hop: float = 0.01) -> list[Note]:
     rms = np.sqrt(np.convolve(y ** 2, np.ones(160) / 160, mode="same"))[:: int(16000 * hop)][: len(f0)]
     midi = 69 + 12 * np.log2(np.maximum(f0, 1e-3) / 440)
     voiced = (per > 0.45) & (rms[: len(per)] > 0.01 * (rms.max() + 1e-9))
-    return segment_notes(midi, voiced, per, hop)
+    import librosa
+
+    # repeated notes at one pitch never change f0; the amplitude onsets separate them
+    onsets = librosa.onset.onset_detect(y=y, sr=16000, hop_length=int(16000 * hop), units="frames",
+                                        backtrack=True)
+    # plucked instruments only: on legato wind and voice, vibrato and breath trip the onset detector
+    plucked = load_preset(preset)["family"] == "fretted"
+    return segment_notes(midi, voiced, per, hop, onsets=set(int(o) for o in onsets) if plucked else None)
 
 
 def _hz(m: float) -> float:
@@ -107,8 +158,11 @@ def _hz(m: float) -> float:
 
 
 def segment_notes(midi: np.ndarray, voiced: np.ndarray, per: np.ndarray, hop: float,
-                  min_len: float = 0.06, jump: float = 0.7) -> list[Note]:
-    """Cut a pitch track into notes at unvoiced gaps and at stable pitch changes."""
+                  min_len: float = 0.06, jump: float = 0.7, onsets: set[int] | None = None) -> list[Note]:
+    """Cut a pitch track into notes at unvoiced gaps, at stable pitch changes, and at amplitude
+    onsets (repeated notes on one pitch)."""
+    onsets = onsets or set()
+    min_frames = int(min_len / hop)
     notes: list[Note] = []
     n = len(midi)
     i = 0
@@ -121,6 +175,8 @@ def segment_notes(midi: np.ndarray, voiced: np.ndarray, per: np.ndarray, hop: fl
         while j + 1 < n and voiced[j + 1]:
             # a new note starts when pitch moves > `jump` semitones and stays there for 3 frames
             if abs(midi[j + 1] - ref) > jump and all(abs(midi[k] - midi[j + 1]) < 0.5 for k in range(j + 1, min(j + 4, n))):
+                break
+            if (j + 1) in onsets and (j + 1 - i) >= min_frames:
                 break
             j += 1
             ref = 0.9 * ref + 0.1 * midi[j]

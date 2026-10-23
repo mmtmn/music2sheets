@@ -182,7 +182,9 @@ def make_element(ev: Event, dur: Fraction, tie: str | None, spelled: Callable[[N
         if len(els) == 1:
             el = els[0]
         else:
-            el = chord.PercussionChord(els)
+            from music21.percussion import PercussionChord
+
+            el = PercussionChord(els)
         el.duration.quarterLength = dur
         el.stemDirection = perc["stems"].get(ev.notes[0].pitch, "up")
     elif len(ev.notes) == 1:
@@ -442,9 +444,10 @@ def _fill_part(part: stream.Part, spec: StaffSpec, bars: Bars, grid: Grid, k: Ke
         if not first:
             return
         first_elements[id(ev)] = el
-        if ev.staccato:
+        # tab staves carry string and fret only; articulations live on the notation staff
+        if ev.staccato and spec.tab is None:
             el.articulations.append(articulations.Staccato())
-        if any("trill" in n.tags for n in ev.notes):
+        if any("trill" in n.tags for n in ev.notes) and spec.tab is None:
             el.expressions.append(expressions.Trill())
         if spec.tab is not None:
             ns = ev.notes

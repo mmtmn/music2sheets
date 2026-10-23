@@ -5,4 +5,4 @@ Pipeline: ingest -> analyze -> separate -> transcribe -> decode (playability)
 shared note format in :mod:`m2s.ir`.
 """
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"

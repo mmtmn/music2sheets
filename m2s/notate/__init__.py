@@ -35,10 +35,12 @@ def notate(piece: Piece, beats: list[float], downbeats: list[float], opts: Optio
         if len(cleaned) >= 4:
             beats = [float(b) for b in cleaned]
             db_strength = downbeat_strength(cleaned, beat_acts[:, 1], act_fps)
-    grid = build_grid(beats, downbeats, pitched, db_strength)
+    drums = [n for t in piece.tracks if load_preset(t.preset)["family"] == "drums" for n in t.kept()]
+    grid = build_grid(beats, downbeats, pitched, db_strength, drums)
     quantize(kept, grid)
     keys: dict[str, Key] = {}
-    glob = estimate_key(pitched)
+    bass_notes = [n for t in piece.tracks if t.preset == "bass" for n in t.kept()]
+    glob = estimate_key(pitched, bass_notes)
     for t in piece.tracks:
         preset = load_preset(t.preset)
         if preset["family"] == "drums":
