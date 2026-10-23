@@ -108,14 +108,23 @@ def analyze(wav: str | Path, instruments: list[str] | None = None, act_path: str
 
 
 def solo(profile: dict[str, Any]) -> str | None:
-    """The single instrument of a solo recording, or None for an ensemble."""
+    """The instrument of a recording the tagger is confident is a solo, or None.
+
+    Confident means one instrument clearly dominates every other tag. Anything less goes to
+    separation, which decides presence from the stems' energy instead (see m2s.separate).
+    """
     present = [p for p in profile["instruments"]["present"] if p != "synth"]
-    if len(present) == 1:
-        return present[0]
     mean = profile["instruments"].get("mean")
-    if mean and present:
-        top = max(present, key=lambda k: mean[k])
-        others = [k for k in present if k != top and mean[k] > 0.3 * mean[top]]
-        if not others:
-            return top
-    return None
+    if not mean:
+        return present[0] if len(present) == 1 else None
+    top = max((k for k in mean if k != "synth"), key=mean.get)
+    if mean[top] < PRESENT:
+        return None
+    others = [k for k in mean if k not in (top, "synth") and mean[k] >= 0.25 * mean[top]]
+    # acoustic and electric guitar tags fire together on one guitar
+    if set(others) <= {"guitar", "electric_guitar"} - {top} and top in ("guitar", "electric_guitar"):
+        others = []
+    # Skipping separation is worth it only for solo piano, our most accurate path, where stem
+    # artifacts would cost notes. Every other case goes through separation, which collapses to a
+    # solo by itself when only one stem carries the music (m2s.separate.detect_from_stems).
+    return top if (not others and top == "piano") else None

@@ -59,8 +59,9 @@ def separate(run: Run, prof: dict[str, Any], force: bool = False, log: Log = _lo
     """Returns {preset: stem wav path}. A solo recording is its own stem."""
     from m2s.analyze import solo
 
+    user = prof["instruments"].get("source") == "user"
     present = [p for p in prof["instruments"]["present"] if p != "synth"]
-    one = solo(prof) if prof["instruments"].get("source") != "user" else (present[0] if len(present) == 1 else None)
+    one = (present[0] if len(present) == 1 else None) if user else solo(prof)
     key = {"in": run.stage_key("analyze"), "present": present, "solo": one, "v": __version__}
     if not force and run.is_fresh("separate", key, ["stems.json"]):
         return run.read_json("stems.json")
@@ -70,8 +71,9 @@ def separate(run: Run, prof: dict[str, Any], force: bool = False, log: Log = _lo
     else:
         from m2s.separate import separate_band
 
-        log(f"separate: band with {present}")
-        stems = separate_band(run.root / "audio.wav", run.root / "stems", present, log=log)
+        log(f"separate: {'band with ' + str(present) if user else 'not a clear solo; detecting from stems'}")
+        stems = separate_band(run.root / "audio.wav", run.root / "stems", present if user else None, log=log,
+                              tags=prof["instruments"])
     run.write_json("stems.json", stems)
     run.mark("separate", key)
     return stems

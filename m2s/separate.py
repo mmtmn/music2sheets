@@ -10,7 +10,7 @@ usually pan doubled or harmonized guitars apart.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Callable
+from typing import Any, Callable
 
 import numpy as np
 
@@ -65,9 +65,47 @@ def pan_split(y: np.ndarray, sr: int, edges: tuple[float, float] = (0.4, 0.6)) -
     return out
 
 
-def separate_band(wav: str | Path, outdir: str | Path, present: list[str],
-                  log: Callable[[str], None] = print) -> dict[str, str]:
-    """Returns {track name: stem wav}. Track names are presets, or preset@L / preset@R for split guitars."""
+def detect_from_stems(stems: dict[str, np.ndarray], mix: np.ndarray, sr: int, tags: dict[str, Any] | None,
+                      min_share: float = 0.03, min_active: float = 0.2) -> tuple[list[str], dict[str, Any]]:
+    """Which instruments play, judged by the separated stems' energy rather than by a tagger alone.
+
+    A stem counts when it carries at least `min_share` of the mix energy and is audible in at least
+    `min_active` of 2-second windows. The tagger then only names the stem: electric or acoustic
+    guitar, and what the "other" stem holds.
+    """
+    tot = float((mix ** 2).sum()) + 1e-9
+    n = int(2 * sr)
+    info: dict[str, Any] = {}
+    present: list[str] = []
+    mx = tags.get("timeline", {}) if tags else {}
+    peak = {k: max(v) for k, v in mx.items()} if mx else {}
+    for name in ("drums", "bass", "vocals", "guitar", "piano", "other"):
+        y = stems[name]
+        share = float((y ** 2).sum()) / tot
+        rms = np.array([np.sqrt((y[i:i + n] ** 2).mean()) for i in range(0, len(y), n)])
+        active = float((rms > 0.1 * (rms.max() + 1e-9)).mean()) if len(rms) else 0.0
+        info[name] = {"share": round(share, 4), "active": round(active, 3)}
+        if share < min_share or active < min_active:
+            continue
+        if name == "guitar":
+            present.append("electric_guitar" if peak.get("electric_guitar", 0) >= 0.5 * peak.get("guitar", 0)
+                           else "guitar")
+        elif name == "other":
+            cands = {k: peak.get(k, 0) for k in ("sax_alto", "violin")}
+            best = max(cands, key=cands.get)
+            if cands[best] >= 0.1:
+                present.append(best)
+            else:
+                info["other"]["skipped"] = "no confident label for the 'other' stem"
+        else:
+            present.append({"drums": "drums", "bass": "bass", "vocals": "voice", "piano": "piano"}[name])
+    return present, info
+
+
+def separate_band(wav: str | Path, outdir: str | Path, present: list[str] | None,
+                  log: Callable[[str], None] = print, tags: dict[str, Any] | None = None) -> dict[str, str]:
+    """Returns {track name: stem wav}. Track names are presets, or preset@L / preset@R for split guitars.
+    With ``present=None`` the instruments are detected from the stems themselves."""
     wav, outdir = Path(wav), Path(outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     six, sr = _separate("htdemucs_6s", wav)
@@ -79,8 +117,15 @@ def separate_band(wav: str | Path, outdir: str | Path, present: list[str],
         stems[name] = 0.5 * (six[name] + ft[name])
         conf[name] = agreement(six[name], ft[name], sr)
     stems["guitar"], stems["piano"], stems["other"] = six["guitar"], six["piano"], 0.5 * (six["other"] + ft["other"])
-    A.save(outdir / "residual.wav", A.load(wav, sr=sr)[0][: len(stems["drums"])] - sum(
+    mix = A.load(wav, sr=sr)[0][: len(stems["drums"])]
+    A.save(outdir / "residual.wav", mix - sum(
         stems[k] for k in ("drums", "bass", "vocals", "guitar", "piano", "other")), sr)
+    if present is None:
+        present, det = detect_from_stems(stems, mix, sr, tags)
+        (outdir / "detected.json").write_text(__import__("json").dumps({"present": present, "stems": det}, indent=1))
+        log(f"separate: detected from stems {present}")
+        if len(present) == 1:
+            return {present[0]: str(wav)}
 
     out: dict[str, str] = {}
     for preset in present:

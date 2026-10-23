@@ -133,7 +133,9 @@ def split_duration(start: Fraction, dur: Fraction) -> list[Fraction]:
                 piece = cand
                 break
         if piece is None:
-            piece = min(left, Q(1, 48))
+            # nothing fits the grid here: take the largest plain value that fits the remainder,
+            # never a run of 1/48 slivers
+            piece = next((c for c in STANDARD + TRIPLETS if c <= left), left)
         out.append(piece)
         pos += piece
         left -= piece
@@ -164,10 +166,9 @@ class Bars:
         self.ends = self.starts[1:] + [self.starts[-1] + self.bar]
 
     def index(self, q: Fraction) -> int:
-        for i, (a, b) in enumerate(zip(self.starts, self.ends)):
-            if a <= q < b:
-                return i
-        return len(self.starts) - 1 if q >= self.starts[-1] else 0
+        import bisect
+
+        return max(0, min(bisect.bisect_right(self.starts, q) - 1, len(self.starts) - 1))
 
 
 def make_element(ev: Event, dur: Fraction, tie: str | None, spelled: Callable[[Note], pitch.Pitch],
@@ -212,6 +213,8 @@ def fill_voice(events: list[Event], bars: Bars, spelled: Callable[[Note], pitch.
         while left > 0:
             bi = bars.index(pos)
             room = bars.ends[bi] - pos
+            if room <= 0:
+                break  # past the final bar line (a rounded-up last note): cut it there
             seg = min(left, room)
             pieces = split_duration(pos - bars.starts[bi], seg)
             for k, d in enumerate(pieces):

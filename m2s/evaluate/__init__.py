@@ -33,7 +33,8 @@ def evaluate_run(run: Run, ref_path: str, repeats: str = "auto", diff_bars: int 
                                          "time_signature": ref.time_signature, "key": ref.key,
                                          "bars": ref.bars},
                            "alignment": align_info}
-    rep["notes"] = {f"onset_{int(tol * 1000)}ms": note_scores(aligned, ours, tol) for tol in (0.05, 0.1)}
+    # 50 ms is the standard; 100 and 250 ms show how much of the gap is reference-alignment timing
+    rep["notes"] = {f"onset_{int(tol * 1000)}ms": note_scores(aligned, ours, tol) for tol in (0.05, 0.1, 0.25)}
     rep["hands"] = hand_agreement(aligned, ours)
     rep["playability"] = playability(run, aligned, ours)
     rep["score"] = score_facts(run, ref)

@@ -41,7 +41,11 @@ def load_reference(path: str | Path, repeats: str = "auto", expected_notes: int 
     if isinstance(sc, music21.stream.Opus):
         sc = sc.scores[0]
     versions = [(False, sc)]
-    if repeats in ("auto", "expand"):
+    if repeats in ("auto", "expand") and path.suffix.lower() == ".krn":
+        expanded_krn = expand_humdrum(path)
+        if expanded_krn is not None:
+            versions.append((True, music21.converter.parse(str(expanded_krn))))
+    if repeats in ("auto", "expand") and len(versions) == 1:
         try:
             ex = sc.expandRepeats()
             if ex is not None and ex.highestTime > sc.highestTime + 1e-6:
@@ -71,6 +75,51 @@ def load_reference(path: str | Path, repeats: str = "auto", expected_notes: int 
     bars = len(s.parts[0].getElementsByClass(music21.stream.Measure)) if s.parts else 0
     return Reference(notes, ts.ratioString if ts else None, key, bars, expanded, str(out),
                      {"key_signature_sharps": ks.sharps if ks else None})
+
+
+def expand_humdrum(path: Path) -> Path | None:
+    """Apply a Humdrum file's own expansion list (`*>[A,A,B]`), as the `thrux` tool does.
+
+    music21 ignores Humdrum section labels, so a kern score with repeats would otherwise be
+    compared with a performance that takes them. Returns the expanded file, or None if the
+    file declares no expansion.
+    """
+    lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+    order = None
+    for line in lines:
+        first = line.split("\t")[0]
+        if first.startswith("*>[") and first.endswith("]"):
+            order = [x.strip() for x in first[3:-1].split(",") if x.strip()]
+            break
+    if not order:
+        return None
+    head: list[str] = []
+    sections: dict[str, list[str]] = {}
+    tail: list[str] = []
+    current: str | None = None
+    for line in lines:
+        first = line.split("\t")[0]
+        if first.startswith("*>") and not first.startswith("*>[") and "[" not in first:
+            current = first[2:]
+            sections.setdefault(current, [])
+            continue
+        if first.startswith("*>") and "[" in first:
+            continue  # expansion lists themselves
+        if first.startswith("*-") or (current is not None and first.startswith("!!!") and not tail and
+                                      line is lines[-1]):
+            current = None
+            tail.append(line)
+            continue
+        if current is None:
+            (tail if tail else head).append(line)
+        else:
+            sections[current].append(line)
+    if any(lab not in sections for lab in order):
+        return None
+    body = [l for lab in order for l in sections[lab]]
+    out = Path(tempfile.mkdtemp(prefix="m2s-krn-")) / (path.stem + "-expanded.krn")
+    out.write_text("\n".join(head + body + tail) + "\n", encoding="utf-8")
+    return out
 
 
 def _notes(s: Any) -> list[RefNote]:

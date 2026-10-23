@@ -1,0 +1,78 @@
+{
+ "reference": {
+  "notes": 6413,
+  "repeats_expanded": true,
+  "time_signature": "4/4",
+  "key": "C# minor",
+  "bars": 263
+ },
+ "alignment": {
+  "method": "synctoolbox MrMsDTW (chroma + DLNCO), 50 Hz",
+  "path_len": 20621,
+  "ref_seconds": 412.4,
+  "audio_seconds": 493.7
+ },
+ "notes": {
+  "onset_50ms": {
+   "precision": 0.7908,
+   "recall": 0.7463,
+   "f1": 0.7679
+  },
+  "onset_100ms": {
+   "precision": 0.9027,
+   "recall": 0.8519,
+   "f1": 0.8765
+  },
+  "onset_250ms": {
+   "precision": 0.9375,
+   "recall": 0.8848,
+   "f1": 0.9104
+  }
+ },
+ "hands": {
+  "agreement": 0.9585,
+  "matched": 5449
+ },
+ "playability": {
+  "ours": 0.2,
+  "reference": 0.37
+ },
+ "score": {
+  "ours": {
+   "time_signature": "4/4",
+   "key": "C# minor",
+   "bars": 276,
+   "qpm": 142.9
+  },
+  "reference": {
+   "time_signature": "4/4",
+   "key": "C# minor",
+   "bars": 263
+  }
+ },
+ "mv2h": {
+  "skipped": "disabled"
+ },
+ "musicdiff": {
+  "skipped": "pass --diff-bars N to run musicdiff on the first N bars"
+ },
+ "summary": {
+  "note_f1_50ms": 0.7679,
+  "note_f1_100ms": 0.8765,
+  "hand_agreement": 0.9585,
+  "violations_per_100_notes": {
+   "ours": 0.2,
+   "reference": 0.37
+  },
+  "mv2h": null,
+  "musicdiff_edits": null,
+  "time_signature": [
+   "4/4",
+   "4/4"
+  ],
+  "key": [
+   "C# minor",
+   "C# minor"
+  ]
+ }
+}
