@@ -293,6 +293,7 @@ pub struct El {
     pub tie: Option<Tie>,
     pub staccato: bool,
     pub trill: bool,
+    pub fermata: bool,
     pub sf: bool,
     pub fingering: bool,
     pub pedal_start: bool,
@@ -310,6 +311,7 @@ impl El {
             tie: None,
             staccato: false,
             trill: false,
+            fermata: false,
             sf: false,
             fingering: false,
             pedal_start: false,
@@ -368,6 +370,7 @@ pub fn fill_voice(
                     if !tab {
                         el.staccato = ev.staccato;
                         el.trill = ev.notes.iter().any(|r| n0(r).has_tag("trill"));
+                        el.fermata = ev.notes.iter().any(|r| n0(r).has_tag("fermata"));
                     }
                     if !tab && opts.fingering && !perc {
                         el.fingering = ev.notes.iter().all(|r| n0(r).effector.finger.unwrap_or(0) != 0);
@@ -685,7 +688,7 @@ pub fn build_score(
     let bars = Bars::new(grid, end_q);
     let qpm = np::round_i(grid.qpm());
     let mut parts = vec![];
-    let mut assignments: Vec<(NRef, i64, i64, i64)> = vec![];
+    let mut assignments: Vec<(NRef, i64, i64, i64, f64)> = vec![];
     for t in 0..piece.tracks.len() {
         let preset = m2s_core::preset::load(&piece.tracks[t].preset)?;
         let trans = preset.transposition;
@@ -700,9 +703,9 @@ pub fn build_score(
                 staff.key = key_sharps.get(&t).map(|&s| written_sharps(s, trans));
             }
             if !matches!(spec.kind, StaffKind::Tab(_)) {
-                for (r, voice) in assigned {
+                for (r, voice, value) in assigned {
                     let b = piece.tracks[r.t].notes[r.n].beat.unwrap();
-                    assignments.push((r, bars.number(bars.index(frac(b))), voice, si as i64 + 1));
+                    assignments.push((r, bars.number(bars.index(frac(b))), voice, si as i64 + 1, value));
                 }
             }
             staves.push(staff);
@@ -715,11 +718,12 @@ pub fn build_score(
             staves,
         });
     }
-    for (r, m, v, s) in assignments {
+    for (r, m, v, s, value) in assignments {
         let n = &mut piece.tracks[r.t].notes[r.n];
         n.measure = Some(m);
         n.voice = Some(v);
         n.staff = Some(s);
+        n.value = Some(value);
     }
     Ok(ScoreOut {
         title: opts.title.clone(),
@@ -739,7 +743,7 @@ fn fill_staff(
     opts: &Options,
     tempo: Option<i64>,
     trace: &mut Trace,
-) -> (StaffOut, Vec<(NRef, i64)>) {
+) -> (StaffOut, Vec<(NRef, i64, f64)>) {
     let voices = if spec.notes.is_empty() {
         vec![vec![]]
     } else {
@@ -831,8 +835,11 @@ fn fill_staff(
     let mut assigned = vec![];
     for (vi, v) in voices.iter().enumerate() {
         for ev in v {
-            for r in ev.notes.iter().chain(ev.graces.iter()) {
-                assigned.push((*r, vi as i64 + 1));
+            for r in &ev.notes {
+                assigned.push((*r, vi as i64 + 1, qf(ev.dur)));
+            }
+            for r in &ev.graces {
+                assigned.push((*r, vi as i64 + 1, 0.0));
             }
         }
     }

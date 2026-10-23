@@ -35,6 +35,7 @@ class Note:
     measure: int | None = None
     beat: float | None = None
     qdur: float | None = None
+    value: float | None = None     # written value in quarters (set by the Rust notation stage)
     voice: int | None = None
     staff: int | None = None
     spelling: str | None = None

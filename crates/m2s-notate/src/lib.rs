@@ -5,6 +5,7 @@
 //! `staff` on the kept notes, folds trills and marks grace notes, and returns the
 //! MusicXML plus an `info` object with the same keys as the Python `notation.json`.
 
+pub mod dbn;
 pub mod keys;
 pub mod lint;
 pub mod musicxml;
@@ -25,6 +26,26 @@ use serde_json::{json, Value};
 use crate::keys::Key;
 use crate::spell::SpellNote;
 
+/// Where the beat grid comes from.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum BeatSource {
+    /// the tracker's peak-picked beats with doubled and missing beats repaired
+    Clean,
+    /// Viterbi decoding of the tracker's activation with a tempo-smoothness prior (see `dbn`)
+    Dbn,
+}
+
+impl std::str::FromStr for BeatSource {
+    type Err = String;
+    fn from_str(s: &str) -> Result<Self, String> {
+        match s {
+            "clean" => Ok(BeatSource::Clean),
+            "dbn" => Ok(BeatSource::Dbn),
+            o => Err(format!("unknown beat source {o:?} (clean | dbn)")),
+        }
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct Options {
     pub fingering: bool,
@@ -32,6 +53,9 @@ pub struct Options {
     /// pedal marks are optional: most editions leave pedalling to the player
     pub pedal: bool,
     pub title: String,
+    pub beats: BeatSource,
+    /// drop beats inside pauses and mark a fermata (see rhythm::compress_pauses)
+    pub pauses: bool,
 }
 
 impl Default for Options {
@@ -41,6 +65,8 @@ impl Default for Options {
             dynamics: true,
             pedal: false,
             title: "Transcription".into(),
+            beats: BeatSource::Clean,
+            pauses: false,
         }
     }
 }
@@ -105,11 +131,80 @@ pub fn notate(
     let mut db: Option<Vec<f64>> = None;
     if let Some(acts) = beat_acts {
         if !pitched.is_empty() {
-            let cleaned = rhythm::clean_beats(beats);
-            if cleaned.len() >= 4 {
-                db = Some(rhythm::downbeat_strength(&cleaned, &acts.column(1), act_fps));
-                beats_v = cleaned;
+            let chosen = match opts.beats {
+                BeatSource::Clean => rhythm::clean_beats(beats),
+                BeatSource::Dbn => {
+                    // repair the tracker's local slips without changing its metrical level: the
+                    // tempo range is centred on the tracker's own median tempo
+                    let ibi = np::median(&np::diff(&rhythm::clean_beats(beats)));
+                    let bpm = if ibi > 0.0 { 60.0 / ibi } else { 120.0 };
+                    let params = dbn::DbnParams {
+                        min_bpm: bpm * 0.6,
+                        max_bpm: bpm * 1.6,
+                        ..Default::default()
+                    };
+                    dbn::track(&acts.column(0), act_fps, &params)
+                }
+            };
+            let mut chosen = chosen;
+            if opts.pauses && chosen.len() >= 8 {
+                let mut onsets: Vec<f64> = notes_of(piece, &pitched).iter().map(|n| n.onset).collect();
+                onsets.sort_by(|a, b| a.partial_cmp(b).unwrap());
+                onsets.dedup_by(|a, b| (*a - *b).abs() < 0.03);
+                // choose the meter on the full beat list first, then remove whole bars only, so the
+                // bar lines after each pause stay in phase
+                let bpb = {
+                    let db0 = rhythm::downbeat_strength(&chosen, &acts.column(1), act_fps);
+                    rhythm::build_grid(
+                        &chosen,
+                        downbeats,
+                        &notes_of(piece, &pitched),
+                        Some(&db0),
+                        &notes_of(piece, &drums),
+                        &mut Trace::off(),
+                    )
+                    .beats_per_bar
+                };
+                let (kept, pauses) = rhythm::compress_pauses(
+                    &chosen,
+                    &onsets,
+                    &acts.column(0),
+                    act_fps,
+                    1.5,
+                    0.35,
+                    0.25,
+                    bpb.max(1) as usize,
+                );
+                trace.with("pauses", || {
+                    json!({"pauses": pauses.iter().map(|p| json!({"t": p.after, "until": p.until,
+                    "removed_beats": p.removed_beats, "mean_activation": np::round_n(p.mean_activation, 3),
+                    "ibi_variation": np::round_n(p.ibi_variation, 3)})).collect::<Vec<_>>()})
+                });
+                // the chord before each pause carries the fermata
+                for p in &pauses {
+                    for (t, tr) in piece.tracks.iter_mut().enumerate() {
+                        if families[t] == Family::Drums {
+                            continue;
+                        }
+                        for n in tr
+                            .notes
+                            .iter_mut()
+                            .filter(|n| n.keep && (n.onset - p.after).abs() < 0.03)
+                        {
+                            n.tags.push("fermata".into());
+                        }
+                    }
+                }
+                chosen = kept;
             }
+            if chosen.len() >= 4 {
+                db = Some(rhythm::downbeat_strength(&chosen, &acts.column(1), act_fps));
+                beats_v = chosen;
+            }
+            trace.with(
+                "beats",
+                || json!({"source": format!("{:?}", opts.beats), "count": beats_v.len()}),
+            );
         }
     }
     let mut grid = rhythm::build_grid(
@@ -176,7 +271,22 @@ pub fn notate(
     let score = score::build_score(piece, &grid, &key_sharps, opts, trace)?;
     let xml = musicxml::write(&score, piece);
     let lint = lint::lint(&score, piece);
+    // bar and beat start times in seconds (for score-level evaluation against an aligned reference)
+    let beat_q = grid.beat_quarters();
+    let mut bar_times = vec![];
+    let mut beat_times = vec![];
+    for (a, b) in score.bars.starts.iter().zip(score.bars.ends.iter()) {
+        let (a, b) = (score::qf(*a), score::qf(*b));
+        bar_times.push(np::round_n(grid.time_of(a), 4));
+        let mut x = a;
+        while x < b - 1e-9 {
+            beat_times.push(np::round_n(grid.time_of(x), 4));
+            x += beat_q;
+        }
+    }
     let info = json!({
+        "bar_times": bar_times,
+        "beat_times": beat_times,
         "time_signature": grid.time_signature(),
         "pickup_quarters": grid.pickup_quarters,
         "qpm": np::round_n(grid.qpm(), 1),

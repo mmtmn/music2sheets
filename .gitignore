@@ -14,6 +14,7 @@ eval/reports/*/
 !eval/reports/.gitkeep
 models/
 third_party/MV2H/
+third_party/hFT-Transformer/
 
 # Editors / OS
 .vscode/

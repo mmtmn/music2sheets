@@ -41,10 +41,38 @@ impl Grid {
         (b - self.first_downbeat_beat as f64) * self.unit
     }
 
+    /// Quarters from the first downbeat -> seconds (inverse of `to_quarters`, linear outside the beats).
+    pub fn time_of(&self, q: f64) -> f64 {
+        let bt = &self.beat_times;
+        let n = bt.len();
+        let b = q / self.unit + self.first_downbeat_beat as f64;
+        if b <= 0.0 {
+            bt[0] + b * (bt[1] - bt[0])
+        } else if b >= (n - 1) as f64 {
+            bt[n - 1] + (b - (n - 1) as f64) * (bt[n - 1] - bt[n - 2])
+        } else {
+            let i = b.floor() as usize;
+            bt[i] + (b - i as f64) * (bt[i + 1] - bt[i])
+        }
+    }
+
+    /// Length of the notated beat in quarters: a dotted quarter in compound meter, else the
+    /// time signature's denominator.
+    pub fn beat_quarters(&self) -> f64 {
+        if self.info.get("compound").and_then(Value::as_bool).unwrap_or(false) {
+            return 1.5;
+        }
+        4.0 / self.time_signature_parts().1 as f64
+    }
+
     pub fn time_signature(&self) -> String {
         let q = self.bar_quarters;
         if self.info.get("compound").and_then(Value::as_bool).unwrap_or(false) {
             return format!("{}/8", np::round_i(q * 2.0));
+        }
+        // a half-note beat is cut time (2/2, 3/2), not 4/4 or 6/4
+        if self.unit == 2.0 {
+            return format!("{}/2", self.beats_per_bar);
         }
         if (q - q.round_ties_even()).abs() < 1e-6 {
             return format!("{}/4", np::round_i(q));
@@ -59,9 +87,10 @@ impl Grid {
         (it.next().unwrap().parse().unwrap(), it.next().unwrap().parse().unwrap())
     }
 
+    /// Quarters per minute: tracked beats per minute times quarters per tracked beat.
     pub fn qpm(&self) -> f64 {
         let ibi = np::median(&np::diff(&self.beat_times));
-        60.0 / ibi / self.unit
+        60.0 / ibi * self.unit
     }
 }
 
@@ -118,7 +147,7 @@ pub fn choose_unit(beat_times: &[f64], notes: &[&Note]) -> (f64, Map<String, Val
     };
     let mut scores: Vec<(f64, f64)> = vec![];
     for unit in [0.5, 1.0, 2.0] {
-        let qpm = 60.0 / ibi / unit;
+        let qpm = 60.0 / ibi * unit;
         let bias = if unit == 1.0 { 0.0 } else { 0.8 };
         let tempo_pen = (((qpm / 110.0).ln()).abs() - 1.7f64.ln()).max(0.0).powi(2) / 0.1;
         let fast_q = fast_beats * unit;
@@ -609,4 +638,140 @@ pub fn quantize(notes: &[&Note], grid: &mut Grid, trace: &mut Trace) -> Vec<(f64
     }
     grid.divisions = divs;
     out
+}
+
+/// A silence that is a pause (fermata, breath, a held chord), not a written rest.
+#[derive(Debug, Clone)]
+pub struct Pause {
+    /// onset of the last chord before the silence
+    pub after: f64,
+    pub until: f64,
+    pub removed_beats: usize,
+    pub mean_activation: f64,
+    pub ibi_variation: f64,
+}
+
+/// Remove tracked beats inside pauses so a fermata or breath doesn't become extra bars.
+///
+/// A gap between consecutive onsets longer than `min_beats` beats is a pause when the tracker
+/// itself is unsure there: its beat activation inside the gap is weak (mean < `max_act`), or the
+/// beats it placed there don't keep the local tempo (spacing varies by more than `max_var`).
+/// A steady, confident pulse through a silence is left alone: that is a written rest.
+///
+/// Only whole bars (multiples of `bar` beats) are removed, so the bar lines after a pause keep
+/// their phase; the leftover beats lengthen the chord before it.
+#[allow(clippy::too_many_arguments)]
+pub fn compress_pauses(
+    beats: &[f64],
+    onsets: &[f64],
+    beat_act: &[f32],
+    fps: f64,
+    min_beats: f64,
+    max_act: f64,
+    max_var: f64,
+    bar: usize,
+) -> (Vec<f64>, Vec<Pause>) {
+    let bar = bar.max(1);
+    if beats.len() < 8 || onsets.len() < 2 {
+        return (beats.to_vec(), vec![]);
+    }
+    let ibi = np::median(&np::diff(beats));
+    let act_at = |t: f64| -> f64 {
+        let f = (t * fps).round() as i64;
+        let lo = (f - 3).max(0) as usize;
+        let hi = ((f + 4).max(0) as usize).min(beat_act.len());
+        (lo..hi).map(|i| beat_act[i] as f64).fold(0.0, f64::max)
+    };
+    let mut drop = vec![false; beats.len()];
+    let mut pauses = vec![];
+    for w in onsets.windows(2) {
+        let (a, b) = (w[0], w[1]);
+        if b - a <= min_beats * ibi {
+            continue;
+        }
+        let inside: Vec<usize> = (0..beats.len())
+            .filter(|&i| beats[i] > a + 0.5 * ibi && beats[i] < b - 0.25 * ibi)
+            .collect();
+        if inside.is_empty() {
+            continue;
+        }
+        let mean_act = inside.iter().map(|&i| act_at(beats[i])).sum::<f64>() / inside.len() as f64;
+        // spacing of the beats through the gap, including its two edges
+        let mut pts = vec![a];
+        pts.extend(inside.iter().map(|&i| beats[i]));
+        pts.push(b);
+        let d = np::diff(&pts);
+        let m = d.iter().sum::<f64>() / d.len() as f64;
+        let sd = (d.iter().map(|x| (x - m).powi(2)).sum::<f64>() / d.len() as f64).sqrt();
+        let var = sd / ibi;
+        let k = inside.len() / bar * bar;
+        if k > 0 && (mean_act < max_act || var > max_var) {
+            for &i in &inside[inside.len() - k..] {
+                drop[i] = true;
+            }
+            pauses.push(Pause {
+                after: a,
+                until: b,
+                removed_beats: k,
+                mean_activation: mean_act,
+                ibi_variation: var,
+            });
+        }
+    }
+    let kept: Vec<f64> = beats
+        .iter()
+        .zip(drop.iter())
+        .filter(|(_, &d)| !d)
+        .map(|(&b, _)| b)
+        .collect();
+    (kept, pauses)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// 120 bpm, notes on every beat except a 3-beat silence after t = 5 s
+    fn pulse(act_in_gap: f32) -> (Vec<f64>, Vec<f64>, Vec<f32>) {
+        let fps = 50.0;
+        let beats: Vec<f64> = (0..24).map(|k| k as f64 * 0.5).collect();
+        let onsets: Vec<f64> = beats.iter().copied().filter(|&t| !(t > 5.0 && t < 7.0)).collect();
+        let mut act = vec![0.02f32; 700];
+        for &b in &beats {
+            let f = (b * fps) as usize;
+            act[f] = if b > 5.0 && b < 7.0 { act_in_gap } else { 0.9 };
+        }
+        (beats, onsets, act)
+    }
+
+    #[test]
+    fn unsure_tracker_in_a_silence_is_a_pause() {
+        let (beats, onsets, act) = pulse(0.1);
+        let (kept, pauses) = compress_pauses(&beats, &onsets, &act, 50.0, 1.5, 0.35, 0.25, 1);
+        assert_eq!(pauses.len(), 1);
+        assert_eq!(pauses[0].after, 5.0);
+        assert_eq!(pauses[0].removed_beats, 3);
+        assert_eq!(kept.len(), beats.len() - 3);
+    }
+
+    #[test]
+    fn confident_steady_pulse_through_a_silence_is_a_rest() {
+        let (beats, onsets, act) = pulse(0.9);
+        let (kept, pauses) = compress_pauses(&beats, &onsets, &act, 50.0, 1.5, 0.35, 0.25, 1);
+        assert!(pauses.is_empty());
+        assert_eq!(kept, beats);
+    }
+
+    #[test]
+    fn pauses_remove_whole_bars_only() {
+        // 3 beats inside the silence, 2 beats per bar: one bar (2 beats) goes, the first beat stays
+        let (beats, onsets, act) = pulse(0.1);
+        let (kept, pauses) = compress_pauses(&beats, &onsets, &act, 50.0, 1.5, 0.35, 0.25, 2);
+        assert_eq!(pauses[0].removed_beats, 2);
+        assert!(kept.contains(&5.5) && !kept.contains(&6.0) && !kept.contains(&6.5));
+        // 4 beats per bar: less than a bar of pause, nothing is removed
+        let (kept, pauses) = compress_pauses(&beats, &onsets, &act, 50.0, 1.5, 0.35, 0.25, 4);
+        assert!(pauses.is_empty());
+        assert_eq!(kept, beats);
+    }
 }

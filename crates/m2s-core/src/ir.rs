@@ -85,6 +85,9 @@ pub struct Note {
     pub beat: Option<f64>,
     #[serde(default)]
     pub qdur: Option<f64>,
+    /// written value in quarters after voicing (legato truncation, ties joined); set by notation
+    #[serde(default)]
+    pub value: Option<f64>,
     #[serde(default)]
     pub voice: Option<i64>,
     #[serde(default)]
@@ -114,6 +117,7 @@ impl Note {
             measure: None,
             beat: None,
             qdur: None,
+            value: None,
             voice: None,
             staff: None,
             spelling: None,

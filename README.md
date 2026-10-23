@@ -57,6 +57,50 @@ About half of the 100 ms errors are notes at the right pitch whose onsets fall
 missed notes, octave errors and wrong neighbour pitches. Most of them are in
 the coda.
 
+This test is no longer blind: its reference has been on the machine since
+it was scored. Later changes were measured on the real-recording dev set
+below, never on this piece.
+
+### Dev set (real recordings)
+
+Eight Beethoven sonata movements: public-domain and CC0 recordings from
+Wikimedia Commons, scored against Craig Sapp's Humdrum editions
+(`tools/fetch_real_dev.py`; nothing from Sonata No. 14). These are real
+pianos in real rooms, two of them tuned about half a semitone below A440.
+
+| Movement | Note F1 50 / 100 ms | Hands | Score-level | Time sig. (ours / edition) | Bars (ours / edition) |
+| --- | --- | --- | --- | --- | --- |
+| No. 8 i | 0.756 / 0.890 | 0.899 | 0.658 | 4/4 / 4/4 | 185 / 310 |
+| No. 8 ii | 0.764 / 0.926 | 0.757 | 0.653 | 3/4 / 2/4 | 93 / 73 |
+| No. 8 iii | 0.832 / 0.945 | 0.937 | 0.673 | 2/2 / 2/2 | 206 / 211 |
+| No. 15 i | 0.468 / 0.522 | 0.956 | 0.650 | 3/4 / 3/4 | 384 / 461 |
+| No. 15 iii | 0.827 / 0.893 | 0.897 | 0.633 | 4/4 / 3/4 | 59 / 165 |
+| No. 21 i | 0.804 / 0.900 | 0.964 | 0.708 | 4/4 / 4/4 | 396 / 387 |
+| No. 21 iii | 0.635 / 0.739 | 0.875 | 0.696 | 4/4 / 2/4 | 271 / 684 |
+| No. 31 ii | 0.926 / 0.952 | 0.903 | 0.685 | 3/4 / 2/4 | 153 / 231 |
+| **Mean** | **0.752 / 0.846** | **0.898** | **0.670** | 4 of 8 right | 30.9% error |
+
+Keys: 5 of 8 right. Two minor-key movements came out as their relative
+major, and one as the dominant. No. 15 i scores low for a reason not yet
+found.
+
+The notes are mostly right; the score-level gap is in meter and written
+values. The beat tracker often counts at a different level from the editor:
+one beat per bar in the No. 15 scherzo, eighth notes in the No. 8 Adagio.
+That multiplies every written value by the same factor. Three bugs found on
+this set are fixed:
+
+- **Tuning correction stretched time.** On recordings more than 20 cents off
+  A440, every note time was compressed by 5.9%. Fixing it raised No. 21 from
+  note F1 0.03 to 0.80 (i) and 0.64 (iii).
+- **Tempo prior inverted.** The beat-unit choice used an inverted tempo
+  prior, and the written tempo was wrong whenever the beat wasn't a quarter.
+- **Evaluator chose the wrong reference.** It ignored the no-repeat orders
+  that Humdrum files declare, and used an estimated reference key instead of
+  the one the editor wrote.
+
+The mean before these fixes was note F1 0.559 / 0.633 and score-level 0.524.
+
 ### Dev set (rendered piano performances, ASAP dataset)
 
 Eight pieces by Bach, Beethoven, Chopin, Haydn, Mozart and Schubert: ASAP
@@ -68,7 +112,9 @@ blind-test piece is excluded from the dev set.
 | Note F1 (onset within 50 ms) against the performance | 0.993 mean |
 | Hand assignment, all 8 pieces (staff = hand) | 95.1% (middle-C split baseline: 80.8%) |
 | Hand assignment, 2 held-out pieces | 92.1% |
-| Time signature correct | 6 of 8 (misses: 12/8 read as 4/4, 2/2 read as 4/4) |
+| Time signature correct | 6 of 8 (misses: 12/8 read as 4/4, Haydn's 4/4 read as 2/2) |
+| Bar count error | 18.7% mean |
+| Notated beats against ASAP's beat annotations (F-measure) | 0.873 |
 | Mozart K. 332 i, scored against the ASAP score | MV2H 0.906, note F1 0.866 at 50 ms / 0.930 at 100 ms |
 
 ### Band path (synthetic test with exact ground truth)
@@ -180,6 +226,15 @@ Each input gets a folder `runs/<hash>/` named after the audio's content hash
 Presets: `piano`, `guitar`, `electric_guitar`, `bass`, `violin`, `sax_alto`,
 `sax_tenor`, `voice`, `drums`.
 
+Two notation options for `m2s run` and `m2s notate` are experimental and off
+by default. Neither improved either dev set (see
+[Results](#results)), but they help on some pieces:
+
+| Option | Does |
+| --- | --- |
+| `--beats dbn` | re-decode the beat tracker's activation with a dynamic Bayesian network (Krebs, Böck and Widmer 2015) and a tempo range centred on the tracker's own tempo, instead of repairing the tracker's peaks |
+| `--pauses` | drop tracked beats inside pauses where the tracker is unsure (weak activation or unsteady spacing) and put a fermata on the chord before. The meter is chosen first and only whole bars are removed, so later bar lines stay in phase |
+
 ## How it works
 
 ```
@@ -210,10 +265,26 @@ one JSON note format and the YAML presets in `presets/`.
 3. **Transcribe** (worker: `m2s/transcribe/`). Piano: Transkun V2 and Kong et
    al. (2021), fused; notes both models report get high confidence, others get
    confidence from the second model's local evidence. The tuning offset is
-   corrected first. Keyboards in a band go through the same piano models on the
+   corrected first. Two experimental alternatives are off by default:
+   - `M2S_FUSION=vote` scores each note with a logistic function of which
+     models report it, Kong's onset evidence, velocity, and whether a
+     better-supported note an octave or a semitone away contradicts it. The
+     weights were fit on the real-recording dev set. Leave-one-movement-out,
+     it raised note F1 at 100 ms from 0.846 to 0.851, but on the one rendered
+     piece checked so far (Bach) it fell from 0.998 to 0.991.
+   - `M2S_HFT=1` adds hFT-Transformer (Toyama et al. 2023) as a third voter
+     (fetch it with `tools/fetch_hft.sh`). It scored the same as the two-model
+     vote, and voting did not reduce octave or neighbour errors: 87-90% of
+     them are notes all three models agree on. It also adds about 40% model
+     time. Keyboards in a band go through the same piano models on the
    keys stem. Guitar and violin: Basic Pitch with overtone suppression and
    onset-checked confidences. Bass, voice and sax: torchcrepe pitch tracking
    cut into notes (at amplitude onsets too, for bass). Drums: ADTOF.
+   A recording tuned near a quarter-tone off A440 (35 cents or more) is
+   ambiguous: retuning up or down fits equally well, and the wrong choice
+   moves every note by a semitone. There the transcription moves a semitone
+   up or down if that gives a best-fitting key with at least two fewer sharps
+   or flats.
 4. **Playability decode** (Rust: `crates/m2s-core/src/play/`). Every
    instrument is a YAML preset describing its effectors, states, hard limits
    and transition costs.
@@ -235,7 +306,7 @@ one JSON note format and the YAML presets in `presets/`.
 6. **Notate** (Rust: `crates/m2s-notate/`). Beat unit and meter from the
    tracker plus bass, harmony-change and downbeat evidence (a snare backbeat
    fixes the beat when there are drums; triplet-heavy beats give compound
-   meter). Per-beat subdivision choice; trills and grace notes; key from the
+   meter; a half-note beat gives cut time). Per-beat subdivision choice; trills and grace notes; key from the
    notes, with relative major/minor decided by the bass; spelling on the line
    of fifths; up to two voices per staff; clefs chosen by minimising ledger
    lines; dynamics from velocity; sforzandi; staccato. MusicXML is written
@@ -293,16 +364,35 @@ the audio and the score only, never our notes. Rust then scores:
 - hand agreement (our hand vs. the reference's staff, on matched notes)
 - playability violations per 100 notes, for us and for the reference itself
 - time signature, key, bar count
+- a score-level metric (below), computed in Rust in well under a second
 - MV2H (multi-pitch, voice, meter, value, harmony), if built. Its note
   alignment did not finish within an hour on the 8-minute blind test, so use
   `--no-mv2h` for long pieces.
 - optionally, `--diff-bars N` runs musicdiff on the first N bars; it is too
   slow for whole movements
 
-Repeats are expanded automatically when the expanded version better matches
-the number of notes played. Humdrum files are expanded with their own declared
-section order (`*>[...]`, as the `thrux` tool does), since music21 ignores
-those labels.
+**Score-level metric.** MV2H's five parts, computed against the aligned
+reference instead of by MV2H's own search. Each part is an F1 or a weighted
+score in 0..1, and `score_level` is their mean:
+
+| Part | What is compared |
+| --- | --- |
+| pitch | note F1 (onset within 100 ms) |
+| voice | links between consecutive chords within one voice, ours vs. the reference's, on matched notes (F1) |
+| meter | our bar lines and beats against the reference's, as times in the recording (mean of the two F1s, within 100 ms) |
+| value | share of matched notes whose written duration equals the reference's |
+| harmony | the key, with MIREX weights: 1 exact, 0.5 a fifth away, 0.3 relative major/minor, 0.2 parallel |
+
+**References.** Repeats are expanded automatically when the expanded
+version better matches the number of notes played. Humdrum files declare
+their own section orders (`*>[...]`, plus named ones such as
+`*>norep[...]` for a performance without repeats). Each declared order is
+built, as the `thrux` tool does, and the one closest to the performance is
+used. The reference key is the one the encoder wrote (Humdrum `*c:`,
+MusicXML `<mode>`); music21's estimate from the notes is used only when
+none is written. A recording tuned about half a semitone off A440 can put
+the alignment's chroma one bin away from the score's, so the recording's
+chroma is shifted by the semitone (−1, 0 or +1) that best matches the score.
 
 **Protocol.** Transcribe, commit the output under `eval/blind/<test>/vN/`, and
 only then put the reference in `eval/references/` (git-ignored) and run
@@ -325,17 +415,28 @@ MusicXML or GP5 from Guitar Pro, TuxGuitar or MuseScore first.
 
 ## Known limitations
 
-- **Beat tracking on expressive solo piano** is the main source of score-level
-  error. Where the tracker drifts, notes are right but land a sixteenth off
-  the beat (figures start after a rest), and pauses add bars. Note-level
-  accuracy is not affected.
-- **Meter**: compound meters (12/8) can come out as 4/4 with triplets, and
-  cut time (2/2) as 4/4.
+- **Metrical level** is the main source of score-level error on real
+  recordings. The beat tracker often follows a different level from the one
+  the editor wrote: one beat per bar in a fast 3/4 scherzo, eighth notes in
+  a 2/4 Adagio, half notes in an alla breve. The notes are right, but bars
+  are too long or too short and every written value is off by the same
+  factor. Some of this is a real ambiguity: a 4/4 Moderato with 32nd notes
+  and a 2/2 Allegro with 16th notes look alike in audio. The rendered dev set
+  has one such miss (Haydn's 4/4 written as 2/2 with doubled values).
+- **Beat tracking on expressive solo piano**: where the tracker drifts, notes
+  are right but land a sixteenth off the beat, and pauses add bars.
+- **Compound meter**: 12/8 can come out as 4/4 with triplets.
+- **Minor keys** are sometimes reported as their relative major (2 of the 8
+  real-recording movements).
 - **Distorted guitar** has no dedicated public transcription model.
   Basic Pitch with overtone suppression reaches F1 0.6-0.7 on the synthetic
   test, and less on real mixes. Leftover overtones also pull the tab up the
-  neck. A fine-tuned guitar model (SynthTab, Guitar-TECHS, GOAT) is the next
-  step.
+  neck. `tools/train_guitar.py` fine-tunes Basic Pitch on EGDB, Guitar-TECHS
+  and GuitarSet with amp-sim augmentation. `tools/eval_guitar.py` compares
+  the result with stock Basic Pitch on held-out players and amps. That
+  comparison isn't finished, so the fine-tuned model is not used unless you
+  point `M2S_GUITAR_MODEL` at it. EGDB has no stated license, so weights
+  trained on it are for research use only.
 - **Bass** repeated notes on one pitch are sometimes merged.
 - **Playing techniques** (bends, slides, hammer-ons, tapping, palm mutes) are
   carried as pitch curves in `notes.json` but not yet written as notation.
@@ -353,6 +454,9 @@ for f in data/dev/asap/*/*/performance.wav data/dev/asap/*/*/*/performance.wav; 
   [ -f "$f" ] && m2s run "$f" --runs-root data/devruns --until verify; done
 python tools/dev_hands.py          # hand assignment
 python tools/dev_rhythm.py         # meter, bars, beats, note F1
+python tools/fetch_real_dev.py     # real recordings (Wikimedia Commons) + Humdrum editions
+python tools/real_dev.py           # run and score all 8 movements
+python tools/real_dev_notation.py -- --pauses   # re-notate and re-score with other notation options
 python tools/make_band_test.py && m2s run data/bandtest/band.wav \
   --instruments electric_guitar,bass,drums,sax_alto --runs-root data/bandruns
 python tools/eval_band_test.py data/bandruns/<hash>
@@ -402,6 +506,7 @@ models whose licenses are their own. Check each before any commercial use.
 | --- | --- | --- |
 | [Transkun](https://github.com/Yujia-Yan/Transkun) | piano transcription | |
 | [Kong et al. piano transcription](https://github.com/qiuqiangkong/piano_transcription_inference) | piano transcription, pedal, verification front end | |
+| [hFT-Transformer](https://github.com/sony/hFT-Transformer) | optional third piano model (`M2S_HFT=1`) | fetched by `tools/fetch_hft.sh`, pinned commit and checkpoint |
 | [Demucs](https://github.com/adefossez/demucs) | source separation | |
 | [Basic Pitch](https://github.com/spotify/basic-pitch) | polyphonic pitched transcription | ONNX model only |
 | [torchcrepe](https://github.com/maxrmorrison/torchcrepe) | monophonic pitch | |

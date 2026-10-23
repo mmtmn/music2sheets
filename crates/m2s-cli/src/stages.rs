@@ -22,7 +22,9 @@ use crate::run::{file_hash, Run};
 use crate::worker::Worker;
 
 /// bump when the worker's outputs change meaning
-const WORKER_V: &str = "1";
+const WORKER_V: &str = "4";
+/// version of the reference loading and alignment (bump to invalidate cached eval alignments)
+const ALIGN_V: &str = "3";
 const CORE_V: &str = env!("CARGO_PKG_VERSION");
 
 pub struct Ctx {
@@ -205,8 +207,15 @@ pub fn verify(c: &mut Ctx, force: bool) -> Result<Value> {
     Ok(out)
 }
 
-pub fn notate(c: &mut Ctx, force: bool, fingering: bool) -> Result<Value> {
-    let key = json!({"in": c.run.stage_key("decode"), "edits": c.run.edits(), "fingering": fingering, "v": CORE_V});
+pub fn notate(
+    c: &mut Ctx,
+    force: bool,
+    fingering: bool,
+    beat_source: m2s_notate::BeatSource,
+    pauses: bool,
+) -> Result<Value> {
+    let key = json!({"in": c.run.stage_key("decode"), "edits": c.run.edits(), "fingering": fingering,
+                     "beats": format!("{beat_source:?}"), "pauses": pauses, "v": CORE_V});
     if !force
         && c.run
             .is_fresh("notate", &key, &["score.musicxml", "notation.json", "scored.json"])
@@ -228,6 +237,8 @@ pub fn notate(c: &mut Ctx, force: bool, fingering: bool) -> Result<Value> {
         dynamics: true,
         pedal: false,
         title: format!("Transcription {}", c.run.root.file_name().unwrap().to_string_lossy()),
+        beats: beat_source,
+        pauses,
     };
     let mut trace = c.trace("notate")?;
     let t = Instant::now();
@@ -320,6 +331,8 @@ pub struct RunOpts<'a> {
     pub force: bool,
     pub engine: &'a str,
     pub fingering: bool,
+    pub beats: m2s_notate::BeatSource,
+    pub pauses: bool,
 }
 
 pub fn run_all(c: &mut Ctx, o: &RunOpts) -> Result<()> {
@@ -337,7 +350,7 @@ pub fn run_all(c: &mut Ctx, o: &RunOpts) -> Result<()> {
     if o.until == Some("verify") {
         return Ok(());
     }
-    notate(c, o.force, o.fingering)?;
+    notate(c, o.force, o.fingering, o.beats, o.pauses)?;
     engrave(c, o.force, o.engine)?;
     let s = summary(c)?;
     c.log(format!(
@@ -461,19 +474,42 @@ pub struct EvalOpts<'a> {
 pub fn eval(c: &mut Ctx, o: &EvalOpts) -> Result<Value> {
     let root = c.run.root.to_string_lossy().to_string();
     let aligned = c.run.path("eval_reference.json");
-    c.log("eval: loading and aligning the reference (worker)");
-    c.worker.call(&[
-        "align",
-        "--run",
-        &root,
-        "--ref",
-        &o.reference.to_string_lossy(),
-        "--repeats",
-        o.repeats,
-        "--out",
-        &aligned.to_string_lossy(),
-    ])?;
-    let a: Value = serde_json::from_str(&std::fs::read_to_string(&aligned)?)?;
+    // the alignment depends on the recording and the reference only: reuse it when both match
+    let ref_hash = crate::run::file_hash(o.reference, 16)?;
+    let cached = std::fs::read_to_string(&aligned)
+        .ok()
+        .and_then(|t| serde_json::from_str::<Value>(&t).ok())
+        .filter(|v| {
+            v["ref_hash"].as_str() == Some(ref_hash.as_str())
+                && v["repeats"].as_str() == Some(o.repeats)
+                && v["align_v"].as_str() == Some(ALIGN_V)
+        });
+    let a: Value = match cached {
+        Some(v) => {
+            c.log("eval: reusing the cached reference alignment");
+            v
+        }
+        None => {
+            c.log("eval: loading and aligning the reference (worker)");
+            c.worker.call(&[
+                "align",
+                "--run",
+                &root,
+                "--ref",
+                &o.reference.to_string_lossy(),
+                "--repeats",
+                o.repeats,
+                "--out",
+                &aligned.to_string_lossy(),
+            ])?;
+            let mut v: Value = serde_json::from_str(&std::fs::read_to_string(&aligned)?)?;
+            v["ref_hash"] = json!(ref_hash);
+            v["repeats"] = json!(o.repeats);
+            v["align_v"] = json!(ALIGN_V);
+            std::fs::write(&aligned, v.to_string())?;
+            v
+        }
+    };
     let refs: Vec<ev::RefNote> = serde_json::from_value(a["notes"].clone())?;
     // score what was engraved: the notated notes when there are any
     let scored = c.run.root.join("scored.json");
@@ -503,6 +539,40 @@ pub fn eval(c: &mut Ctx, o: &EvalOpts) -> Result<Value> {
                   "reference": {"time_signature": a["reference"]["time_signature"], "key": a["reference"]["key"],
                                 "bars": a["reference"]["bars"]}},
     });
+    // score-level metric on the same alignment (fast; see m2s_core::eval::score_level)
+    let ours_sl = ev::Ours {
+        notes: ours.clone(),
+        voice_of: piece
+            .tracks
+            .iter()
+            .enumerate()
+            .flat_map(|(ti, t)| t.kept().map(move |n| (ti, n.staff.unwrap_or(1), n.voice.unwrap_or(1))))
+            .collect(),
+        bar_times: notation["bar_times"]
+            .as_array()
+            .into_iter()
+            .flatten()
+            .filter_map(|x| x.as_f64())
+            .collect(),
+        beat_times: notation["beat_times"]
+            .as_array()
+            .into_iter()
+            .flatten()
+            .filter_map(|x| x.as_f64())
+            .collect(),
+        key: notation["key"].as_str().unwrap_or("").to_string(),
+    };
+    let meta = ev::RefMeta {
+        bar_qons: a["bar_qons"]
+            .as_array()
+            .into_iter()
+            .flatten()
+            .filter_map(|x| x.as_f64())
+            .collect(),
+        beat_q: a["beat_q"].as_f64().unwrap_or(1.0),
+        key: a["reference"]["key"].as_str().unwrap_or("").to_string(),
+    };
+    rep["score_level"] = ev::score_level(&refs, &meta, &ours_sl);
     let score_path = a["score_path"].as_str().unwrap_or("").to_string();
     let xml = c.run.root.join("score.musicxml").to_string_lossy().to_string();
     rep["mv2h"] = if o.mv2h {
@@ -531,6 +601,7 @@ pub fn eval(c: &mut Ctx, o: &EvalOpts) -> Result<Value> {
     rep["summary"] = json!({
         "note_f1_50ms": rep["notes"]["onset_50ms"]["f1"], "note_f1_100ms": rep["notes"]["onset_100ms"]["f1"],
         "note_f1_250ms": rep["notes"]["onset_250ms"]["f1"], "hand_agreement": rep["hands"]["agreement"],
+        "score_level": rep["score_level"]["score"],
         "violations_per_100_notes": rep["playability"], "mv2h": rep["mv2h"]["MV2H"],
         "musicdiff_edits": rep["musicdiff"]["edits"],
         "time_signature": [notation["time_signature"], a["reference"]["time_signature"]],

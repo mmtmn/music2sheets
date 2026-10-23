@@ -47,25 +47,69 @@ def transcribe_stem(wav: str | Path, name: str, profile: dict[str, Any], act_out
 
 
 # --------------------------------------------------------------------- polyphonic
-def polyphonic(wav: str | Path, preset: str, act_out: str | Path | None = None) -> list[Note]:
-    from basic_pitch.inference import predict
+GUITAR_PRESETS = {"electric_guitar", "guitar"}
+GUITAR_MODEL = Path(__file__).resolve().parents[2] / "models" / "guitar_bp.onnx"
+_MODELS: dict[str, Any] = {}
+
+
+def guitar_model_path(preset: str) -> str | None:
+    """The fine-tuned guitar model, if trained (tools/train_guitar.py) and enabled as the default.
+
+    It is enabled only when tools/eval_guitar.py found it better than stock Basic Pitch on held-out
+    real recordings (it then writes models/guitar_bp.json with "default": true), or when
+    M2S_GUITAR_MODEL points at a model explicitly ("stock" forces the stock model).
+    """
+    import json
+    import os
+
+    env = os.environ.get("M2S_GUITAR_MODEL")
+    if env:
+        return None if env == "stock" else env
+    if preset not in GUITAR_PRESETS or not GUITAR_MODEL.exists():
+        return None
+    meta = GUITAR_MODEL.with_suffix(".json")
+    if meta.exists() and json.loads(meta.read_text()).get("default"):
+        return str(GUITAR_MODEL)
+    return None
+
+
+def _model(path: str | None) -> Any:
+    from basic_pitch import ICASSP_2022_MODEL_PATH
+    from basic_pitch.inference import Model
 
     from m2s.verify import _bp_model
 
-    from basic_pitch import ICASSP_2022_MODEL_PATH
-    from basic_pitch.inference import Model
+    if path is None:
+        return _bp_model(Model, ICASSP_2022_MODEL_PATH)
+    if path not in _MODELS:
+        _MODELS[path] = Model(path)
+    return _MODELS[path]
+
+
+BP_ARGS = dict(onset_threshold=0.35, frame_threshold=0.25, minimum_note_length=50, multiple_pitch_bends=False,
+               melodia_trick=True)
+
+
+def polyphonic(wav: str | Path, preset: str, act_out: str | Path | None = None,
+               model_path: str | None = "auto") -> list[Note]:
+    """Basic Pitch candidates. ``model_path``: "auto" (fine-tuned guitar model when enabled),
+    None (stock), or a path to an ONNX model with Basic Pitch's inputs and outputs."""
+    from basic_pitch.inference import predict
 
     p = load_preset(preset)
     lo, hi = p.get("range", [21, 108])
     import librosa
 
-    model_out, _, events = predict(str(wav), _bp_model(Model, ICASSP_2022_MODEL_PATH), onset_threshold=0.35,
-                                   frame_threshold=0.25, minimum_note_length=50,
-                                   minimum_frequency=float(librosa.midi_to_hz(lo - 1)),
-                                   maximum_frequency=float(librosa.midi_to_hz(hi + 1)),
-                                   multiple_pitch_bends=False, melodia_trick=True)
+    path = guitar_model_path(preset) if model_path == "auto" else model_path
+    model_out, _, events = predict(str(wav), _model(path), minimum_frequency=float(librosa.midi_to_hz(lo - 1)),
+                                   maximum_frequency=float(librosa.midi_to_hz(hi + 1)), **BP_ARGS)
     if act_out is not None:
         np.save(act_out, model_out["note"].astype(np.float16))
+    return notes_from_output(model_out, events, "basic_pitch" if path is None else "basic_pitch_guitar")
+
+
+def notes_from_output(model_out: dict, events: list, provenance: str = "basic_pitch") -> list[Note]:
+    """Basic Pitch note events -> candidates with onset-checked confidence, overtones and retriggers handled."""
     onset_act = model_out["onset"]
     fps = 22050 / 256
     notes = []
@@ -83,7 +127,7 @@ def polyphonic(wav: str | Path, preset: str, act_out: str | Path | None = None) 
         notes.append(Note(id="", onset=round(float(start), 4), offset=round(float(end), 4), pitch=int(pitch),
                           velocity=int(np.clip(30 + 100 * amp, 1, 127)), confidence=round(conf, 3),
                           support={"basic_pitch": round(float(amp), 3), "onset": round(on_peak, 3)}, bend=bend,
-                          provenance="basic_pitch"))
+                          provenance=provenance))
     suppress_harmonics(notes)
     return merge_retriggers(notes)
 

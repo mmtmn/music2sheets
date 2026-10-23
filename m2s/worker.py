@@ -104,8 +104,53 @@ def cmd_transcribe(a: argparse.Namespace) -> Any:
                 tr = transcribe_stem(wav, preset, prof, None)
         tracks.append(tr)
         summary[tr.name] = len(tr.notes)
-    Piece(tracks=tracks, meta={"tuning_cents": prof.get("tuning_cents", 0.0)}).save(run / "candidates.json")
-    return {"candidates": summary}
+    meta = {"tuning_cents": prof.get("tuning_cents", 0.0)}
+    shift = semitone_tiebreak(tracks, prof.get("tuning_cents", 0.0))
+    if shift:
+        for tr in tracks:
+            if tr.preset != "drums":
+                for n in tr.notes:
+                    n.pitch += shift
+        meta["pitch_shift"] = shift
+    Piece(tracks=tracks, meta=meta).save(run / "candidates.json")
+    return {"candidates": summary, "pitch_shift": shift}
+
+
+KK_MAJOR = np.array([6.35, 2.23, 3.48, 2.33, 4.38, 4.09, 2.52, 5.19, 2.39, 3.66, 2.29, 2.88])
+KK_MINOR = np.array([6.33, 2.68, 3.52, 5.38, 2.60, 3.53, 2.54, 4.75, 3.98, 2.69, 3.34, 3.17])
+# accidentals in the key signature of each major tonic (pitch class); a minor key uses its relative major
+MAJOR_ACCIDENTALS = {0: 0, 7: 1, 2: 2, 9: 3, 4: 4, 11: 5, 6: 6, 1: 5, 8: 4, 3: 3, 10: 2, 5: 1}
+
+
+def semitone_tiebreak(tracks: list, tuning_cents: float, zone: float = 35.0) -> int:
+    """A recording tuned about half a semitone off A440 is ambiguous: retuning up or down are equally
+    good fits, and picking wrong transposes every note by a semitone. In that zone, choose the shift
+    (-1, 0, +1) whose best-fitting key needs the fewest accidentals: most music is written in keys
+    with few sharps or flats. Outside the zone, nothing changes."""
+    if abs(tuning_cents) < zone:
+        return 0
+    h = np.zeros(12)
+    for tr in tracks:
+        if tr.preset == "drums":
+            continue
+        for n in tr.notes:
+            if n.confidence >= 0.5:
+                h[n.pitch % 12] += min(n.duration, 2.0)
+    if h.sum() == 0:
+        return 0
+
+    def accidentals(hist: np.ndarray) -> int:
+        best, acc = -2.0, 0
+        for pc in range(12):
+            for prof, minor in ((KK_MAJOR, False), (KK_MINOR, True)):
+                r = float(np.corrcoef(hist, np.roll(prof, pc))[0, 1])
+                if r > best:
+                    best, acc = r, MAJOR_ACCIDENTALS[(pc + 3) % 12 if minor else pc]
+        return acc
+
+    scores = {s: accidentals(np.roll(h, s)) for s in (0, -1, 1)}
+    best = min(scores, key=lambda s: (scores[s], s != 0))
+    return best if scores[best] + 2 <= scores[0] else 0
 
 
 def cmd_activations(a: argparse.Namespace) -> Any:
@@ -147,8 +192,10 @@ def cmd_align(a: argparse.Namespace) -> Any:
         ref = load_reference(a.ref, repeats=a.repeats, expected_notes=len(ours))
         ref, info = align_reference(ref, run / "audio.wav")
     out = {
-        "notes": [{"on": n.on, "off": n.off, "pitch": n.pitch, "staff": n.staff, "qon": n.qon, "qdur": n.qdur}
-                  for n in ref.notes],
+        "notes": [{"on": n.on, "off": n.off, "pitch": n.pitch, "staff": n.staff, "voice": n.voice, "qon": n.qon,
+                   "qdur": n.qdur} for n in ref.notes],
+        "bar_qons": ref.bar_qons,
+        "beat_q": ref.beat_q,
         "reference": {"notes": len(ref.notes), "repeats_expanded": ref.expanded, "time_signature": ref.time_signature,
                       "key": ref.key, "bars": ref.bars},
         "alignment": info,

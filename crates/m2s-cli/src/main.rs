@@ -51,6 +51,12 @@ enum Cmd {
         engine: String,
         #[arg(long)]
         fingering: bool,
+        /// Beat grid: clean (tracker beats, repaired) or dbn (tempo-smooth Viterbi)
+        #[arg(long, default_value = "clean")]
+        beats: m2s_notate::BeatSource,
+        /// Treat silences where the beat tracker loses the pulse as pauses (fermata), not rests
+        #[arg(long)]
+        pauses: bool,
         /// Also copy score.pdf, score.musicxml and the reports here
         #[arg(long)]
         out: Option<PathBuf>,
@@ -100,6 +106,12 @@ enum Cmd {
         force: bool,
         #[arg(long)]
         fingering: bool,
+        /// Beat grid: clean (tracker beats, repaired) or dbn (tempo-smooth Viterbi)
+        #[arg(long, default_value = "clean")]
+        beats: m2s_notate::BeatSource,
+        /// Treat silences where the beat tracker loses the pulse as pauses (fermata), not rests
+        #[arg(long)]
+        pauses: bool,
     },
     /// Render score.musicxml -> score.pdf (MuseScore if installed, else Verovio)
     Engrave {
@@ -174,6 +186,11 @@ enum Cmd {
         profile: PathBuf,
         beats: PathBuf,
         out: PathBuf,
+        /// Beat grid: clean or dbn
+        #[arg(long = "beat-source", default_value = "clean")]
+        beat_source: m2s_notate::BeatSource,
+        #[arg(long)]
+        pauses: bool,
     },
     /// List instrument presets
     Presets,
@@ -205,6 +222,8 @@ fn main() -> Result<()> {
             force,
             engine,
             fingering,
+            beats,
+            pauses,
             out,
         } => {
             let run = stages::ingest(&audio, &runs_root)?;
@@ -223,6 +242,8 @@ fn main() -> Result<()> {
                     force,
                     engine: &engine,
                     fingering,
+                    beats,
+                    pauses,
                 },
             )?;
             if let Some(out) = out {
@@ -270,8 +291,14 @@ fn main() -> Result<()> {
                 );
             }
         }
-        Cmd::Notate { run, force, fingering } => {
-            stages::notate(&mut ctx_for(&run, trace)?, force, fingering)?;
+        Cmd::Notate {
+            run,
+            force,
+            fingering,
+            beats,
+            pauses,
+        } => {
+            stages::notate(&mut ctx_for(&run, trace)?, force, fingering, beats, pauses)?;
         }
         Cmd::Engrave { run, engine, force } => {
             stages::engrave(&mut ctx_for(&run, trace)?, force, &engine)?;
@@ -365,6 +392,8 @@ fn main() -> Result<()> {
             profile,
             beats,
             out,
+            beat_source,
+            pauses,
         } => {
             std::fs::create_dir_all(&out)?;
             let mut piece = m2s_core::ir::Piece::load(&notes)?;
@@ -387,7 +416,11 @@ fn main() -> Result<()> {
                 Some(&acts),
                 prof["beat_act_fps"].as_f64().unwrap_or(50.0),
                 prof["duration"].as_f64(),
-                &m2s_notate::Options::default(),
+                &m2s_notate::Options {
+                    beats: beat_source,
+                    pauses,
+                    ..Default::default()
+                },
                 &mut tr,
             )?;
             std::fs::write(out.join("score.musicxml"), &n.musicxml)?;

@@ -104,3 +104,18 @@ aligning the score to the audio alone dropped note F1 from 0.998 to 0.866 at
 3. A score-informed second pass for a known piece is out of scope for a blind
    system, but a self-similarity pass could make repeated sections consistent
    (the exposition and its repeat should transcribe identically).
+
+## After the test
+
+The reference has been on the machine since this report was written, so
+this piece is no longer a blind test. Later changes were judged on a
+separate real-recording dev set (eight other Beethoven movements; see the
+README) and not on this piece. Of the next steps above:
+
+1. Pause handling and a Viterbi beat decoder (`--pauses`, `--beats dbn`) were
+   built and measured. Neither improved the dev sets, so both stay off by
+   default. The larger score-level problem on real recordings turned out to
+   be the metrical level the tracker follows, not pauses.
+2. hFT-Transformer was added as a third model with a learned vote. Voting
+   could not remove the octave and neighbour errors: 87-90% of them are
+   notes all three models agree on. It is optional (`M2S_HFT=1`).

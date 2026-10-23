@@ -46,7 +46,7 @@ def note_f1(notes, midi: Path) -> float:
     return mir_eval.transcription.precision_recall_f1_overlap(ri, rp, ei, ep, offset_ratio=None)[2]
 
 
-def main(runs_root: str = "data/devruns") -> None:
+def main(runs_root: str = "data/devruns", beat_source: str = "clean", pauses: str = "") -> None:
     import subprocess
     import tempfile
 
@@ -69,16 +69,20 @@ def main(runs_root: str = "data/devruns") -> None:
         f1 = note_f1(kept, g["midi"])
         with tempfile.TemporaryDirectory() as td:
             subprocess.run([m2s_binary(), "--no-trace", "notate-file", str(run.root / "notes.json"),
-                            str(run.root / "profile.json"), str(run.root / "acts" / "beats.npy"), td], check=True)
+                            str(run.root / "profile.json"), str(run.root / "acts" / "beats.npy"), td,
+                            "--beat-source", beat_source] + (["--pauses"] if pauses == "pauses" else []), check=True)
             info = json.loads((Path(td) / "notation.json").read_text())
         raw = mir_eval.beat.f_measure(g["beats"], np.array(prof["beats"]))
+        notated = mir_eval.beat.f_measure(g["beats"], np.array(info["beat_times"]))
         name = str(folder).split("asap/")[1]
-        rows.append((name, f1, g["ts"], info["time_signature"], g["bars"], info["bars"], raw, info["qpm"]))
+        rows.append((name, f1, g["ts"], info["time_signature"], g["bars"], info["bars"], raw, info["qpm"], notated))
         print(f"{name:36s} noteF1 {f1:.3f}  ts {g['ts']:>4s}->{info['time_signature']:>4s}  bars {g['bars']:4d}->"
-              f"{info['bars']:4d}  tracker beatF {raw:.2f}  q={info['qpm']:.0f}", flush=True)
+              f"{info['bars']:4d}  beatF tracker {raw:.2f} notated {notated:.2f}  q={info['qpm']:.0f}", flush=True)
     ok_ts = sum(r[2] == r[3] for r in rows)
-    print(f"time signature correct {ok_ts}/{len(rows)}; mean noteF1 {np.mean([r[1] for r in rows]):.3f}; "
-          f"mean tracker beatF {np.mean([r[6] for r in rows]):.2f}")
+    bar_err = np.mean([abs(r[5] - r[4]) / r[4] for r in rows])
+    print(f"[{beat_source}{' +pauses' if pauses == 'pauses' else ''}] time signature correct {ok_ts}/{len(rows)}; mean noteF1 {np.mean([r[1] for r in rows]):.3f}; "
+          f"beatF tracker {np.mean([r[6] for r in rows]):.3f} notated {np.mean([r[8] for r in rows]):.3f}; "
+          f"bar-count error {bar_err:.1%}")
     Path("data/logs").mkdir(parents=True, exist_ok=True)
     Path("data/logs/dev_rhythm.json").write_text(json.dumps(rows, default=float, indent=1))
 

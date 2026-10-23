@@ -58,6 +58,13 @@ def align_reference(ref: Reference, wav: str | Path) -> tuple[Reference, dict[st
 
     sc, so = _score_features(ref)
     ac, ao = _audio_features(wav)
+    # A recording tuned about half a semitone off A440 can have its chroma land one bin away from
+    # the score's; then DTW aligns against the wrong notes. Undo that with the semitone roll (-1, 0,
+    # +1) whose overall pitch-class profile best matches the score's.
+    prof_s = sc.sum(axis=1)
+    roll = max((0, -1, 1), key=lambda r: float(np.corrcoef(np.roll(ac.sum(axis=1), r), prof_s)[0, 1]))
+    if roll:
+        ac, ao = np.roll(ac, roll, axis=0), np.roll(ao, roll, axis=0)
     wp = sync_via_mrmsdtw(f_chroma1=sc, f_onset1=so, f_chroma2=ac, f_onset2=ao, input_feature_rate=RATE,
                           step_weights=np.array([1.5, 1.5, 2.0]), threshold_rec=10 ** 6, verbose=False)
     src = wp[0] / RATE
@@ -68,6 +75,6 @@ def align_reference(ref: Reference, wav: str | Path) -> tuple[Reference, dict[st
     for n in ref.notes:
         n.on = float(np.interp(n.sec_on, src, dst))
         n.off = max(float(np.interp(n.sec_off, src, dst)), n.on + 0.03)
-    info = {"method": "synctoolbox MrMsDTW (chroma + DLNCO), 50 Hz", "path_len": int(len(src)),
+    info = {"method": "synctoolbox MrMsDTW (chroma + DLNCO), 50 Hz", "path_len": int(len(src)), "chroma_roll": roll,
             "ref_seconds": round(float(src[-1]), 1), "audio_seconds": round(float(dst[-1]), 1)}
     return ref, info

@@ -605,6 +605,9 @@ fn write_el(
                     let _ = write!(nots, "<tuplet type=\"{t}\" bracket=\"yes\"/>");
                 }
             }
+            if el.fermata {
+                nots.push_str("<fermata type=\"upright\"/>");
+            }
             if el.trill {
                 nots.push_str("<ornaments><trill-mark/></ornaments>");
             }
