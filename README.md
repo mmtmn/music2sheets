@@ -1,5 +1,11 @@
 # music2sheets
 
+<p align="center">
+  <a href="docs/media/moonlight-demo.mp4"><img src="docs/media/moonlight-demo.gif" width="720" alt="Falling-notes animation of the music2sheets transcription of Beethoven's Moonlight Sonata, third movement, on an 88-key keyboard"></a><br>
+  <sub>Beethoven, <i>Moonlight</i> Sonata iii: transcribed by music2sheets from a live recording, then played back exactly as our sheet music writes it.<br>
+  <a href="docs/media/moonlight-demo.mp4">▶ Watch the first minute with sound (MP4)</a> · <a href="#see-it-the-moonlight-sonata-edition-vs-music2sheets">Compare it with the published edition</a></sub>
+</p>
+
 Audio in, playable sheet music out. Separate the instruments, transcribe each
 one into scored note candidates, decide which notes are kept and who plays
 them with a deterministic playability solver, check the result against the
@@ -539,6 +545,7 @@ mkdir -p eval/references/test1 && curl -L -o eval/references/test1/sonata14-3.kr
   https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/master/kern/sonata14-3.krn
 m2s eval runs/<hash> --ref eval/references/test1/sonata14-3.krn --no-mv2h
 python tools/compare_edition.py runs/<hash> eval/references/test1/sonata14-3.krn --name moonlight  # README images
+python tools/make_video.py runs/<hash> docs/media/moonlight-demo.mp4 --duration 60 --gif docs/media/moonlight-demo.gif  # README video
 scripts/check.sh
 ```
 
@@ -557,6 +564,7 @@ tools/           dev-set fetch and tuning, band test, blind-test helpers, MV2H b
 tests/           golden decoder decisions (tests/golden) and Python worker tests
 eval/blind/      committed blind-test outputs and reports
 docs/images/     the edition-vs-transcription images in this README
+docs/media/      the demo video and its GIF preview
 scripts/         check.sh
 ```
 
