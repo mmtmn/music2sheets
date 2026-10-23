@@ -1,82 +1,16 @@
-"""Evaluation metrics: note F1, hand agreement, playability, MV2H, musicdiff."""
+"""Score-level metrics that need Python or Java: MV2H and musicdiff. (Note F1, hands and
+playability are computed in the Rust core.)"""
 
 from __future__ import annotations
 
-import json
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 from typing import Any
 
-import numpy as np
-
-from m2s.evaluate.reference import Reference, RefNote
-from m2s.ir import Note, Track
-from m2s.runs import Run
 
 MV2H_DIR = Path(__file__).resolve().parents[2] / "third_party" / "MV2H"
-HARD = {"span", "count", "speed", "finger", "stretch", "shift"}
-
-
-def _hz(p: np.ndarray) -> np.ndarray:
-    return 440.0 * 2 ** ((p - 69) / 12)
-
-
-def note_scores(ref: Reference, ours: list[Note], tol: float) -> dict[str, float]:
-    import mir_eval
-
-    ri = np.array([[n.on, n.off] for n in ref.notes])
-    rp = _hz(np.array([n.pitch for n in ref.notes], dtype=float))
-    ei = np.array([[n.onset, max(n.offset, n.onset + 0.01)] for n in ours])
-    ep = _hz(np.array([n.pitch for n in ours], dtype=float))
-    p, r, f, _ = mir_eval.transcription.precision_recall_f1_overlap(ri, rp, ei, ep, onset_tolerance=tol,
-                                                                    offset_ratio=None)
-    return {"precision": round(float(p), 4), "recall": round(float(r), 4), "f1": round(float(f), 4)}
-
-
-def _matches(ref: Reference, ours: list[Note], tol: float = 0.1) -> list[tuple[RefNote, Note]]:
-    import mir_eval
-
-    ri = np.array([[n.on, n.off] for n in ref.notes])
-    rp = _hz(np.array([n.pitch for n in ref.notes], dtype=float))
-    ei = np.array([[n.onset, max(n.offset, n.onset + 0.01)] for n in ours])
-    ep = _hz(np.array([n.pitch for n in ours], dtype=float))
-    pairs = mir_eval.transcription.match_notes(ri, rp, ei, ep, onset_tolerance=tol, offset_ratio=None)
-    return [(ref.notes[i], ours[j]) for i, j in pairs]
-
-
-def hand_agreement(ref: Reference, ours: list[Note]) -> dict[str, Any]:
-    pairs = [(r, o) for r, o in _matches(ref, ours) if "hand" in o.effector]
-    staffs = {r.staff for r, _ in pairs}
-    if not pairs or len(staffs) < 2:
-        return {"agreement": None, "matched": len(pairs)}
-    ok = sum((o.effector["hand"] == "R") == (r.staff == 1) for r, o in pairs)
-    return {"agreement": round(ok / len(pairs), 4), "matched": len(pairs)}
-
-
-def playability(run: Run, ref: Reference, ours: list[Note]) -> dict[str, Any]:
-    """Hard-limit violations per 100 notes: ours, and the reference's own (staff taken as hand)."""
-    from m2s.play.piano import PianoDecoder
-
-    viols = json.loads((run.root / "violations.json").read_text())
-    ours_hard = sum(1 for v in viols if v["kind"] in HARD)
-    out: dict[str, Any] = {"ours": round(100 * ours_hard / max(len(ours), 1), 2)}
-    if {n.staff for n in ref.notes} <= {1, 2}:
-        rnotes = [Note(f"r{i}", n.on, n.off, n.pitch, 80, effector={"hand": "R" if n.staff == 1 else "L"})
-                  for i, n in enumerate(ref.notes)]
-        dec = PianoDecoder()
-        tr = Track("ref", "piano", rnotes)
-        v = dec._hand_violations(tr) + dec.finger(tr)
-        out["reference"] = round(100 * sum(1 for x in v if x.kind in HARD) / max(len(rnotes), 1), 2)
-    return out
-
-
-def score_facts(run: Run, ref: Reference) -> dict[str, Any]:
-    info = json.loads((run.root / "notation.json").read_text())
-    return {"ours": {"time_signature": info["time_signature"], "key": info["key"], "bars": info["bars"],
-                     "qpm": info["qpm"]},
-            "reference": {"time_signature": ref.time_signature, "key": ref.key, "bars": ref.bars}}
 
 
 # --------------------------------------------------------------------------- MV2H

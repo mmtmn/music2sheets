@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = ["crates/m2s-core", "crates/m2s-cli", "crates/m2s-notate"]
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+license = "MIT"
+rust-version = "1.80"
+
+[profile.release]
+debug = 1

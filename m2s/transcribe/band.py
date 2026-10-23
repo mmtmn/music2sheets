@@ -12,7 +12,7 @@ import numpy as np
 
 from m2s import audio as A
 from m2s.ir import Note, Track, assign_ids
-from m2s.play.preset import load_preset
+from m2s.presets import load_preset
 
 MONO = {"voice", "sax_alto", "sax_tenor", "bass"}
 

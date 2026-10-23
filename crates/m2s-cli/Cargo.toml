@@ -1,0 +1,20 @@
+[package]
+name = "m2s-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "m2s"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.5.61", features = ["derive"] }
+hex = "0.4.3"
+m2s-core = { version = "0.2.0", path = "../m2s-core" }
+m2s-notate = { version = "0.2.0", path = "../m2s-notate" }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sha2 = "0.10.9"

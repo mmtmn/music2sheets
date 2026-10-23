@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 import pretty_midi
 
-from m2s.ir import Note, Track
+from m2s.ir import Note, Piece, Track
 
 ROOT = Path("data/dev/asap")
 
@@ -52,3 +52,32 @@ def load(folder: Path) -> tuple[Track, list[int]]:
     for i, nn in enumerate(notes):
         nn.id = f"dev-{i:06d}"
     return Track(name="piano", preset="piano", notes=notes), staff
+
+
+def m2s_binary() -> str:
+    """The Rust `m2s` binary (build it with `cargo build --release`)."""
+    import os
+    import shutil
+
+    for cand in (os.environ.get("M2S_BIN"), "target/release/m2s", "target/debug/m2s", shutil.which("m2s")):
+        if cand and Path(cand).exists():
+            return str(cand)
+    raise FileNotFoundError("build the Rust binary first: cargo build --release")
+
+
+def rust_decode(track: Track, weights: dict | None = None) -> Track:
+    """Decode a track with the Rust solvers (`m2s decode-file`)."""
+    import json
+    import subprocess
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as td:
+        inp, out = Path(td) / "in.json", Path(td) / "out.json"
+        Piece([track]).save(inp)
+        cmd = [m2s_binary(), "decode-file", str(inp), str(out)]
+        if weights:
+            wf = Path(td) / "w.json"
+            wf.write_text(json.dumps(weights))
+            cmd += ["--weights", str(wf)]
+        subprocess.run(cmd, check=True)
+        return Piece.load(out).tracks[0]

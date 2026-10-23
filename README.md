@@ -5,7 +5,8 @@ one into scored note candidates, decide which notes are kept and who plays
 them with a deterministic playability solver, check the result against the
 recording by resynthesis, then engrave MusicXML and PDF.
 
-The design goal is the one most transcription tools miss: the output has to be
+The pipeline is a Rust binary (`m2s`); a Python worker runs the neural
+models. The design goal is the one most transcription tools miss: the output has to be
 something a two-handed pianist, a guitarist with one fretting hand, or a
 drummer with four limbs can actually play, without inventing notes the
 recording doesn't contain.
@@ -91,23 +92,29 @@ notes, and repeated bass notes merged into one. See
 ## Install
 
 Linux with an NVIDIA GPU is the tested setup. An RTX 3060 runs an 8-minute
-piano piece end to end in about 90 seconds. CPU works but is much slower.
+piano piece end to end in about 90 seconds; nearly all of that is the neural
+models. CPU works but is much slower.
 
-System packages: `ffmpeg`, `fluidsynth` and a General MIDI SoundFont, plus a
-JDK if you want the MV2H score metric.
+You need a Rust toolchain (1.80 or newer, via [rustup](https://rustup.rs)),
+[uv](https://docs.astral.sh/uv/), `ffmpeg`, `fluidsynth` and a General MIDI
+SoundFont, plus a JDK if you want the MV2H score metric.
 
 ```bash
 # Debian / Ubuntu
 sudo apt install ffmpeg fluidsynth fluid-soundfont-gm default-jdk
 
 git clone <this repo> music2sheets && cd music2sheets
-uv sync --all-extras          # Python 3.12 venv in .venv from uv.lock (CUDA 12.8 PyTorch)
-source .venv/bin/activate
-tools/build_mv2h.sh           # optional: the MV2H score metric (needs a JDK)
-python -m pytest              # 19 unit tests, no GPU needed
+cargo build --release      # the m2s binary: target/release/m2s
+uv sync --all-extras       # the Python model worker, in .venv (CUDA 12.8 PyTorch)
+tools/build_mv2h.sh        # optional: the MV2H score metric (needs a JDK)
+scripts/check.sh           # fmt, clippy, Rust tests, pytest, ruff
 ```
 
-The extras:
+`cargo install --path crates/m2s-cli` puts `m2s` on your PATH. To find the
+worker, `m2s` looks for the nearest `.venv/bin/python` above the current
+directory; set `M2S_PYTHON` to use another interpreter.
+
+The Python extras:
 
 | Extra | What it adds |
 | --- | --- |
@@ -126,9 +133,7 @@ Two dependency workarounds live in `pyproject.toml`:
 - `synctoolbox` pins music21 below 10, which musicdiff can't use. synctoolbox
   only touches music21 in helpers this project never calls.
 
-The lock file covers Linux. Elsewhere, install the packages from
-`pyproject.toml` by hand: use `pip install basic-pitch --no-deps`, and a
-PyTorch build for your platform.
+The Python lock file covers Linux.
 
 ## Use
 
@@ -151,9 +156,11 @@ Each input gets a folder `runs/<hash>/` named after the audio's content hash
 | File | What it is |
 | --- | --- |
 | `score.pdf`, `score.musicxml` | the engraved score (MusicXML opens in MuseScore, Dorico, Sibelius, Finale) |
-| `notes.json` | every note with timing, confidence, hand/finger or string/fret or limb, bar and beat |
+| `notes.json` | the decoded notes: timing, confidence, hand/finger, string/fret or limb (edits apply here) |
+| `scored.json` | the same notes after notation: bar, beat, duration, voice, staff, spelling |
 | `violations.json` | remaining playability problems with time, kind and the notes involved |
 | `verify.json`, `heatmap_*.png` | audio match per part, worst regions, and a map of disagreements |
+| `traces/*.jsonl` | every decoding and notation decision (see [Traces](#traces)) |
 | `summary.json` | the headline numbers |
 
 ### Commands
@@ -162,9 +169,12 @@ Each input gets a folder `runs/<hash>/` named after the audio's content hash
 | --- | --- |
 | `m2s run AUDIO` | the whole pipeline (stages are cached; `--force` reruns) |
 | `m2s analyze / separate / transcribe / decode / verify / notate / engrave RUN` | one stage at a time |
+| `m2s trace RUN --at 308 --stage decode` | the decisions made near a time, for a note id (`--note`) or of a kind (`--kind`) |
 | `m2s inspect RUN --bars 12-16` | one image: stem spectrogram, decoded notes by hand, the engraved bars |
 | `m2s edit RUN patch.json` | apply a patch through the verification gate; logged to `edits.jsonl` |
+| `m2s propose RUN` / `m2s review RUN` | patch proposals from the worst verify regions / propose and apply them all through the gate |
 | `m2s eval RUN --ref score.musicxml` | score a run against a reference (MusicXML, MIDI, kern, Guitar Pro 3-5) |
+| `m2s decode-file` / `m2s notate-file` | one stage on files outside a run (used by the dev tools) |
 | `m2s presets` | list instrument presets |
 
 Presets: `piano`, `guitar`, `electric_guitar`, `bass`, `violin`, `sax_alto`,
@@ -173,6 +183,7 @@ Presets: `piano`, `guitar`, `electric_guitar`, `bass`, `violin`, `sax_alto`,
 ## How it works
 
 ```
+                         Python worker (neural models)                 Rust core (deterministic)
 audio ─► 1 ingest & analyze ─► 2 separate ─► 3 transcribe ─► 4 playability decode ─► 5 verify ─► 6 notate ─► PDF / MusicXML
              tuning, beats,      Demucs x2,     candidates      preset = effector        render &      quantize, meter,
              instruments         pan split      + confidence    model, beam/Viterbi      compare       key, spelling, voices
@@ -180,24 +191,32 @@ audio ─► 1 ingest & analyze ─► 2 separate ─► 3 transcribe ─► 4 p
                                                                         └── review patches ─┘   (m2s edit: accepted only if the audio match improves)
 ```
 
-1. **Ingest and analyze** (`m2s/analyze.py`). Decode to 44.1 kHz stereo,
-   measure tuning in cents, tag instruments per 2-second window (PANNs AudioSet
-   tagger), track beats and downbeats (Beat This!).
-2. **Separate** (`m2s/separate.py`). Skipped for a confident solo piano.
-   Otherwise two Demucs models (6-source and fine-tuned 4-source) are averaged
-   where they overlap. Their agreement is the stem's confidence. Instruments are
-   detected from stem energy; if only one stem carries the music, the original
-   mix is used as a solo. A guitar stem is split by stereo position when the
-   parts are panned apart.
-3. **Transcribe** (`m2s/transcribe/`). Piano: Transkun V2 and Kong et al.
-   (2021), fused; notes both models report get high confidence, others get
+The `m2s` binary runs the pipeline. Everything deterministic is Rust: the
+note format, the playability solvers, verification, the edit gate, notation
+and MusicXML, and evaluation scoring. A Python worker (`python -m m2s.worker`)
+does what needs the neural models or Python-only libraries: analysis,
+separation, transcription, the model front end for verification, engraving,
+inspection images, and reference loading and alignment. The two sides share
+one JSON note format and the YAML presets in `presets/`.
+
+1. **Ingest and analyze** (worker: `m2s/analyze.py`). Decode to 44.1 kHz
+   stereo, measure tuning in cents, tag instruments per 2-second window (PANNs
+   AudioSet tagger), track beats and downbeats (Beat This!).
+2. **Separate** (worker: `m2s/separate.py`). Skipped for a confident solo
+   piano. Otherwise two Demucs models (6-source and fine-tuned 4-source) are
+   averaged where they overlap. Instruments are detected from stem energy; if
+   only one stem carries the music, the original mix is used as a solo. A
+   guitar stem is split by stereo position when the parts are panned apart.
+3. **Transcribe** (worker: `m2s/transcribe/`). Piano: Transkun V2 and Kong et
+   al. (2021), fused; notes both models report get high confidence, others get
    confidence from the second model's local evidence. The tuning offset is
-   corrected first. Keyboards in a band go through the same piano models on
-   the keys stem. Guitar and violin: Basic Pitch with overtone suppression and
+   corrected first. Keyboards in a band go through the same piano models on the
+   keys stem. Guitar and violin: Basic Pitch with overtone suppression and
    onset-checked confidences. Bass, voice and sax: torchcrepe pitch tracking
    cut into notes (at amplitude onsets too, for bass). Drums: ADTOF.
-4. **Playability decode** (`m2s/play/`). Every instrument is a YAML preset
-   describing its effectors, states, hard limits and transition costs.
+4. **Playability decode** (Rust: `crates/m2s-core/src/play/`). Every
+   instrument is a YAML preset describing its effectors, states, hard limits
+   and transition costs.
    - *Piano:* beam search over keep/drop and left/right hand per chord (span,
      shift speed, crossings, busy fingers, line continuity, acoustic
      confidence), then Viterbi fingering with finger-pair spans adapted from
@@ -208,18 +227,36 @@ audio ─► 1 ingest & analyze ─► 2 separate ─► 3 transcribe ─► 4 p
      bus are split into lines first.
    - *Drums:* limb assignment with single-stroke rate and double-kick limits.
    - *Voice, sax:* one note at a time, range, voice type, breath limits.
-5. **Verify** (`m2s/verify.py`). Render the decoded notes with FluidSynth and
-   run the same front end on render and stem (Kong onset activations for piano,
-   ADTOF for drums, Basic Pitch otherwise). Compare in 50 ms × pitch cells.
-   This yields the audio match, the worst regions, and a heatmap.
-6. **Notate** (`m2s/notate/`). Beat unit and meter from the tracker plus
-   bass, harmony-change and downbeat evidence (a snare backbeat fixes the beat
-   when there are drums; triplet-heavy beats give compound meter). Per-beat
-   subdivision choice; trills and grace notes; key from the notes, with
-   relative major/minor decided by the bass; spelling on the line of fifths;
-   up to two voices per staff; clefs chosen by minimising ledger lines; dynamics
-   from velocity; sforzandi; staccato; tab staves with string/fret.
-   music21 writes MusicXML, Verovio or MuseScore engraves.
+5. **Verify** (Rust: `crates/m2s-core/src/verify.rs`). Render the decoded
+   notes with FluidSynth, run the same front end on render and stem (Kong onset
+   activations for piano, ADTOF for drums, Basic Pitch otherwise), and compare
+   in 50 ms × pitch cells. This yields the audio match, the worst regions, and
+   a heatmap.
+6. **Notate** (Rust: `crates/m2s-notate/`). Beat unit and meter from the
+   tracker plus bass, harmony-change and downbeat evidence (a snare backbeat
+   fixes the beat when there are drums; triplet-heavy beats give compound
+   meter). Per-beat subdivision choice; trills and grace notes; key from the
+   notes, with relative major/minor decided by the bass; spelling on the line
+   of fifths; up to two voices per staff; clefs chosen by minimising ledger
+   lines; dynamics from velocity; sforzandi; staccato. MusicXML is written
+   directly: grand-staff piano, notation plus TAB with string/fret, percussion,
+   transposing instruments, beams and tuplets. The worker engraves it with
+   Verovio or MuseScore.
+
+### Traces
+
+Every run writes `traces/decode.jsonl` and `traces/notate.jsonl`: one JSON
+line per decision, with its time, the notes involved and the alternatives
+considered. `m2s trace` filters them:
+
+```console
+$ m2s trace runs/a4c16b5e2c5e --stage decode --at 308.0 --window 0.15
+{"kind":"slice","t":307.9846,"notes":["pno-004503","pno-004502"],"pitches":[63,72],"best":"LR","best_cost":595.726,"runner_up":["LL",595.861],...}
+```
+
+Here a two-note chord went to left + right hand, and keeping both in the left
+hand was 0.135 more expensive. A wrong hand, a strange subdivision, a missing
+bar: each can be traced to the decision and the numbers that made it.
 
 ### The review loop (for Claude or a person)
 
@@ -240,22 +277,25 @@ patch to a copy, re-renders the affected window and compares it with the stem:
 - A notation-only patch must not add violations.
 - Every patch, accepted or rejected, goes to `edits.jsonl` with its reason.
 
-`tools/propose_patches.py` turns the worst verify regions into candidate
-patches (restore a dropped candidate the stem supports, delete an unsupported
-low-confidence note). A reviewer looks at them, for example with
-`m2s inspect`, and applies them one at a time.
+`m2s propose` turns the worst verify regions into candidate patches (restore a
+dropped candidate the stem supports, delete an unsupported low-confidence
+note). `m2s review` proposes and runs every proposal through the gate. A person
+or Claude can also look at a region with `m2s inspect` and write patches by hand.
 
 ## Evaluation and blind tests
 
-`m2s eval RUN --ref REFERENCE` aligns the reference to the recording with
-synctoolbox's multiresolution DTW (audio against score, never against our
-notes). It then reports:
+`m2s eval RUN --ref REFERENCE` has the worker load the reference and align it
+to the recording with synctoolbox's multiresolution DTW. The alignment uses
+the audio and the score only, never our notes. Rust then scores:
 
-- note precision / recall / F1 at 50, 100 and 250 ms (mir_eval; 50 ms is the standard, the looser ones show how much of the gap is alignment timing)
+- note precision / recall / F1 at 50, 100 and 250 ms. 50 ms is the standard;
+  the looser ones show how much of the gap is alignment timing.
 - hand agreement (our hand vs. the reference's staff, on matched notes)
 - playability violations per 100 notes, for us and for the reference itself
 - time signature, key, bar count
-- MV2H (multi-pitch, voice, meter, value, harmony), if built
+- MV2H (multi-pitch, voice, meter, value, harmony), if built. Its note
+  alignment did not finish within an hour on the 8-minute blind test, so use
+  `--no-mv2h` for long pieces.
 - optionally, `--diff-bars N` runs musicdiff on the first N bars; it is too
   slow for whole movements
 
@@ -277,7 +317,7 @@ stay on your machine. Nothing from them belongs in this repository.
 m2s run "path/to/your/recording.flac" --instruments electric_guitar,bass,drums,voice,piano
 mkdir -p eval/blind/test2/v1 && cp runs/<hash>/{score.pdf,score.musicxml,summary.json,verify.json} eval/blind/test2/v1/
 git add eval/blind/test2 && git commit -m "Blind test 2 output v1 (reference not yet seen)"
-m2s eval runs/<hash> --ref "path/to/your/reference.gp5"     # or .musicxml / .mid
+m2s eval runs/<hash> --ref "path/to/your/reference.gp5" --no-mv2h     # or .musicxml / .mid
 ```
 
 Guitar Pro 6/7 files (`.gpx`, `.gp`) aren't read directly. Export to
@@ -287,20 +327,21 @@ MusicXML or GP5 from Guitar Pro, TuxGuitar or MuseScore first.
 
 - **Beat tracking on expressive solo piano** is the main source of score-level
   error. Where the tracker drifts, notes are right but land a sixteenth off
-  the beat (figures start after a rest). Note-level accuracy is not affected.
+  the beat (figures start after a rest), and pauses add bars. Note-level
+  accuracy is not affected.
 - **Meter**: compound meters (12/8) can come out as 4/4 with triplets, and
   cut time (2/2) as 4/4.
 - **Distorted guitar** has no dedicated public transcription model.
   Basic Pitch with overtone suppression reaches F1 0.6-0.7 on the synthetic
   test, and less on real mixes. Leftover overtones also pull the tab up the
-  neck. A fine-tuned guitar model (SynthTab,
-  Guitar-TECHS, GOAT) is the next step.
+  neck. A fine-tuned guitar model (SynthTab, Guitar-TECHS, GOAT) is the next
+  step.
 - **Bass** repeated notes on one pitch are sometimes merged.
 - **Playing techniques** (bends, slides, hammer-ons, tapping, palm mutes) are
   carried as pitch curves in `notes.json` but not yet written as notation.
 - **Verification** uses a General MIDI SoundFont. Timbre mismatch is reduced
   by comparing model activations rather than audio, but not removed.
-- **musicdiff** is too slow for whole movements and is opt-in per bar range.
+- **MV2H and musicdiff** are too slow for whole movements.
 - **Automatic instrument naming** for the "other" stem (sax vs. violin) is
   unreliable; pass `--instruments` for band recordings.
 
@@ -316,26 +357,41 @@ python tools/make_band_test.py && m2s run data/bandtest/band.wav \
   --instruments electric_guitar,bass,drums,sax_alto --runs-root data/bandruns
 python tools/eval_band_test.py data/bandruns/<hash>
 tools/fetch_blind_audio.sh && m2s run data/blind/test1.mp3
-python -m pytest
+scripts/check.sh
 ```
 
 ## Project layout
 
 ```
-m2s/
-  ir.py            shared note format (Note, Track, Piece)
-  pipeline.py      stage orchestration and caching          cli.py   the m2s command
-  analyze.py       tuning, instrument tags, beats           separate.py  Demucs ensemble, pan split
-  transcribe/      piano.py (Transkun + Kong), band.py (Basic Pitch, torchcrepe, ADTOF)
-  play/            piano.py, fretted.py, drums.py, mono.py, presets/*.yaml
-  verify.py        resynthesis and activation comparison    edit.py  patch gate
-  notate/          rhythm.py, keys.py, spell.py, ornaments.py, build.py (music21)
-  engrave.py       Verovio / MuseScore                      inspect.py  review images
-  evaluate/        reference loading, alignment, metrics
-tools/             dev-set fetch and tuning, band test, blind-test helpers, MV2H build
-tests/             unit tests (no GPU needed)
-eval/blind/        committed blind-test outputs and reports
+crates/
+  m2s-core/      note format, presets, playability solvers (play/), verification, edit gate,
+                 evaluation scoring, MIDI, traces
+  m2s-notate/    notation: rhythm and meter, key, spelling, ornaments, voices and bars, MusicXML
+  m2s-cli/       the m2s binary: run folders, stage caching, worker calls, resynthesis
+presets/         one YAML file per instrument (shared by Rust and Python)
+m2s/             the Python worker: analyze, separate, transcribe/, verify (model front ends),
+                 engrave, inspect, evaluate/ (reference loading and alignment, MV2H)
+tools/           dev-set fetch and tuning, band test, blind-test helpers, MV2H build
+tests/           golden decoder decisions (tests/golden) and Python worker tests
+eval/blind/      committed blind-test outputs and reports
+scripts/         check.sh
 ```
+
+### Parity with the first implementation
+
+The pipeline was first written in Python, then the deterministic stages were
+rewritten in Rust. Before the Python versions were removed, both ran on the
+same inputs: the blind recording, the band test and eight dev pieces. The
+playability decisions matched on every note of all ten runs, and so did the
+notation (every note's position, duration and spelling). The Rust stages are
+about 20 to 55 times faster. `crates/m2s-core/tests/golden_decode.rs` keeps the
+decoder's decisions on the first minute of the blind test and on the band test
+frozen.
+
+Two Python bugs were fixed in the port. The engraving lint checked ledger
+lines against the clef in force before each bar (93 warnings on the blind
+test, 28 real). Verification compared split guitar renders with the full mix
+instead of their own stem.
 
 ## Models, data and licenses
 
@@ -356,6 +412,6 @@ models whose licenses are their own. Check each before any commercial use.
 | [synctoolbox](https://github.com/meinardmueller/synctoolbox), [mir_eval](https://github.com/mir-evaluation/mir_eval), [MV2H](https://github.com/apmcleod/MV2H), [musicdiff](https://github.com/gregchapman-dev/musicdiff) | evaluation | |
 | [ASAP dataset](https://github.com/fosfrancesco/asap-dataset) | dev set (downloaded, not committed) | |
 
-Finger-pair spans in `m2s/play/presets/piano.yaml` are adapted from Parncutt,
+Finger-pair spans in `presets/piano.yaml` are adapted from Parncutt,
 Sloboda, Clarke, Raekallio & Desain (1997), "An ergonomic model of keyboard
 fingering for melodic fragments", *Music Perception* 14(4).

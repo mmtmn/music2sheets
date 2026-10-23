@@ -1,0 +1,10829 @@
+{
+"notes": {
+"eleL-000000": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.1393
+},
+"eleL-000001": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.1509
+},
+"eleL-000002": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.2902
+},
+"eleL-000003": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.2206
+},
+"eleL-000004": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.3831
+},
+"eleL-000005": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.4992
+},
+"eleL-000006": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 0.3483
+},
+"eleL-000007": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.4528
+},
+"eleL-000008": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 0.5573
+},
+"eleL-000009": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.6734
+},
+"eleL-000010": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 0.6618
+},
+"eleL-000011": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.9172
+},
+"eleL-000012": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.9636
+},
+"eleL-000013": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.0101
+},
+"eleL-000014": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.1378
+},
+"eleL-000015": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.161
+},
+"eleL-000016": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.4048
+},
+"eleL-000017": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.3584
+},
+"eleL-000018": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 1.3468
+},
+"eleL-000019": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 1.3816
+},
+"eleL-000020": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 1.5209
+},
+"eleL-000021": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.428
+},
+"eleL-000022": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.4396
+},
+"eleL-000023": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 1.5093
+},
+"eleL-000024": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.5906
+},
+"eleL-000025": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.6138
+},
+"eleL-000026": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 1.5093
+},
+"eleL-000027": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 1.6602
+},
+"eleL-000028": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.8692
+},
+"eleL-000029": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.8344
+},
+"eleL-000030": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.1143
+},
+"eleL-000031": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.9505
+},
+"eleL-000032": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 1.9621
+},
+"eleL-000033": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.9853
+},
+"eleL-000034": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 1.9866
+},
+"eleL-000035": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.0446
+},
+"eleL-000036": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.2652
+},
+"eleL-000037": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.3117
+},
+"eleL-000038": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 2.2652
+},
+"eleL-000039": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.4858
+},
+"eleL-000040": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.5323
+},
+"eleL-000041": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.7412
+},
+"eleL-000042": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.5787
+},
+"eleL-000043": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.7645
+},
+"eleL-000044": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.8457
+},
+"eleL-000045": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.985
+},
+"eleL-000046": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.194
+},
+"eleL-000047": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 3.0083
+},
+"eleL-000048": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.2405
+},
+"eleL-000049": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.4494
+},
+"eleL-000050": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.5423
+},
+"eleL-000051": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 3.6236
+},
+"eleL-000052": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.6933
+},
+"eleL-000053": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.9138
+},
+"eleL-000054": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.1241
+},
+"eleL-000055": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.008
+},
+"eleL-000056": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.008
+},
+"eleL-000057": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.2634
+},
+"eleL-000058": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.1938
+},
+"eleL-000059": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.3679
+},
+"eleL-000060": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.3679
+},
+"eleL-000061": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.4608
+},
+"eleL-000062": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.5885
+},
+"eleL-000063": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.4144
+},
+"eleL-000064": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.5537
+},
+"eleL-000065": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.6117
+},
+"eleL-000066": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.751
+},
+"eleL-000067": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.7975
+},
+"eleL-000068": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.9368
+},
+"eleL-000069": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.9368
+},
+"eleL-000070": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.0297
+},
+"eleL-000071": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.2271
+},
+"eleL-000072": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 5.1226
+},
+"eleL-000073": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.2735
+},
+"eleL-000074": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.5173
+},
+"eleL-000075": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 5.2967
+},
+"eleL-000076": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.3548
+},
+"eleL-000077": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.4709
+},
+"eleL-000078": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.5289
+},
+"eleL-000079": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.7379
+},
+"eleL-000080": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 5.8424
+},
+"eleL-000081": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.9469
+},
+"eleL-000082": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 5.854
+},
+"eleL-000083": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.1804
+},
+"eleL-000084": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.0062
+},
+"eleL-000085": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.2152
+},
+"eleL-000086": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 6.192
+},
+"eleL-000087": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.4126
+},
+"eleL-000088": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.3661
+},
+"eleL-000089": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.4242
+},
+"eleL-000090": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.7841
+},
+"eleL-000091": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 6.6796
+},
+"eleL-000092": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.9931
+},
+"eleL-000093": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 13,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.0859
+},
+"eleL-000094": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.144
+},
+"eleL-000095": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 7.2369
+},
+"eleL-000096": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.3297
+},
+"eleL-000097": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.3994
+},
+"eleL-000098": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.5852
+},
+"eleL-000099": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.5852
+},
+"eleL-000100": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 7.6316
+},
+"eleL-000101": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.7709
+},
+"eleL-000102": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.9928
+},
+"eleL-000103": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.2366
+},
+"eleL-000104": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.3063
+},
+"eleL-000105": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.4688
+},
+"eleL-000106": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.6894
+},
+"eleL-000107": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 8.5849
+},
+"eleL-000108": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.91
+},
+"eleL-000109": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 8.7939
+},
+"eleL-000110": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 8.8055
+},
+"eleL-000111": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.1306
+},
+"eleL-000112": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.2002
+},
+"eleL-000113": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.3512
+},
+"eleL-000114": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.177
+},
+"eleL-000115": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 9.2118
+},
+"eleL-000116": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 9.3744
+},
+"eleL-000117": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.595
+},
+"eleL-000118": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 9.5485
+},
+"eleL-000119": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.8156
+},
+"eleL-000120": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 9.7807
+},
+"eleL-000121": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.0607
+},
+"eleL-000122": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.258
+},
+"eleL-000123": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 10.0607
+},
+"eleL-000124": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 10.0839
+},
+"eleL-000125": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.5018
+},
+"eleL-000126": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.7224
+},
+"eleL-000127": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.9546
+},
+"eleL-000128": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 10.885
+},
+"eleL-000129": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.1868
+},
+"eleL-000130": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 11.1868
+},
+"eleL-000131": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 11.2797
+},
+"eleL-000132": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.4074
+},
+"eleL-000133": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.6628
+},
+"eleL-000134": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 11.4887
+},
+"eleL-000135": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.0472
+},
+"eleL-000136": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 11.7905
+},
+"eleL-000137": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 11.7673
+},
+"eleL-000138": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.0821
+},
+"eleL-000139": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 12.2678
+},
+"eleL-000140": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.2562
+},
+"eleL-000141": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.2214
+},
+"eleL-000142": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.3143
+},
+"eleL-000143": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.3607
+},
+"eleL-000144": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.4536
+},
+"eleL-000145": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.7322
+},
+"eleL-000146": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.5813
+},
+"eleL-000147": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 12.5813
+},
+"eleL-000148": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.9528
+},
+"eleL-000149": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.8019
+},
+"eleL-000150": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.8599
+},
+"eleL-000151": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.7903
+},
+"eleL-000152": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.9993
+},
+"eleL-000153": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 13.185
+},
+"eleL-000154": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.2199
+},
+"eleL-000155": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.1966
+},
+"eleL-000156": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 13.0921
+},
+"eleL-000157": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.2779
+},
+"eleL-000158": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.8468
+},
+"eleL-000159": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 13.4753
+},
+"eleL-000160": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.6843
+},
+"eleL-000161": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 13.603
+},
+"eleL-000162": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.9061
+},
+"eleL-000163": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 13.9874
+},
+"eleL-000164": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.3357
+},
+"eleL-000165": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 13,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.3473
+},
+"eleL-000166": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 14.5098
+},
+"eleL-000167": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.417
+},
+"eleL-000168": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.5911
+},
+"eleL-000169": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.6492
+},
+"eleL-000170": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 14.6724
+},
+"eleL-000171": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.8349
+},
+"eleL-000172": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.7769
+},
+"eleL-000173": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 14.9278
+},
+"eleL-000174": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.8814
+},
+"eleL-000175": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.0323
+},
+"eleL-000176": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 15.2181
+},
+"eleL-000177": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.2993
+},
+"eleL-000178": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 15.427
+},
+"eleL-000179": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.2993
+},
+"eleL-000180": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.3109
+},
+"eleL-000181": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.4851
+},
+"eleL-000182": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.4851
+},
+"eleL-000183": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.6012
+},
+"eleL-000184": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.032
+},
+"eleL-000185": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 15.6244
+},
+"eleL-000186": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.7289
+},
+"eleL-000187": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.9508
+},
+"eleL-000188": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 15.7869
+},
+"eleL-000189": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 15.8218
+},
+"eleL-000190": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 15.9972
+},
+"eleL-000191": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 16.0669
+},
+"eleL-000192": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.1597
+},
+"eleL-000193": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.1481
+},
+"eleL-000194": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 16.2062
+},
+"eleL-000195": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.6009
+},
+"eleL-000196": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.2991
+},
+"eleL-000197": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 16.6241
+},
+"eleL-000198": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 16.4616
+},
+"eleL-000199": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.8331
+},
+"eleL-000200": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.2279
+},
+"eleL-000201": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.1002
+},
+"eleL-000202": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.2975
+},
+"eleL-000203": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.5413
+},
+"eleL-000204": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 17.7271
+},
+"eleL-000205": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 17.3556
+},
+"eleL-000206": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 17.8909
+},
+"eleL-000207": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 17.611
+},
+"eleL-000208": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 17.9722
+},
+"eleL-000209": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.0883
+},
+"eleL-000210": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 18.1812
+},
+"eleL-000211": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.2392
+},
+"eleL-000212": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 18.4482
+},
+"eleL-000213": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 18.3205
+},
+"eleL-000214": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 18.634
+},
+"eleL-000215": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 18.4482
+},
+"eleL-000216": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 18.5643
+},
+"eleL-000217": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 18.6688
+},
+"eleL-000218": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 18.5643
+},
+"eleL-000219": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.9242
+},
+"eleL-000220": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 19.0751
+},
+"eleL-000221": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.0055
+},
+"eleL-000222": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 19.1216
+},
+"eleL-000223": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.3654
+},
+"eleL-000224": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 19.3306
+},
+"eleL-000225": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.2145
+},
+"eleL-000226": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 19.4583
+},
+"eleL-000227": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.4118
+},
+"eleL-000228": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.4583
+},
+"eleL-000229": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.586
+},
+"eleL-000230": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.7601
+},
+"eleL-000231": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.6324
+},
+"eleL-000232": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.8182
+},
+"eleL-000233": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.0517
+},
+"eleL-000234": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.8646
+},
+"eleL-000235": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.3419
+},
+"eleL-000236": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.2606
+},
+"eleL-000237": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.4928
+},
+"eleL-000238": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.3419
+},
+"eleL-000239": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.458
+},
+"eleL-000240": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.725
+},
+"eleL-000241": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.5625
+},
+"eleL-000242": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.7366
+},
+"eleL-000243": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.9456
+},
+"eleL-000244": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.934
+},
+"eleL-000245": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.1662
+},
+"eleL-000246": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.4332
+},
+"eleL-000247": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.2127
+},
+"eleL-000248": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.4449
+},
+"eleL-000249": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 13,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.6306
+},
+"eleL-000250": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.7119
+},
+"eleL-000251": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 21.7815
+},
+"eleL-000252": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.8641
+},
+"eleL-000253": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.9105
+},
+"eleL-000254": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.1195
+},
+"eleL-000255": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 22.7
+},
+"eleL-000256": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 22.1892
+},
+"eleL-000257": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.166
+},
+"eleL-000258": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.3053
+},
+"eleL-000259": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 22.3982
+},
+"eleL-000260": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.5375
+},
+"eleL-000261": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 22.3285
+},
+"eleL-000262": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 22.4562
+},
+"eleL-000263": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.5723
+},
+"eleL-000264": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 22.6304
+},
+"eleL-000265": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.7813
+},
+"eleL-000266": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 22.8626
+},
+"eleL-000267": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.8626
+},
+"eleL-000268": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 23.2109
+},
+"eleL-000269": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.0135
+},
+"eleL-000270": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.2225
+},
+"eleL-000271": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.4663
+},
+"eleL-000272": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 23.2805
+},
+"eleL-000273": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 23.3618
+},
+"eleL-000274": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 23.2805
+},
+"eleL-000275": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.3386
+},
+"eleL-000276": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.4198
+},
+"eleL-000277": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.5127
+},
+"eleL-000278": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.652
+},
+"eleL-000279": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 23.8971
+},
+"eleL-000280": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 23.7565
+},
+"eleL-000281": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.1409
+},
+"eleL-000282": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 23.7217
+},
+"eleL-000283": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.5473
+},
+"eleL-000284": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.5821
+},
+"eleL-000285": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.8027
+},
+"eleL-000286": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.2787
+},
+"eleL-000287": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.6286
+},
+"eleL-000288": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.6518
+},
+"eleL-000289": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.0581
+},
+"eleL-000290": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 25.5225
+},
+"eleL-000291": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 25.4296
+},
+"eleL-000292": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.7315
+},
+"eleL-000293": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 25.8244
+},
+"eleL-000294": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.9302
+},
+"eleL-000295": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.1856
+},
+"eleL-000296": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 25.965
+},
+"eleL-000297": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.1856
+},
+"eleL-000298": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.3017
+},
+"eleL-000299": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.4178
+},
+"eleL-000300": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.6384
+},
+"eleL-000301": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 26.6268
+},
+"eleL-000302": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.8822
+},
+"eleL-000303": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.7312
+},
+"eleL-000304": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.7661
+},
+"eleL-000305": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.8938
+},
+"eleL-000306": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.9054
+},
+"eleL-000307": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.0795
+},
+"eleL-000308": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.335
+},
+"eleL-000309": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 27.184
+},
+"eleL-000310": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.5439
+},
+"eleL-000311": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 27.3814
+},
+"eleL-000312": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.7761
+},
+"eleL-000313": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 27.6833
+},
+"eleL-000314": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.998
+},
+"eleL-000315": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 28.8223
+},
+"eleL-000316": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.2534
+},
+"eleL-000317": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.4508
+},
+"eleL-000318": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.892
+},
+"eleL-000319": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.9616
+},
+"eleL-000320": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 29.0777
+},
+"eleL-000321": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 29.2171
+},
+"eleL-000322": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 30.1007
+},
+"eleL-000323": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 29.635
+},
+"eleL-000324": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 29.8337
+},
+"eleR-000000": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 2,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.2438
+},
+"eleR-000001": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.1277
+},
+"eleR-000002": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.1974
+},
+"eleR-000003": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.2554
+},
+"eleR-000004": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.3367
+},
+"eleR-000005": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.3367
+},
+"eleR-000006": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.4992
+},
+"eleR-000007": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.4528
+},
+"eleR-000008": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.5457
+},
+"eleR-000009": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 4,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.5689
+},
+"eleR-000010": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.6269
+},
+"eleR-000011": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 4,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.7314
+},
+"eleR-000012": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.7546
+},
+"eleR-000013": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.6966
+},
+"eleR-000014": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.8243
+},
+"eleR-000015": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.9056
+},
+"eleR-000016": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.9404
+},
+"eleR-000017": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 2,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.1378
+},
+"eleR-000018": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.0333
+},
+"eleR-000019": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.1726
+},
+"eleR-000020": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.2655
+},
+"eleR-000021": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.37
+},
+"eleR-000022": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.6022
+},
+"eleR-000023": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.6254
+},
+"eleR-000024": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 1.5441
+},
+"eleR-000025": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.846
+},
+"eleR-000026": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 1.7531
+},
+"eleR-000027": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.6486
+},
+"eleR-000028": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 1.8112
+},
+"eleR-000029": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.7647
+},
+"eleR-000030": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.184
+},
+"eleR-000031": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.9273
+},
+"eleR-000032": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 15,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.9866
+},
+"eleR-000033": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 15,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.2304
+},
+"eleR-000034": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.242
+},
+"eleR-000035": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 14,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.1723
+},
+"eleR-000036": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.184
+},
+"eleR-000037": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.2188
+},
+"eleR-000038": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.3117
+},
+"eleR-000039": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.3001
+},
+"eleR-000040": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.3813
+},
+"eleR-000041": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.5323
+},
+"eleR-000042": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.4974
+},
+"eleR-000043": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 2.4974
+},
+"eleR-000044": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.7645
+},
+"eleR-000045": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.6367
+},
+"eleR-000046": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 2.6484
+},
+"eleR-000047": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.7528
+},
+"eleR-000048": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.8341
+},
+"eleR-000049": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.9618
+},
+"eleR-000050": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.9502
+},
+"eleR-000051": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 3.0315
+},
+"eleR-000052": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 3.1244
+},
+"eleR-000053": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 3.1244
+},
+"eleR-000054": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.1824
+},
+"eleR-000055": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.2172
+},
+"eleR-000056": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.4611
+},
+"eleR-000057": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 3.2869
+},
+"eleR-000058": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.67
+},
+"eleR-000059": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.7513
+},
+"eleR-000060": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.7397
+},
+"eleR-000061": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.8674
+},
+"eleR-000062": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.9138
+},
+"eleR-000063": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.1241
+},
+"eleR-000064": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.1125
+},
+"eleR-000065": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.1589
+},
+"eleR-000066": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 4.2402
+},
+"eleR-000067": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.3563
+},
+"eleR-000068": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.3099
+},
+"eleR-000069": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.4027
+},
+"eleR-000070": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.4376
+},
+"eleR-000071": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 9,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.5769
+},
+"eleR-000072": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.5653
+},
+"eleR-000073": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.6466
+},
+"eleR-000074": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.6349
+},
+"eleR-000075": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.7627
+},
+"eleR-000076": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.8207
+},
+"eleR-000077": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 9,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.0413
+},
+"eleR-000078": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.0297
+},
+"eleR-000079": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 5.169
+},
+"eleR-000080": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.2851
+},
+"eleR-000081": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.2154
+},
+"eleR-000082": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.2967
+},
+"eleR-000083": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.5521
+},
+"eleR-000084": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.8076
+},
+"eleR-000085": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 5.6102
+},
+"eleR-000086": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 5.6334
+},
+"eleR-000087": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.6915
+},
+"eleR-000088": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.9353
+},
+"eleR-000089": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 5.8308
+},
+"eleR-000090": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.9237
+},
+"eleR-000091": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 6.0062
+},
+"eleR-000092": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.1571
+},
+"eleR-000093": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.0178
+},
+"eleR-000094": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.1455
+},
+"eleR-000095": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.2384
+},
+"eleR-000096": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.4009
+},
+"eleR-000097": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.6448
+},
+"eleR-000098": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 6.5287
+},
+"eleR-000099": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.5983
+},
+"eleR-000100": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.668
+},
+"eleR-000101": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.8537
+},
+"eleR-000102": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 6.8073
+},
+"eleR-000103": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 6.9582
+},
+"eleR-000104": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.0859
+},
+"eleR-000105": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 6.9582
+},
+"eleR-000106": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 13,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.2949
+},
+"eleR-000107": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.5271
+},
+"eleR-000108": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 7.4575
+},
+"eleR-000109": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 7.4342
+},
+"eleR-000110": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.4923
+},
+"eleR-000111": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.5155
+},
+"eleR-000112": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.6084
+},
+"eleR-000113": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.8058
+},
+"eleR-000114": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 7.678
+},
+"eleR-000115": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.0044
+},
+"eleR-000116": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.0392
+},
+"eleR-000117": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.2134
+},
+"eleR-000118": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 8.1437
+},
+"eleR-000119": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.434
+},
+"eleR-000120": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 8.3991
+},
+"eleR-000121": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.5152
+},
+"eleR-000122": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.7126
+},
+"eleR-000123": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.8984
+},
+"eleR-000124": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 8.8055
+},
+"eleR-000125": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 8.8171
+},
+"eleR-000126": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.0377
+},
+"eleR-000127": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.0029
+},
+"eleR-000128": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.0957
+},
+"eleR-000129": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 15,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.3976
+},
+"eleR-000130": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.386
+},
+"eleR-000131": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 9.3163
+},
+"eleR-000132": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.3976
+},
+"eleR-000133": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.4673
+},
+"eleR-000134": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.595
+},
+"eleR-000135": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.8156
+},
+"eleR-000136": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.6646
+},
+"eleR-000137": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 9.7691
+},
+"eleR-000138": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.8156
+},
+"eleR-000139": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.0374
+},
+"eleR-000140": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.933
+},
+"eleR-000141": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 9.9201
+},
+"eleR-000142": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.0026
+},
+"eleR-000143": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.2232
+},
+"eleR-000144": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 10.1303
+},
+"eleR-000145": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 10.3393
+},
+"eleR-000146": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 10.3625
+},
+"eleR-000147": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.5018
+},
+"eleR-000148": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.4438
+},
+"eleR-000149": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.7108
+},
+"eleR-000150": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 10.6876
+},
+"eleR-000151": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 10.5831
+},
+"eleR-000152": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.9546
+},
+"eleR-000153": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.0011
+},
+"eleR-000154": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.2333
+},
+"eleR-000155": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.6048
+},
+"eleR-000156": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 11.5467
+},
+"eleR-000157": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.7905
+},
+"eleR-000158": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 11.4771
+},
+"eleR-000159": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.8602
+},
+"eleR-000160": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.9428
+},
+"eleR-000161": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 12.3259
+},
+"eleR-000162": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.1169
+},
+"eleR-000163": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.3143
+},
+"eleR-000164": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.5581
+},
+"eleR-000165": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.4652
+},
+"eleR-000166": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.442
+},
+"eleR-000167": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.4072
+},
+"eleR-000168": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.5
+},
+"eleR-000169": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.5697
+},
+"eleR-000170": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.7555
+},
+"eleR-000171": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.9296
+},
+"eleR-000172": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 12.8948
+},
+"eleR-000173": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.0109
+},
+"eleR-000174": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.9412
+},
+"eleR-000175": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.0225
+},
+"eleR-000176": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.0457
+},
+"eleR-000177": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.2315
+},
+"eleR-000178": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.661
+},
+"eleR-000179": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 13.3243
+},
+"eleR-000180": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 14,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.4404
+},
+"eleR-000181": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.6843
+},
+"eleR-000182": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 17,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.9758
+},
+"eleR-000183": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 13.8352
+},
+"eleR-000184": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 13.812
+},
+"eleR-000185": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.7771
+},
+"eleR-000186": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.8468
+},
+"eleR-000187": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.9294
+},
+"eleR-000188": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 14.0919
+},
+"eleR-000189": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 17,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.999
+},
+"eleR-000190": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.1383
+},
+"eleR-000191": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 14.3009
+},
+"eleR-000192": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 14.266
+},
+"eleR-000193": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 14,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.3357
+},
+"eleR-000194": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 13,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.5795
+},
+"eleR-000195": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.6956
+},
+"eleR-000196": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.8001
+},
+"eleR-000197": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 14.6956
+},
+"eleR-000198": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 14.7304
+},
+"eleR-000199": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.8814
+},
+"eleR-000200": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 14.7885
+},
+"eleR-000201": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 14.8349
+},
+"eleR-000202": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.8814
+},
+"eleR-000203": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.0555
+},
+"eleR-000204": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.9975
+},
+"eleR-000205": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.1252
+},
+"eleR-000206": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.1832
+},
+"eleR-000207": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.2761
+},
+"eleR-000208": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.369
+},
+"eleR-000209": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.3458
+},
+"eleR-000210": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.4851
+},
+"eleR-000211": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.4851
+},
+"eleR-000212": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 15.6592
+},
+"eleR-000213": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.6941
+},
+"eleR-000214": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 15.7289
+},
+"eleR-000215": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 15.5315
+},
+"eleR-000216": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.7869
+},
+"eleR-000217": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.183
+},
+"eleR-000218": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.9508
+},
+"eleR-000219": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 16.1481
+},
+"eleR-000220": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 16.0553
+},
+"eleR-000221": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 16.2875
+},
+"eleR-000222": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.3803
+},
+"eleR-000223": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.3339
+},
+"eleR-000224": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.6938
+},
+"eleR-000225": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.4616
+},
+"eleR-000226": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.926
+},
+"eleR-000227": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 16.659
+},
+"eleR-000228": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 16.7402
+},
+"eleR-000229": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.868
+},
+"eleR-000230": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 16.9608
+},
+"eleR-000231": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.0537
+},
+"eleR-000232": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.3091
+},
+"eleR-000233": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 17.1234
+},
+"eleR-000234": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 17.2046
+},
+"eleR-000235": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.2511
+},
+"eleR-000236": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 17.5762
+},
+"eleR-000237": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 5,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.7387
+},
+"eleR-000238": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.7735
+},
+"eleR-000239": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 17.6342
+},
+"eleR-000240": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.9838
+},
+"eleR-000241": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 17.9141
+},
+"eleR-000242": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.2276
+},
+"eleR-000243": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 18.634
+},
+"eleR-000244": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.274
+},
+"eleR-000245": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.3321
+},
+"eleR-000246": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.4714
+},
+"eleR-000247": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 18.4714
+},
+"eleR-000248": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.692
+},
+"eleR-000249": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 18.8081
+},
+"eleR-000250": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.901
+},
+"eleR-000251": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 18.7036
+},
+"eleR-000252": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.0635
+},
+"eleR-000253": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.9358
+},
+"eleR-000254": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.1332
+},
+"eleR-000255": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 19.3189
+},
+"eleR-000256": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.2261
+},
+"eleR-000257": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.377
+},
+"eleR-000258": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.435
+},
+"eleR-000259": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.5511
+},
+"eleR-000260": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.5976
+},
+"eleR-000261": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.7137
+},
+"eleR-000262": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 19.7253
+},
+"eleR-000263": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 19.8414
+},
+"eleR-000264": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.7833
+},
+"eleR-000265": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 19.7485
+},
+"eleR-000266": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.04
+},
+"eleR-000267": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.8659
+},
+"eleR-000268": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.3767
+},
+"eleR-000269": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.3071
+},
+"eleR-000270": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 20.1678
+},
+"eleR-000271": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.2955
+},
+"eleR-000272": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 20.3071
+},
+"eleR-000273": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 7,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.5044
+},
+"eleR-000274": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.458
+},
+"eleR-000275": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 20.5393
+},
+"eleR-000276": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 10,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.7134
+},
+"eleR-000277": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 8,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.6438
+},
+"eleR-000278": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.7366
+},
+"eleR-000279": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.7483
+},
+"eleR-000280": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.7599
+},
+"eleR-000281": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.9456
+},
+"eleR-000282": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.8411
+},
+"eleR-000283": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.934
+},
+"eleR-000284": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 20.9921
+},
+"eleR-000285": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 21.0733
+},
+"eleR-000286": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.1778
+},
+"eleR-000287": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.9805
+},
+"eleR-000288": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 15,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.0617
+},
+"eleR-000289": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 15,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.1546
+},
+"eleR-000290": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.2127
+},
+"eleR-000291": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 21.2359
+},
+"eleR-000292": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.2127
+},
+"eleR-000293": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 11,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.4216
+},
+"eleR-000294": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.4449
+},
+"eleR-000295": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 21.4681
+},
+"eleR-000296": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.6306
+},
+"eleR-000297": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.5145
+},
+"eleR-000298": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.5145
+},
+"eleR-000299": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.619
+},
+"eleR-000300": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.6538
+},
+"eleR-000301": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.8525
+},
+"eleR-000302": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.0615
+},
+"eleR-000303": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.9454
+},
+"eleR-000304": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 21.957
+},
+"eleR-000305": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.4214
+},
+"eleR-000306": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.0615
+},
+"eleR-000307": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.1427
+},
+"eleR-000308": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.6304
+},
+"eleR-000309": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.3749
+},
+"eleR-000310": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.5491
+},
+"eleR-000311": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.5259
+},
+"eleR-000312": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 22.6187
+},
+"eleR-000313": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.7581
+},
+"eleR-000314": {
+"keep": true,
+"effector": {
+"string": 6,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.0599
+},
+"eleR-000315": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 22.8858
+},
+"eleR-000316": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.9903
+},
+"eleR-000317": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 22.9903
+},
+"eleR-000318": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.0715
+},
+"eleR-000319": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.3386
+},
+"eleR-000320": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.3153
+},
+"eleR-000321": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 23.3153
+},
+"eleR-000322": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.652
+},
+"eleR-000323": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 23.3966
+},
+"eleR-000324": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.4547
+},
+"eleR-000325": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 23.4663
+},
+"eleR-000326": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 23.5011
+},
+"eleR-000327": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.6869
+},
+"eleR-000328": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 23.594
+},
+"eleR-000329": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 24.0364
+},
+"eleR-000330": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.7681
+},
+"eleR-000331": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.8855
+},
+"eleR-000332": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 24.0132
+},
+"eleR-000333": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.0016
+},
+"eleR-000334": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 24.1293
+},
+"eleR-000335": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 23.9784
+},
+"eleR-000336": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.3499
+},
+"eleR-000337": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.257
+},
+"eleR-000338": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.2454
+},
+"eleR-000339": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 24.3151
+},
+"eleR-000340": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.5821
+},
+"eleR-000341": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.4428
+},
+"eleR-000342": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.5008
+},
+"eleR-000343": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.466
+},
+"eleR-000344": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 12,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.5937
+},
+"eleR-000345": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 15,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.6518
+},
+"eleR-000346": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.7679
+},
+"eleR-000347": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 24.7795
+},
+"eleR-000348": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 15,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.8375
+},
+"eleR-000349": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.9885
+},
+"eleR-000350": {
+"keep": true,
+"effector": {
+"string": 1,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.0465
+},
+"eleR-000351": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.942
+},
+"eleR-000352": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 24.9304
+},
+"eleR-000353": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 25.2091
+},
+"eleR-000354": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 25.2555
+},
+"eleR-000355": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 25.1742
+},
+"eleR-000356": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.5109
+},
+"eleR-000357": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.5457
+},
+"eleR-000358": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.7663
+},
+"eleR-000359": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 25.7663
+},
+"eleR-000360": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.9534
+},
+"eleR-000361": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 17,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.174
+},
+"eleR-000362": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.0346
+},
+"eleR-000363": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.0811
+},
+"eleR-000364": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.4178
+},
+"eleR-000365": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.4758
+},
+"eleR-000366": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.65
+},
+"eleR-000367": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 27.126
+},
+"eleR-000368": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.8706
+},
+"eleR-000369": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.8938
+},
+"eleR-000370": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 26.9402
+},
+"eleR-000371": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.1724
+},
+"eleR-000372": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 27.1144
+},
+"eleR-000373": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.3117
+},
+"eleR-000374": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 27.4511
+},
+"eleR-000375": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 27.4395
+},
+"eleR-000376": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 27.5439
+},
+"eleR-000377": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 27.602
+},
+"eleR-000378": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.5904
+},
+"eleR-000379": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 27.6252
+},
+"eleR-000380": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.7761
+},
+"eleR-000381": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 14,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.998
+},
+"eleR-000382": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 27.7878
+},
+"eleR-000383": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 28.1141
+},
+"eleR-000384": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.2186
+},
+"eleR-000385": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 28.3463
+},
+"eleR-000386": {
+"keep": true,
+"effector": {
+"string": 5,
+"fret": 17,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.4856
+},
+"eleR-000387": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 16,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.683
+},
+"eleR-000388": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [
+"harmonic?"
+],
+"offset": 28.7991
+},
+"eleR-000389": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 28.892
+},
+"eleR-000390": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 28.7643
+},
+"eleR-000391": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 17,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 29.1706
+},
+"eleR-000392": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 29.1822
+},
+"bas-000000": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.22
+},
+"bas-000001": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.45
+},
+"bas-000002": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.67
+},
+"bas-000003": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 0.9
+},
+"bas-000004": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.11
+},
+"bas-000005": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.36
+},
+"bas-000006": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 1.79
+},
+"bas-000007": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.09
+},
+"bas-000008": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.27
+},
+"bas-000009": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.5
+},
+"bas-000010": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.76
+},
+"bas-000011": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 2.95
+},
+"bas-000012": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.14
+},
+"bas-000013": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.65
+},
+"bas-000014": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 3.88
+},
+"bas-000015": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.11
+},
+"bas-000016": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.34
+},
+"bas-000017": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.55
+},
+"bas-000018": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 4.78
+},
+"bas-000019": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.0
+},
+"bas-000020": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.46
+},
+"bas-000021": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.69
+},
+"bas-000022": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 5.92
+},
+"bas-000023": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.15
+},
+"bas-000024": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.37
+},
+"bas-000025": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.6
+},
+"bas-000026": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 6.81
+},
+"bas-000027": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.27
+},
+"bas-000028": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.49
+},
+"bas-000029": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.72
+},
+"bas-000030": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 7.95
+},
+"bas-000031": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.18
+},
+"bas-000032": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.4
+},
+"bas-000033": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 8.63
+},
+"bas-000034": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.08
+},
+"bas-000035": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.35
+},
+"bas-000036": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.53
+},
+"bas-000037": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 9.77
+},
+"bas-000038": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.0
+},
+"bas-000039": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.27
+},
+"bas-000040": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.45
+},
+"bas-000041": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 10.92
+},
+"bas-000042": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.15
+},
+"bas-000043": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.38
+},
+"bas-000044": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.61
+},
+"bas-000045": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 11.82
+},
+"bas-000046": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.05
+},
+"bas-000047": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.27
+},
+"bas-000048": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.73
+},
+"bas-000049": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 12.96
+},
+"bas-000050": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.19
+},
+"bas-000051": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.42
+},
+"bas-000052": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.64
+},
+"bas-000053": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 13.87
+},
+"bas-000054": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.08
+},
+"bas-000055": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.54
+},
+"bas-000056": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.77
+},
+"bas-000057": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 14.99
+},
+"bas-000058": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.22
+},
+"bas-000059": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.45
+},
+"bas-000060": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.68
+},
+"bas-000061": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 15.9
+},
+"bas-000062": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.36
+},
+"bas-000063": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.55
+},
+"bas-000064": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 16.76
+},
+"bas-000065": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.03
+},
+"bas-000066": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.27
+},
+"bas-000067": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.48
+},
+"bas-000068": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 17.72
+},
+"bas-000069": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.2
+},
+"bas-000070": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.42
+},
+"bas-000071": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.65
+},
+"bas-000072": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 18.88
+},
+"bas-000073": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.1
+},
+"bas-000074": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.32
+},
+"bas-000075": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 19.54
+},
+"bas-000076": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.0
+},
+"bas-000077": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.24
+},
+"bas-000078": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.46
+},
+"bas-000079": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.69
+},
+"bas-000080": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 20.92
+},
+"bas-000081": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.14
+},
+"bas-000082": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.34
+},
+"bas-000083": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 21.81
+},
+"bas-000084": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.04
+},
+"bas-000085": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.27
+},
+"bas-000086": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.49
+},
+"bas-000087": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.72
+},
+"bas-000088": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 22.95
+},
+"bas-000089": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.17
+},
+"bas-000090": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.62
+},
+"bas-000091": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 23.86
+},
+"bas-000092": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.09
+},
+"bas-000093": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.35
+},
+"bas-000094": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.54
+},
+"bas-000095": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.77
+},
+"bas-000096": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 24.99
+},
+"bas-000097": {
+"keep": true,
+"effector": {
+"string": 3,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.47
+},
+"bas-000098": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.69
+},
+"bas-000099": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 25.93
+},
+"bas-000100": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.14
+},
+"bas-000101": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.37
+},
+"bas-000102": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.59
+},
+"bas-000103": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 26.79
+},
+"bas-000104": {
+"keep": true,
+"effector": {
+"string": 4,
+"fret": 3,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.28
+},
+"bas-000105": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.51
+},
+"bas-000106": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.73
+},
+"bas-000107": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 27.96
+},
+"bas-000108": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.19
+},
+"bas-000109": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.42
+},
+"bas-000110": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 28.64
+},
+"bas-000111": {
+"keep": true,
+"effector": {
+"string": 2,
+"fret": 0,
+"player": 0
+},
+"player": 0,
+"tags": [],
+"offset": 29.14
+},
+"drm-000000": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 0.3295
+},
+"drm-000001": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 0.55
+},
+"drm-000002": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 0.55
+},
+"drm-000003": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 0.7795
+},
+"drm-000004": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 1.0091
+},
+"drm-000005": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 1.0091
+},
+"drm-000006": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 1.2295
+},
+"drm-000007": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 1.2295
+},
+"drm-000008": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 1.4591
+},
+"drm-000009": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 1.4591
+},
+"drm-000010": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 1.6909
+},
+"drm-000011": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 1.9091
+},
+"drm-000012": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 1.9091
+},
+"drm-000013": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 2.1409
+},
+"drm-000014": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 2.3705
+},
+"drm-000015": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 2.3705
+},
+"drm-000016": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 2.6
+},
+"drm-000017": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 2.8205
+},
+"drm-000018": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 2.8205
+},
+"drm-000019": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 3.05
+},
+"drm-000020": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 3.05
+},
+"drm-000021": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 3.2795
+},
+"drm-000022": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 3.2795
+},
+"drm-000023": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 3.5091
+},
+"drm-000024": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 3.7295
+},
+"drm-000025": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 3.7295
+},
+"drm-000026": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 3.9591
+},
+"drm-000027": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 4.1909
+},
+"drm-000028": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 4.1909
+},
+"drm-000029": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 4.4205
+},
+"drm-000030": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 4.6409
+},
+"drm-000031": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 4.6409
+},
+"drm-000032": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 4.8705
+},
+"drm-000033": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 4.8705
+},
+"drm-000034": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 5.1
+},
+"drm-000035": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 5.1
+},
+"drm-000036": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 5.3295
+},
+"drm-000037": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 5.55
+},
+"drm-000038": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 5.55
+},
+"drm-000039": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 5.7795
+},
+"drm-000040": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 6.0091
+},
+"drm-000041": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 6.0091
+},
+"drm-000042": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 6.2409
+},
+"drm-000043": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 6.4591
+},
+"drm-000044": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 6.4591
+},
+"drm-000045": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 6.6909
+},
+"drm-000046": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 6.6909
+},
+"drm-000047": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 6.9205
+},
+"drm-000048": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 6.9205
+},
+"drm-000049": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 7.15
+},
+"drm-000050": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 7.3705
+},
+"drm-000051": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 7.3705
+},
+"drm-000052": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 7.3705
+},
+"drm-000053": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 7.6
+},
+"drm-000054": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 7.8205
+},
+"drm-000055": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 7.8295
+},
+"drm-000056": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 8.05
+},
+"drm-000057": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 8.2795
+},
+"drm-000058": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 8.2795
+},
+"drm-000059": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 8.5091
+},
+"drm-000060": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 8.5091
+},
+"drm-000061": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 8.7295
+},
+"drm-000062": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 8.7295
+},
+"drm-000063": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 8.9591
+},
+"drm-000064": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 9.1909
+},
+"drm-000065": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 9.1909
+},
+"drm-000066": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 9.4205
+},
+"drm-000067": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 9.6409
+},
+"drm-000068": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 9.6409
+},
+"drm-000069": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 9.8705
+},
+"drm-000070": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 10.1
+},
+"drm-000071": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 10.1
+},
+"drm-000072": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 10.3205
+},
+"drm-000073": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 10.3205
+},
+"drm-000074": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 10.55
+},
+"drm-000075": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 10.55
+},
+"drm-000076": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 10.7795
+},
+"drm-000077": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 11.0
+},
+"drm-000078": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 11.0
+},
+"drm-000079": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 11.2295
+},
+"drm-000080": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 11.4591
+},
+"drm-000081": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 11.4591
+},
+"drm-000082": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 11.6909
+},
+"drm-000083": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 11.9205
+},
+"drm-000084": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 11.9205
+},
+"drm-000085": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 12.1409
+},
+"drm-000086": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 12.1409
+},
+"drm-000087": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 12.3705
+},
+"drm-000088": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 12.3705
+},
+"drm-000089": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 12.6
+},
+"drm-000090": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 12.8205
+},
+"drm-000091": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 12.8205
+},
+"drm-000092": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 13.05
+},
+"drm-000093": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 13.2795
+},
+"drm-000094": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 13.2795
+},
+"drm-000095": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 13.5091
+},
+"drm-000096": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 13.7295
+},
+"drm-000097": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 13.7295
+},
+"drm-000098": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 13.9591
+},
+"drm-000099": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 13.9591
+},
+"drm-000100": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 14.1909
+},
+"drm-000101": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 14.1909
+},
+"drm-000102": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 14.4205
+},
+"drm-000103": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 14.6409
+},
+"drm-000104": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 14.6409
+},
+"drm-000105": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 14.6409
+},
+"drm-000106": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 14.8705
+},
+"drm-000107": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 15.1
+},
+"drm-000108": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 15.1
+},
+"drm-000109": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 15.3295
+},
+"drm-000110": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 15.55
+},
+"drm-000111": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 15.55
+},
+"drm-000112": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 15.7795
+},
+"drm-000113": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 15.7795
+},
+"drm-000114": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 16.0091
+},
+"drm-000115": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 16.0091
+},
+"drm-000116": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 16.2409
+},
+"drm-000117": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 16.4591
+},
+"drm-000118": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 16.4591
+},
+"drm-000119": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 16.6909
+},
+"drm-000120": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 16.9205
+},
+"drm-000121": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 16.9205
+},
+"drm-000122": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 17.15
+},
+"drm-000123": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 17.3705
+},
+"drm-000124": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 17.3705
+},
+"drm-000125": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 17.5909
+},
+"drm-000126": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 17.6
+},
+"drm-000127": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 17.8295
+},
+"drm-000128": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 17.8295
+},
+"drm-000129": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 18.0591
+},
+"drm-000130": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 18.2795
+},
+"drm-000131": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 18.2795
+},
+"drm-000132": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 18.5091
+},
+"drm-000133": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 18.7295
+},
+"drm-000134": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 18.7295
+},
+"drm-000135": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 18.9591
+},
+"drm-000136": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 19.1909
+},
+"drm-000137": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 19.1909
+},
+"drm-000138": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 19.4091
+},
+"drm-000139": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 19.4205
+},
+"drm-000140": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 19.6409
+},
+"drm-000141": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 19.6409
+},
+"drm-000142": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 19.8705
+},
+"drm-000143": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 20.0909
+},
+"drm-000144": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 20.1
+},
+"drm-000145": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 20.3205
+},
+"drm-000146": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 20.55
+},
+"drm-000147": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 20.55
+},
+"drm-000148": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 20.7795
+},
+"drm-000149": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 21.0091
+},
+"drm-000150": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 21.0091
+},
+"drm-000151": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 21.2295
+},
+"drm-000152": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 21.2295
+},
+"drm-000153": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 21.4591
+},
+"drm-000154": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 21.4591
+},
+"drm-000155": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 21.6909
+},
+"drm-000156": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 21.9091
+},
+"drm-000157": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 21.9091
+},
+"drm-000158": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 21.9205
+},
+"drm-000159": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 22.15
+},
+"drm-000160": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 22.3705
+},
+"drm-000161": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 22.3705
+},
+"drm-000162": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 22.6
+},
+"drm-000163": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 22.8295
+},
+"drm-000164": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 22.8295
+},
+"drm-000165": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 23.05
+},
+"drm-000166": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 23.05
+},
+"drm-000167": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 23.2795
+},
+"drm-000168": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 23.2795
+},
+"drm-000169": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 23.5091
+},
+"drm-000170": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 23.7295
+},
+"drm-000171": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 23.7295
+},
+"drm-000172": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 23.9591
+},
+"drm-000173": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 24.1909
+},
+"drm-000174": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 24.1909
+},
+"drm-000175": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 24.4205
+},
+"drm-000176": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 24.6409
+},
+"drm-000177": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 24.6409
+},
+"drm-000178": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 24.8705
+},
+"drm-000179": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 24.8705
+},
+"drm-000180": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 25.1
+},
+"drm-000181": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 25.1
+},
+"drm-000182": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 25.3295
+},
+"drm-000183": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 25.55
+},
+"drm-000184": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 25.55
+},
+"drm-000185": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 25.7795
+},
+"drm-000186": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 26.0091
+},
+"drm-000187": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 26.0091
+},
+"drm-000188": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 26.2409
+},
+"drm-000189": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 26.4591
+},
+"drm-000190": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 26.4591
+},
+"drm-000191": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 26.6909
+},
+"drm-000192": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 26.6909
+},
+"drm-000193": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 26.9205
+},
+"drm-000194": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 26.9205
+},
+"drm-000195": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 27.1409
+},
+"drm-000196": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 27.3705
+},
+"drm-000197": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 27.3705
+},
+"drm-000198": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 27.6
+},
+"drm-000199": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 27.8205
+},
+"drm-000200": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 27.8205
+},
+"drm-000201": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 28.05
+},
+"drm-000202": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 28.2795
+},
+"drm-000203": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 28.2795
+},
+"drm-000204": {
+"keep": true,
+"effector": {
+"limb": "RF"
+},
+"player": 0,
+"tags": [],
+"offset": 28.5091
+},
+"drm-000205": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 28.5091
+},
+"drm-000206": {
+"keep": true,
+"effector": {
+"limb": "LH"
+},
+"player": 0,
+"tags": [],
+"offset": 28.7295
+},
+"drm-000207": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 28.7295
+},
+"drm-000208": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 28.9705
+},
+"drm-000209": {
+"keep": true,
+"effector": {
+"limb": "RH"
+},
+"player": 0,
+"tags": [],
+"offset": 29.1909
+},
+"sax-000000": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 0.88
+},
+"sax-000001": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 1.16
+},
+"sax-000002": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 1.39
+},
+"sax-000003": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 2.45
+},
+"sax-000004": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 2.58
+},
+"sax-000005": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 3.08
+},
+"sax-000006": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 3.41
+},
+"sax-000007": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 3.87
+},
+"sax-000008": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 4.09
+},
+"sax-000009": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 4.31
+},
+"sax-000010": {
+"keep": false,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 4.49
+},
+"sax-000011": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 4.74
+},
+"sax-000012": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 5.0
+},
+"sax-000013": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 5.18
+},
+"sax-000014": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 5.7
+},
+"sax-000015": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 5.93
+},
+"sax-000016": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 6.37
+},
+"sax-000017": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 6.84
+},
+"sax-000018": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 7.02
+},
+"sax-000019": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 8.13
+},
+"sax-000020": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 8.65
+},
+"sax-000021": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 8.89
+},
+"sax-000022": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 9.11
+},
+"sax-000023": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 9.54
+},
+"sax-000024": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 10.42
+},
+"sax-000025": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 10.68
+},
+"sax-000026": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 10.9
+},
+"sax-000027": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 11.17
+},
+"sax-000028": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 11.4
+},
+"sax-000029": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 11.61
+},
+"sax-000030": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 11.85
+},
+"sax-000031": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 12.74
+},
+"sax-000032": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 12.94
+},
+"sax-000033": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 13.42
+},
+"sax-000034": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 13.64
+},
+"sax-000035": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 13.72
+},
+"sax-000036": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 14.32
+},
+"sax-000037": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 15.01
+},
+"sax-000038": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 15.26
+},
+"sax-000039": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 15.39
+},
+"sax-000040": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 16.12
+},
+"sax-000041": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 16.32
+},
+"sax-000042": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 17.22
+},
+"sax-000043": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 17.29
+},
+"sax-000044": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 17.43
+},
+"sax-000045": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 17.95
+},
+"sax-000046": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 18.19
+},
+"sax-000047": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 18.62
+},
+"sax-000048": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 19.56
+},
+"sax-000049": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 19.97
+},
+"sax-000050": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.17
+},
+"sax-000051": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.39
+},
+"sax-000052": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 20.65
+},
+"sax-000053": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 20.9
+},
+"sax-000054": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 21.39
+},
+"sax-000055": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 21.58
+},
+"sax-000056": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.8
+},
+"sax-000057": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 21.97
+},
+"sax-000058": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 22.11
+},
+"sax-000059": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 22.46
+},
+"sax-000060": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 23.2
+},
+"sax-000061": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 23.4
+},
+"sax-000062": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 24.13
+},
+"sax-000063": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 24.26
+},
+"sax-000064": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 24.89
+},
+"sax-000065": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 25.22
+},
+"sax-000066": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 25.45
+},
+"sax-000067": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 26.34
+},
+"sax-000068": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 26.61
+},
+"sax-000069": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 27.06
+},
+"sax-000070": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 27.76
+},
+"sax-000071": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 28.19
+},
+"sax-000072": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 28.45
+},
+"sax-000073": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 28.66
+},
+"sax-000074": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [
+"breath"
+],
+"offset": 28.83
+},
+"sax-000075": {
+"keep": true,
+"effector": {},
+"player": 0,
+"tags": [],
+"offset": 29.16
+}
+},
+"violations": [
+[
+"range",
+2.75,
+[
+"sax-000005"
+]
+]
+]
+}

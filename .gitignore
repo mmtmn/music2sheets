@@ -19,3 +19,6 @@ third_party/MV2H/
 .vscode/
 .idea/
 .DS_Store
+
+# Rust build output
+target/

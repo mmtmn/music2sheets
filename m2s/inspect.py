@@ -36,7 +36,8 @@ def inspect_bars(run: Run, a: int, b: int, out: str | None = None) -> str:
 
     from m2s.engrave import render_bars_png
 
-    piece = Piece.load(run.root / "notes.json")
+    scored = run.root / "scored.json"
+    piece = Piece.load(scored if scored.exists() else run.root / "notes.json")
     _fill_measures(piece, run)
     t0, t1 = bar_times(piece, a, b)
     t0, t1 = max(0, t0 - 0.2), t1 + 0.2

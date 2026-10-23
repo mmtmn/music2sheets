@@ -1,8 +1,9 @@
-"""music2sheets: audio to playable sheet music.
+"""music2sheets model worker.
 
-Pipeline: ingest -> analyze -> separate -> transcribe -> decode (playability)
--> verify -> notate -> engrave, with every stage reading and writing the
-shared note format in :mod:`m2s.ir`.
+The pipeline is the Rust `m2s` binary (crates/). This package is the part that
+needs Python: the neural models (analysis, separation, transcription and the
+verification front ends), engraving, inspection images, and reference loading
+and alignment for evaluation. The Rust side calls it as `python -m m2s.worker`.
 """
 
 __version__ = "0.1.3"

@@ -18,7 +18,6 @@ import music21
 from m2s.evaluate.align import align_reference
 from m2s.evaluate.metrics import mv2h
 from m2s.evaluate.reference import load_reference
-from m2s.inspect import _fill_measures
 from m2s.ir import Piece
 from m2s.runs import Run
 
@@ -31,10 +30,9 @@ def main() -> None:
     ap.add_argument("--our-bars", type=int, default=None, help="override: last bar of our score to keep")
     a = ap.parse_args()
     run = Run(a.run)
-    piece = Piece.load(run.root / "notes.json")
+    piece = Piece.load(run.root / "scored.json")
     ours = [n for _, n in piece.all_notes() if n.keep]
     if a.our_bars is None:
-        _fill_measures(piece, run)
         our_last = max(n.measure for n in ours if n.measure is not None and n.onset <= a.seconds)
     else:
         our_last = a.our_bars

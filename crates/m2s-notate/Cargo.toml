@@ -1,0 +1,19 @@
+[package]
+name = "m2s-notate"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+anyhow = "1.0.104"
+indexmap = "2.11.4"
+m2s-core = { version = "0.2.0", path = "../m2s-core" }
+num-rational = "0.4.2"
+num-traits = "0.2.19"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+
+[dev-dependencies]
+proptest = "1.8.0"
+roxmltree = "0.21.1"
